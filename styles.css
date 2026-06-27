@@ -431,3 +431,137 @@ header p {
   .controls-container { padding: 0 1.5rem; }
   .protocol-card { padding: 2rem 1.5rem; }
 }
+
+/* Philosophy & FAQ section */
+.intro-faq-section {
+  max-width: 1400px;
+  margin: 3rem auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+@media (max-width: 1024px) {
+  .intro-faq-section {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.philosophies, .faqs {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+}
+
+.philosophies h2, .faqs h2 {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.philosophy-item {
+  margin-bottom: 1.5rem;
+}
+
+.philosophy-item:last-child {
+  margin-bottom: 0;
+}
+
+.philosophy-item h3 {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.philosophy-item p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem 0;
+}
+
+.faq-item:last-child {
+  border-bottom: none;
+}
+
+.faq-question {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+}
+
+.faq-question i {
+  color: var(--text-secondary);
+  transition: transform 0.3s ease;
+}
+
+.faq-question.active i {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  padding-right: 1.5rem;
+}
+
+.faq-answer.open {
+  max-height: 300px;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.reading-links {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  border-top: 1px solid var(--border-color);
+  padding-top: 1rem;
+}
+
+.reading-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--accent-cyan);
+  font-size: 0.95rem;
+  transition: var(--transition-smooth);
+}
+
+.reading-link:hover {
+  color: var(--accent-purple);
+  text-decoration: underline;
+}
+

@@ -1,111 +1,90 @@
-# AI Agent Skills Ecosystem
+Also available in: [简体中文 (Chinese)](README_zh.md) | For a visual experience, visit our [Web Showcase](https://grapeot.github.io/skills/).
 
-Also available in: [简体中文 (Chinese)](README_zh.md) | For a more visual experience, visit our [Visual Showcase](https://grapeot.github.io/skills/).
+# AI Agent Skills Registry & Showcase
 
-> **The Progressive Disclosure Paradigm for AI Agents.**
-> A "Skill" is not a proprietary vendor API or a rigid schema. It is a natural language markdown instruction file that explains goals, success standards, and edge cases to an agent, accompanied by optional CLI tools or connectors. 
-
-This repository is a central registry showcasing all public GitHub skills in our ecosystem. You can share this URL with any coding agent (like Claude Code, Cursor, Codex, or OpenCode) to help it understand and install these capabilities.
+This repository serves as a centralized showcase and registry for **AI Coding Agent Skills**. 
 
 ---
 
-## The Philosophy: What is a Skill?
+## 1. What is a Skill? (The Philosophy)
 
-Most AI agents struggle with "hallucinating correct-sounding garbage" or repeating errors because they start each conversation blind.
-A **Skill** solves this by externalizing knowledge and rules into markdown files that agents can discover and read.
+Unlike typical editor extensions (like Cursor, Codex, or Cloud Code plugins) which rely on vendor-locked JSON schemas, strict function definitions, or heavy SDK bindings, our ecosystem is built on a different paradigm:
 
-We use **Progressive Disclosure**:
-1. **L1 (Global Entry)**: An agent begins by reading `AGENTS.md` or `CLAUDE.md`, which routes it to a central index.
-2. **L2 (Index Router)**: A simple file like `rules/skills/INDEX.md` lists available skills and mapping criteria.
-3. **L3 (Detail Skill)**: The specific skill file (e.g., `skill_imessage.md`) detailing the exact CLI commands, parameters, boundaries, and safety rules.
-4. **Local Overlays**: Keep private configurations (like contact aliases or API credentials) in local settings, while linking to public skill repositories for technical code and CLIs.
+1.  **Platform-Agnosticism & Natural Language First**: A skill is fundamentally a Markdown guide (`SKILL.md`) outlining rules, prompts, and reasoning patterns. Any agent can read and follow it. If a task requires execution, we pair it with a lightweight Python CLI tool. It works seamlessly across Claude Code, Cursor, OpenCode, or custom terminal agents.
+2.  **Process & Result Certainty**: Rather than relying on fuzzy instructions, our skill templates define clear execution boundaries, validation rules, and outcome verification checklists to ensure the agent executes task segments with absolute certainty.
+3.  **Files-as-Interfaces**: Tools interact with the workspace by reading and writing files. Inputs and outputs are plain-text files (Markdown, JSON, SQLite) rather than remote server endpoints, keeping agent work inspectable, stateful, and revertible via Git.
+4.  **Local-Overlay Isolation**: Public skill repositories define generic technical interfaces. All private folder paths, credentials, and custom aliases are stored in a local overlay file in the user's private workspace.
 
----
-
-## Curated Skills Directory
-
-### 🛠️ Connected Tools & API Guides
-
-Specialized CLIs and connectors that extend an agent's capability to read/write external systems.
-
-| Skill / Repo Name | Type | Description | Link |
-|---|---|---|---|
-| **tavily-skill** | Repo | Search & web extraction optimized for AI agents, returning clean JSON | [GitHub](https://github.com/grapeot/tavily-skill) |
-| **gdocs-skill** | Repo | Google Docs creation, modification, sharing, and tab management | [GitHub](https://github.com/grapeot/gdocs-skill) |
-| **outlook_skill** | Repo | Outlook.com email retrieval, rendering, and archiving | [GitHub](https://github.com/grapeot/outlook_skill) |
-| **resend_email_skill** | Repo | Resend email sender, inbound parser, and MD exporter | [GitHub](https://github.com/grapeot/resend_email_skill) |
-| **imessage_skill** | Repo | macOS send-only iMessage CLI with contact alias support | [GitHub](https://github.com/grapeot/imessage_skill) |
-| **process-launcher** | Repo | Local HTTP process launcher for bridging TCC & GUI permissions | [GitHub](https://github.com/grapeot/process-launcher) |
-| **ai_usage_dashboard** | Repo | Multi-platform AI token usage aggregator and dashboard | [GitHub](https://github.com/grapeot/ai_usage_dashboard) |
-| **typefully-twitter-skill** | Repo | Typefully integration CLI for draft scheduling and X analytics | [GitHub](https://github.com/grapeot/typefully-twitter-skill) |
-| **stripe-skill** | Repo | Stripe sales, growth, and transaction analysis CLI | [GitHub](https://github.com/grapeot/stripe-skill) |
-| **pptx.skill** | Repo | AI-first presentation reader, editor, and renderer | [GitHub](https://github.com/grapeot/pptx.skill) |
-| **image-generation-skill** | Repo | Gemini/GPT text-to-image generator and upscaler CLI | [GitHub](https://github.com/grapeot/image-generation-skill) |
-| **tiff-icc-profile** | Repo | Color profile embedding tool for unmarked TIFF images | [GitHub](https://github.com/grapeot/tiff-icc-profile) |
-| **health-quantification** | Repo | Apple Health ingestion server and health data CLI analyzer | [GitHub](https://github.com/grapeot/health-quantification) |
-| **roest-analysis** | Repo | Roest coffee roaster API scraping and roast log analysis | [GitHub](https://github.com/grapeot/roest-analysis) |
-| **intake-skill** | Repo | Audio recording parser and transcription intake CLI | [GitHub](https://github.com/grapeot/intake-skill) |
-| **opencode-docker** | Repo | Docker deployment helper for OpenCode server instances | [GitHub](https://github.com/grapeot/opencode-docker) |
-| **opencode_skill** | Repo | OpenCode session management, scheduling, and archiving tool | [GitHub](https://github.com/grapeot/opencode_skill) |
-| **AI CLI Agent Guide** | Doc | Core guidelines on files-as-interface design and AI-to-AI calls | [View File](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/ai_agent_cli_guide.md) |
-| **Share Report** | Doc | Converting MD reports to HTML and publishing via SSH | [View File](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/share_report.md) |
-| **Semantic Search** | Doc | Querying vector databases to retrieve workspace context and memory | [View File](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/semantic_search.md) |
+### Key Background Reading
+*   **Methodology**: [Step Two to Using AI Well: Write the Skill Before You Execute](https://yage.ai/skill-first-en.html) (Chinese: [用好AI的第二步：先写Skill再执行](https://yage.ai/skill-first.html))
+*   **Infrastructure Design**: [Why AI only says correct nonsense, and how to push it out of its comfort zone](https://yage.ai/context-infrastructure.html)
 
 ---
 
-### 🔄 Workflows
+## 2. FAQ & Installation Guide
 
-Step-by-step methodologies guiding AI agents through complex multi-agent or multi-step tasks.
-
-| Skill / File Name | Description | Link |
-|---|---|---|
-| **Parallel Subagents** | How to delegate subtasks to concurrent subagents without polling | [View File](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_parallel_subagents.md) |
-| **Deep Research & Survey** | Scanning, dividing topics with overlap, and cross-validating research | [View File](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_deep_research_survey.md) |
-| **Analytical Writing** | Translating facts into structured, high-opinion, translation-free texts | [View File](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_analytical_writing.md) |
-| **Cognitive Profile Extraction** | Extracting predictable cognitive axioms from conversational history | [View File](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_cognitive_profile_extraction.md) |
-| **Presentation Slide Deck** | 8-way parallel PowerPoint rendering and verification workflow | [View File](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_presentation_slides.md) |
-| **Knowledge Flywheel** | Iteratively turning raw data into structured knowledge schemas | [View File](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_knowledge_flywheel.md) |
-| **Online Media Ingestion** | Whisper transcribing, video downloading, and source parsing | [View File](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_bilibili_whisper_transcription.md) |
-| **Delayed Execution** | Orchestrating deferred tasks and automated cron schedules | [View File](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/delayed_execution.md) |
-
----
-
-### 💡 Best Practices
-
-Conceptual frameworks and diagnostic tools for software development, debugging, and systems engineering.
-
-| Skill / File Name | Description | Link |
-|---|---|---|
-| **AI Programming Mindset** | Core philosophy of agentic workflows vs reasoning chat models | [View File](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_ai_programming_mindset.md) |
-| **Skill Writing Guide** | Meta-skill detailing how to write reusable skill documentation | [View File](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_skill_writing.md) |
-| **1Password CLI Management** | Safeguarding keys and injecting credentials safely without hardcoding | [View File](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_api_key_management_1password_cli.md) |
-| **Interview Evaluation** | AI cheat detection and evaluating technical candidate traits over skill lists | [View File](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_interview_evaluation.md) |
-| **Markdown to HTML** | Structuring assets and publishing configurations safely | [View File](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_markdown_html_conversion.md) |
-| **PDF to Markdown** | Leveraging Docling for highly accurate tabular and semantic PDF parsing | [View File](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_pdf_to_markdown.md) |
-| **Temporal Verification** | Techniques to verify information lying past model knowledge cutoffs | [View File](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_temporal_info_verification.md) |
-| **Staged Workflow** | Maintaining an isolated edit-validate feedback loop for safety | [View File](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_staged_approach.md) |
-| **Multi-Agent Analysis** | Coordinating multiple agents on overlapping tasks to find contradictions | [View File](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_multi_agent_analysis.md) |
-| **GUI Automation Method** | Mapping visual states into CLI scripts for tools lacking official APIs | [View File](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_gui_automation.md) |
-| **AI Debugging & Diagnosis** | Systemic decision tree to resolve stuck, repeating, or buggy code edits | [View File](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_ai_debugging_diagnosis.md) |
-| **AI Product Design** | Decoupling systems, designing rules, and chat vs workspace design | [View File](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_ai_product_design.md) |
-| **Reverse Engineering Decisions** | Deconstructing trade-offs, constraints, and spaces of external designs | [View File](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_product_decision_analysis.md) |
-| **Project Scaffolding** | Reorganizing scattered scripts into robust, modular repository templates | [View File](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/project_scaffold.md) |
-
----
-
-## Installation Protocol
-
-To let your coding agent install any skill, simply feed it the following instructions:
-
+### Q: How do I install a skill?
+It is completely prompt-driven. You don't install plugins or compile packages. Simply copy the GitHub URL of the skill and tell your AI Agent (e.g., Cursor or Claude Code):
 ```text
 Install this public skill repo into my workspace:
-<Skill Repo GitHub URL or file URL>
+<GitHub URL of the Skill>
 
-Start from my workspace AGENTS.md or CLAUDE.md. Follow any WORKSPACE.md or skills/INDEX.md routing rules. Clone or vendor the repo under an appropriate project directory. Expose exactly one root skill to my global skill index or agent instructions. Keep private aliases, local paths, credentials, endpoint defaults, and business context in a local overlay, not in the public repo.
+Read the rules in this repo, clone/vendor it under 'adhoc_jobs/', create a relative symlink under 'rules/skills/', and register it in the rules index.
 ```
+The agent will run the git clone, map the files, and configure the local rules by itself.
 
-## Privacy & Safety
+### Q: Does it work with my editor / LLM?
+Yes. Since the interface is just files and standard terminal commands, it works with any coding agent that can read workspace files and execute terminal tasks.
 
-All repositories here are built with the **Publishable with Fake Data** principle.
-- No real credentials, emails, or phone numbers are checked into public versions.
-- Workspace-specific settings (e.g., recipient emails, contact aliases, API tokens) must live in a local overlay (like a local `.env` or `rules/skills/` config) and are never pushed upstream.
+---
+
+## 3. Skills Registry
+
+### 📈 Social Media, Sales & Cost Analytics
+| Skill | Type | Description | Link |
+|---|---|---|---|
+| **typefully-twitter-skill** | Repo | Schedule draft tweets, queue threads, and fetch X (Twitter) statistics | [GitHub](https://github.com/grapeot/typefully-twitter-skill) |
+| **stripe-skill** | Repo | Read-only Stripe integrations to extract sales metrics, subscription trends, and logs | [GitHub](https://github.com/grapeot/stripe-skill) |
+| **ai_usage_dashboard** | Repo | Track cross-platform API token consumption, estimate costs, and export stats | [GitHub](https://github.com/grapeot/ai_usage_dashboard) |
+
+### 🏠 Everyday Quantification & Life Loggers
+| Skill | Type | Description | Link |
+|---|---|---|---|
+| **health-quantification** | Repo | Ingest Apple Health metrics, track caffeine/sleep logs, and run regressions in local SQLite | [GitHub](https://github.com/grapeot/health-quantification) |
+| **roest-analysis** | Repo | Scrape Roest coffee roaster API, detect crack clusters, and chart roasting telemetry | [GitHub](https://github.com/grapeot/roest-analysis) |
+| **intake-skill** | Repo | Ingest voice recording notes, run local transcription, and maintain organized audio logs | [GitHub](https://github.com/grapeot/intake-skill) |
+
+### 💼 Office Automation & Creative Media
+| Skill | Type | Description | Link |
+|---|---|---|---|
+| **gdocs-skill** | Repo | Search, publish, share, and manage Google Docs using Markdown and Tab interfaces | [GitHub](https://github.com/grapeot/gdocs-skill) |
+| **outlook_skill** | Repo | Download, archive, and send Outlook.com emails, parse calendar invites, and format Markdown | [GitHub](https://github.com/grapeot/outlook_skill) |
+| **resend_email_skill** | Repo | Send custom domain emails, check attachments, and retrieve notifications | [GitHub](https://github.com/grapeot/resend_email_skill) |
+| **imessage_skill** | Repo | Send macOS iMessages using CLI; maps contacts to local overlay names | [GitHub](https://github.com/grapeot/imessage_skill) |
+| **pptx.skill** | Repo | Read, write, and render slide decks with strict design layouts | [GitHub](https://github.com/grapeot/pptx.skill) |
+| **image-generation-skill** | Repo | Generate text-to-image prompts, edit images, and upscale resolution via Gemini/GPT | [GitHub](https://github.com/grapeot/image-generation-skill) |
+| **tiff-icc-profile** | Repo | Embed default P3-D65 or custom ICC color profiles into unmarked TIFF files | [GitHub](https://github.com/grapeot/tiff-icc-profile) |
+| **online-media-skill** | Repo | Download online videos, run ASR transcription, and format query packs | [GitHub](https://github.com/grapeot/online-media-skill) |
+
+### ⚙️ Agent Infrastructure & Local Daemons
+| Skill | Type | Description | Link |
+|---|---|---|---|
+| **process-launcher** | Repo | Local HTTP process daemon to bridge GUI/TCC permissions, logs, and process cancellations | [GitHub](https://github.com/grapeot/process-launcher) |
+| **opencode_skill** | Repo | Submit and monitor OpenCode tasks, run cron pipelines, and archive SQLite databases | [GitHub](https://github.com/grapeot/opencode_skill) |
+| **opencode-docker** | Repo | Docker deployment configurations to quickly containerize OpenCode execution environments | [GitHub](https://github.com/grapeot/opencode-docker) |
+
+### 🧠 Built-in Cognition, Workflows & Best Practices
+| Skill | Type | Description | Link |
+|---|---|---|---|
+| **AI CLI Agent Guide** | Doc | Architectural rules for designing CLI interfaces and nesting agent-to-agent calls | [View File](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/ai_agent_cli_guide.md) |
+| **Share Report to Web** | Doc | Converts Markdown to HTML pages and deploys to servers via SSH | [View File](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/share_report.md) |
+| **Semantic Search Skill** | Doc | Retrives workspace memory and background knowledge using vector database queries | [View File](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/semantic_search.md) |
+| **Parallel Subagents** | Doc | Orchestrates concurrent background subagents for independent task branches | [View File](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_parallel_subagents.md) |
+| **Deep Research & Survey** | Doc | Gathers info using multiple parallel agents with overlapping topics to cross-validate | [View File](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_deep_research_survey.md) |
+| **Cognitive Profile Extraction** | Doc | Iteratively extracts predictable cognitive axioms and traits from conversation logs | [View File](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_cognitive_profile_extraction.md) |
+| **AI Programming Mindset** | Doc | Strategy detailing the 70% accuracy boundary and script-writing priority | [View File](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_ai_programming_mindset.md) |
+| **Skill Writing Guide** | Doc | Meta-instructions explaining how to write reusable, outcome-focused Skill files | [View File](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_skill_writing.md) |
+| **PDF to Markdown** | Doc | Employs Docling parser for high-accuracy tabular and layout extraction from PDFs | [View File](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_pdf_to_markdown.md) |
+| **Temporal Verification** | Doc | Guidelines to verify information lying past model knowledge cutoff dates | [View File](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_temporal_info_verification.md) |
+| **Staged Workflow** | Doc | Maintains a strict "isolate-process-validate" loop to execute dry-runs on code changes | [View File](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_staged_approach.md) |
+| **Project Scaffold & Reorg** | Doc | Scaffolds loose workspaces into organized directories (docs/, src/, tests/) | [View File](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/project_scaffold.md) |
