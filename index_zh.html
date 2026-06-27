@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Agent 技能生态展示</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="top-nav">
+    <div class="brand">
+      <i data-lucide="sparkles"></i>
+      <span>AI Agent 技能生态</span>
+    </div>
+    <div class="nav-actions">
+      <a href="index.html" class="lang-toggle">English Version</a>
+      <a href="https://github.com/grapeot/skills" class="btn-github">
+        <i data-lucide="github"></i>
+        <span>GitHub</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header>
+    <h1>AI Agent 技能生态展示</h1>
+    <p>基于「渐进式披露」范式构建的 AI 技能集散地。你可以直接将这些技能 URL 发送给你的 AI 编程助手，它将自动理解并部署到本地工作区。</p>
+    <a href="https://github.com/grapeot/skills/blob/master/README_zh.md" class="lang-toggle" style="display: inline-block;">
+      <i data-lucide="file-text" style="display: inline-block; vertical-align: middle; width: 16px; height: 16px; margin-right: 4px;"></i>
+      阅读 README_zh.md
+    </a>
+  </header>
+
+  <!-- Controls -->
+  <section class="controls-container">
+    <div class="search-wrapper">
+      <i data-lucide="search" class="search-icon"></i>
+      <input type="text" id="searchInput" class="search-input" placeholder="搜索技能名称、描述或命令...">
+    </div>
+    <div class="filter-pills">
+      <button class="filter-pill active" data-filter="all">所有技能</button>
+      <button class="filter-pill" data-filter="tool">🛠️ 工具连接与 API</button>
+      <button class="filter-pill" data-filter="workflow">🔄 任务工作流</button>
+      <button class="filter-pill" data-filter="bestpractice">💡 最佳实践</button>
+    </div>
+  </section>
+
+  <!-- Skills Grid -->
+  <main class="skills-grid" id="skillsGrid">
+    
+    <!-- 🛠️ API & Tools -->
+    <div class="skill-card" data-category="tool" data-name="tavily-skill">
+      <div class="card-top">
+        <div class="card-meta">
+          <span class="category-tag"><i data-lucide="wrench"></i>工具与 API</span>
+          <span class="type-badge">仓库</span>
+        </div>
+        <h3 class="card-title">Tavily 网页搜索</h3>
+        <p class="card-desc">专为 AI Agent 优化的 Tavily 搜索引擎和 HTML 内容提取 CLI，返回干净、利于解析的 JSON 数据。</p>
+      </div>
+      <div class="card-bottom">
+        <a href="https://github.com/grapeot/tavily-skill" target="_blank" class="btn-card btn-primary-card">查看 GitHub</a>
+        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/tavily-skill', this)" title="复制安装 Prompt">
+          <i data-lucide="copy"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="skill-card" data-category="tool" data-name="gdocs-skill">
+      <div class="card-top">
+        <div class="card-meta">
+          <span class="category-tag"><i data-lucide="wrench"></i>工具与 API</span>
+          <span class="type-badge">仓库</span>
+        </div>
+        <h3 class="card-title">Google Docs 技能</h3>
+        <p class="card-desc">允许 AI Agent 在命令行执行 Google Docs 的创建、搜索、修改、Markdown 发布与标签页管理的工具。</p>
+      </div>
+      <div class="card-bottom">
+        <a href="https://github.com/grapeot/gdocs-skill" target="_blank" class="btn-card btn-primary-card">查看 GitHub</a>
+        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/gdocs-skill', this)" title="复制安装 Prompt">
+          <i data-lucide="copy"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="skill-card" data-category="tool" data-name="outlook_skill">
+      <div class="card-top">
+        <div class="card-meta">
+          <span class="category-tag"><i data-lucide="wrench"></i>工具与 API</span>
+          <span class="type-badge">仓库</span>
+        </div>
+        <h3 class="card-title">Outlook 邮件本地归档</h3>
+        <p class="card-desc">基于 Microsoft Graph API 的邮件拉取工具，将收件箱邮件渲染为 Markdown 并归档于本地 SQLite 和 .eml 格式。</p>
+      </div>
+      <div class="card-bottom">
+        <a href="https://github.com/grapeot/outlook_skill" target="_blank" class="btn-card btn-primary-card">查看 GitHub</a>
+        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/outlook_skill', this)" title="复制安装 Prompt">
+          <i data-lucide="copy"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="skill-card" data-category="tool" data-name="resend_email_skill">
+      <div class="card-top">
+        <div class="card-meta">
+          <span class="category-tag"><i data-lucide="wrench"></i>工具与 API</span>
+          <span class="type-badge">仓库</span>
+        </div>
+        <h3 class="card-title">Resend 邮件连接器</h3>
+        <p class="card-desc">通过 Resend 自定义域名发送邮件、解析收到邮件的 Webhook，并自动导出为本地 Markdown 文档。</p>
+      </div>
+      <div class="card-bottom">
+        <a href="https://github.com/grapeot/resend_email_skill" target="_blank" class="btn-card btn-primary-card">查看 GitHub</a>
+        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/resend_email_skill', this)" title="复制安装 Prompt">
+          <i data-lucide="copy"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="skill-card" data-category="tool" data-name="imessage_skill">
+      <div class="card-top">
+        <div class="card-meta">
+          <span class="category-tag"><i data-lucide="wrench"></i>工具与 API</span>
+          <span class="type-badge">仓库</span>
+        </div>
+        <h3 class="card-title">iMessage CLI 工具</h3>
+        <p class="card-desc">macOS 原生 iMessage 只发 CLI 命令行工具，支持结合本地联系人 Overlay 实现自动化通知推送。</p>
+      </div>
+      <div class="card-bottom">
+        <a href="https://github.com/grapeot/imessage_skill" target="_blank" class="btn-card btn-primary-card">查看 GitHub</a>
+        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/imessage_skill', this)" title="复制安装 Prompt">
+          <i data-lucide="copy"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="skill-card" data-category="tool" data-name="process-launcher">
+      <div class="card-top">
+        <div class="card-meta">
+          <span class="category-tag"><i data-lucide="wrench"></i>工具与 API</span>
+          <span class="type-badge">仓库</span>
+        </div>
+        <h3 class="card-title">进程启动管理器</h3>
+        <p class="card-desc">终端进程管理桥梁，用于绕过沙箱，直接桥接本地 macOS GUI 和 TCC 录音/定位等系统权限。</p>
+      </div>
+      <div class="card-bottom">
+        <a href="https://github.com/grapeot/process-launcher" target="_blank" class="btn-card btn-primary-card">查看 GitHub</a>
+        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/process-launcher', this)" title="复制安装 Prompt">
+          <i data-lucide="copy"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="skill-card" data-category="tool" data-name="ai_usage_dashboard">
+      <div class="card-top">
+        <div class="card-meta">
+          <span class="category-tag"><i data-lucide="wrench"></i>工具与 API</span>
+          <span class="type-badge">仓库</span>
+        </div>
+        <h3 class="card-title">AI Token 用量统计</h3>
+        <p class="card-desc">多平台 API Token 用量数据汇总、自动成本估算工具，内嵌本地 FastAPI 数据大屏。</p>
+      </div>
+      <div class="card-bottom">
+        <a href="https://github.com/grapeot/ai_usage_dashboard" target="_blank" class="btn-card btn-primary-card">查看 GitHub</a>
+        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/ai_usage_dashboard', this)" title="复制安装 Prompt">
+          <i data-lucide="copy"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="skill-card" data-category="tool" data-name="typefully-twitter-skill">
+      <div class="card-top">
+        <div class="card-meta">
+          <span class="category-tag"><i data-lucide="wrench"></i>工具与 API</span>
+          <span class="type-badge">仓库</span>
+        </div>
+        <h3 class="card-title">Typefully 推特工具</h3>
+        <p class="card-desc">通过 Typefully API 进行推特草稿排期、发布，以及获取单条推特互动、曝光和粉丝量增长的 CLI。</p>
+      </div>
+      <div class="card-bottom">
+        <a href="https://github.com/grapeot/typefully-twitter-skill" target="_blank" class="btn-card btn-primary-card">查看 GitHub</a>
+        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/typefully-twitter-skill', this)" title="复制安装 Prompt">
+          <i data-lucide="copy"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="skill-card" data-category="tool" data-name="stripe-skill">
+      <div class="card-top">
+        <div class="card-meta">
+          <span class="category-tag"><i data-lucide="wrench"></i>工具与 API</span>
+          <span class="type-badge">仓库</span>
+        </div>
+        <h3 class="card-title">Stripe 财务分析器</h3>
+        <p class="card-desc">Stripe 销售与增长数据只读分析 CLI，自动生成历史订单、退款和客户留存分析。</p>
+      </div>
+      <div class="card-bottom">
+        <a href="https://github.com/grapeot/stripe-skill" target="_blank" class="btn-card btn-primary-card">查看 GitHub</a>
+        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/stripe-skill', this)" title="复制安装 Prompt">
+          <i data-lucide="copy"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="skill-card" data-category="tool" data-name="pptx.skill">
+      <div class="card-top">
+        <div class="card-meta">
+          <span class="category-tag"><i data-lucide="wrench"></i>工具与 API</span>
+          <span class="type-badge">仓库</span>
+        </div>
+        <h3 class="card-title">PPTX 演示文稿引擎</h3>
+        <p class="card-desc">专为 AI Agent 优化的 PowerPoint 解析、文字块编辑、替换与幻灯片图片批量渲染引擎。</p>
+      </div>
+      <div class="card-bottom">
+        <a href="https://github.com/grapeot/pptx.skill" target="_blank" class="btn-card btn-primary-card">查看 GitHub</a>
+        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/pptx.skill', this)" title="复制安装 Prompt">
+          <i data-lucide="copy"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="skill-card" data-category="tool" data-name="image-generation-skill">
+      <div class="card-top">
+        <div class="card-meta">
+          <span class="category-tag"><i data-lucide="wrench"></i>工具与 API</span>
+          <span class="type-badge">仓库</span>
+        </div>
+        <h3 class="card-title">AI 图片生成与超分</h3>
+        <p class="card-desc">集成了 Gemini Flash、Pro 和 GPT-Image-2 的图片生成、局部修改与高清无损放大 CLI 工具。</p>
+      </div>
+      <div class="card-bottom">
+        <a href="https://github.com/grapeot/image-generation-skill" target="_blank" class="btn-card btn-primary-card">查看 GitHub</a>
+        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/image-generation-skill', this)" title="复制安装 Prompt">
+          <i data-lucide="copy"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="skill-card" data-category="tool" data-name="tiff-icc-profile">
+      <div class="card-top">
+        <div class="card-meta">
+          <span class="category-tag"><i data-lucide="wrench"></i>工具与 API</span>
+          <span class="type-badge">仓库</span>
+        </div>
+        <h3 class="card-title">TIFF 色彩配置文件嵌入</h3>
+        <p class="card-desc">给未标记的 TIFF 图片（如达芬奇导出的静帧）自动批量嵌入默认 P3-D65 PQ 或自定义色彩 ICC 配置文件的工具。</p>
+      </div>
+      <div class="card-bottom">
+        <a href="https://github.com/grapeot/tiff-icc-profile" target="_blank" class="btn-card btn-primary-card">查看 GitHub</a>
+        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/tiff-icc-profile', this)" title="复制安装 Prompt">
+          <i data-lucide="copy"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="skill-card" data-category="tool" data-name="health-quantification">
+      <div class="card-top">
+        <div class="card-meta">
+          <span class="category-tag"><i data-lucide="wrench"></i>工具与 API</span>
+          <span class="type-badge">仓库</span>
+        </div>
+        <h3 class="card-title">个人健康量化</h3>
+        <p class="card-desc">Apple Health 接口接收端与命令行分析工具，整合睡眠、咖啡因及酒精数据并计算相关性。</p>
+      </div>
+      <div class="card-bottom">
+        <a href="https://github.com/grapeot/health-quantification" target="_blank" class="btn-card btn-primary-card">查看 GitHub</a>
+        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/health-quantification', this)" title="复制安装 Prompt">
+          <i data-lucide="copy"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="skill-card" data-category="tool" data-name="roest-analysis">
+      <div class="card-top">
+        <div class="card-meta">
+          <span class="category-tag"><i data-lucide="wrench"></i>工具与 API</span>
+          <span class="type-badge">仓库</span>
+        </div>
+        <h3 class="card-title">Roest 烘焙机分析</h3>
+        <p class="card-desc">抓取 Roest 智能烘焙机 API 曲线，自动聚类并检测一爆时间（Crack Cluster）的分析脚本。</p>
+      </div>
+      <div class="card-bottom">
+        <a href="https://github.com/grapeot/roest-analysis" target="_blank" class="btn-card btn-primary-card">查看 GitHub</a>
+        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/roest-analysis', this)" title="复制安装 Prompt">
+          <i data-lucide="copy"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="skill-card" data-category="tool" data-name="intake-skill">
+      <div class="card-top">
+        <div class="card-meta">
+          <span class="category-tag"><i data-lucide="wrench"></i>工具与 API</span>
+          <span class="type-badge">仓库</span>
+        </div>
+        <h3 class="card-title">语音整理 CLI</h3>
+        <p class="card-desc">语音备忘录自动化抓取、Whisper 语音识别并自动沉淀至分类日记 Markdown 归档的摄入工具。</p>
+      </div>
+      <div class="card-bottom">
+        <a href="https://github.com/grapeot/intake-skill" target="_blank" class="btn-card btn-primary-card">查看 GitHub</a>
+        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/intake-skill', this)" title="复制安装 Prompt">
+          <i data-lucide="copy"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="skill-card" data-category="tool" data-name="opencode_skill">
+      <div class="card-top">
+        <div class="card-meta">
+          <span class="category-tag"><i data-lucide="wrench"></i>工具与 API</span>
+          <span class="type-badge">仓库</span>
+        </div>
+        <h3 class="card-title">OpenCode 会话管理</h3>
+        <p class="card-desc">批量管理本地 OpenCode 执行会话、清空/真空整理 SQLite 历史记录并按月归档数据库的工具。</p>
+      </div>
+      <div class="card-bottom">
+        <a href="https://github.com/grapeot/opencode_skill" target="_blank" class="btn-card btn-primary-card">查看 GitHub</a>
+        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/opencode_skill', this)" title="复制安装 Prompt">
+          <i data-lucide="copy"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="skill-card" data-category="tool" data-name="ai-cli-agent-guide">
+      <div class="card-top">
+        <div class="card-meta">
+          <span class="category-tag"><i data-lucide="wrench"></i>工具与 API</span>
+          <span class="type-badge">文档</span>
+        </div>
+        <h3 class="card-title">AI CLI 交互指南</h3>
+        <p class="card-desc">定义了「文件即接口」的交互框架，以及在非交互模式下启动 Agent 嵌套调用的核心设计原则。</p>
+      </div>
+      <div class="card-bottom">
+        <a href="https://github.com/grapeot/context-infrastructure/blob/master/rules/skills/ai_agent_cli_guide.md" target="_blank" class="btn-card btn-primary-card">查看文档</a>
+        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/master/rules/skills/ai_agent_cli_guide.md', this)" title="复制安装 Prompt">
+          <i data-lucide="copy"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- 🔄 Workflows -->
+    <div class="skill-card" data-category="workflow" data-name="parallel-subagents">
+      <div class="card-top">
+        <div class="card-meta">
+          <span class="category-tag"><i data-lucide="shuffle"></i>任务工作流</span>
+          <span class="type-badge">文档</span>
+        </div>
+        <h3 class="card-title">并行 Subagent 工作流</h3>
+        <p class="card-desc">合理拆分子任务并分发给后台并行运行的 sub-agents，避免主线程死锁，无需轮询等待。</p>
+      </div>
+      <div class="card-bottom">
+        <a href="https://github.com/grapeot/context-infrastructure/blob/master/rules/skills/workflow_parallel_subagents.md" target="_blank" class="btn-card btn-primary-card">查看文档</a>
+        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/master/rules/skills/workflow_parallel_subagents.md', this)" title="复制安装 Prompt">
+          <i data-lucide="copy"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="skill-card" data-category="workflow" data-name="deep-research">
+      <div class="card-top">
+        <div class="card-meta">
+          <span class="category-tag"><i data-lucide="shuffle"></i>任务工作流</span>
+          <span class="type-badge">文档</span>
+        </div>
+        <h3 class="card-title">深度调研与信息采集</h3>
+        <p class="card-desc">多 Agent 并行信息搜索、重叠划分话题并互相交叉检验，消除幻觉的系统化信息采集流程。</p>
+      </div>
+      <div class="card-bottom">
+        <a href="https://github.com/grapeot/context-infrastructure/blob/master/rules/skills/workflow_deep_research_survey.md" target="_blank" class="btn-card btn-primary-card">查看文档</a>
+        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/master/rules/skills/workflow_deep_research_survey.md', this)" title="复制安装 Prompt">
+          <i data-lucide="copy"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="skill-card" data-category="workflow" data-name="analytical-writing">
+      <div class="card-top">
+        <div class="card-meta">
+          <span class="category-tag"><i data-lucide="shuffle"></i>任务工作流</span>
+          <span class="type-badge">文档</span>
+        </div>
+        <h3 class="card-title">分析性深度写作</h3>
+        <p class="card-desc">通过 L1-L6 思路模型将调研事实重构为强观点论述，并剔除直译体和 AI 腔的中英文写作规范。</p>
+      </div>
+      <div class="card-bottom">
+        <a href="https://github.com/grapeot/context-infrastructure/blob/master/rules/skills/workflow_analytical_writing.md" target="_blank" class="btn-card btn-primary-card">查看文档</a>
+        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/master/rules/skills/workflow_analytical_writing.md', this)" title="复制安装 Prompt">
+          <i data-lucide="copy"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="skill-card" data-category="workflow" data-name="cognitive-profile">
+      <div class="card-top">
+        <div class="card-meta">
+          <span class="category-tag"><i data-lucide="shuffle"></i>任务工作流</span>
+          <span class="type-badge">文档</span>
+        </div>
+        <h3 class="card-title">认知画像蒸馏</h3>
+        <p class="card-desc">从日常群聊、文字日志和对话记录中，按三轮压力测试滚动提炼和修正个人行为公理的工作流。</p>
+      </div>
+      <div class="card-bottom">
+        <a href="https://github.com/grapeot/context-infrastructure/blob/master/rules/skills/workflow_cognitive_profile_extraction.md" target="_blank" class="btn-card btn-primary-card">查看文档</a>
+        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/master/rules/skills/workflow_cognitive_profile_extraction.md', this)" title="复制安装 Prompt">
+          <i data-lucide="copy"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- 💡 Best Practices -->
+    <div class="skill-card" data-category="bestpractice" data-name="programming-mindset">
+      <div class="card-top">
+        <div class="card-meta">
+          <span class="category-tag"><i data-lucide="award"></i>最佳实践</span>
+          <span class="type-badge">文档</span>
+        </div>
+        <h3 class="card-title">AI 编程核心方法论</h3>
+        <p class="card-desc">剖析 70% 边界问题，阐明为什么「先写脚本，再让 Agent 跑脚本」的确定性远胜原生 Chat。</p>
+      </div>
+      <div class="card-bottom">
+        <a href="https://github.com/grapeot/context-infrastructure/blob/master/rules/skills/bestpractice_ai_programming_mindset.md" target="_blank" class="btn-card btn-primary-card">查看文档</a>
+        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/master/rules/skills/bestpractice_ai_programming_mindset.md', this)" title="复制安装 Prompt">
+          <i data-lucide="copy"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="skill-card" data-category="bestpractice" data-name="skill-writing">
+      <div class="card-top">
+        <div class="card-meta">
+          <span class="category-tag"><i data-lucide="award"></i>最佳实践</span>
+          <span class="type-badge">文档</span>
+        </div>
+        <h3 class="card-title">Skill 编写规范</h3>
+        <p class="card-desc">教授如何以「成功交付标准」和「异常限制」定义技能，避免写成教条 SOP 从而阻碍 Agent 智能发挥。</p>
+      </div>
+      <div class="card-bottom">
+        <a href="https://github.com/grapeot/context-infrastructure/blob/master/rules/skills/bestpractice_skill_writing.md" target="_blank" class="btn-card btn-primary-card">查看文档</a>
+        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/master/rules/skills/bestpractice_skill_writing.md', this)" title="复制安装 Prompt">
+          <i data-lucide="copy"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="skill-card" data-category="bestpractice" data-name="pdf-to-markdown">
+      <div class="card-top">
+        <div class="card-meta">
+          <span class="category-tag"><i data-lucide="award"></i>最佳实践</span>
+          <span class="type-badge">文档</span>
+        </div>
+        <h3 class="card-title">PDF 格式高精转换</h3>
+        <p class="card-desc">阐述在处理复杂 PDF 时，为什么使用 Docling 引擎的表格与语义还原度远胜 MarkItDown。</p>
+      </div>
+      <div class="card-bottom">
+        <a href="https://github.com/grapeot/context-infrastructure/blob/master/rules/skills/bestpractice_pdf_to_markdown.md" target="_blank" class="btn-card btn-primary-card">查看文档</a>
+        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/master/rules/skills/bestpractice_pdf_to_markdown.md', this)" title="复制安装 Prompt">
+          <i data-lucide="copy"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="skill-card" data-category="bestpractice" data-name="project-scaffold">
+      <div class="card-top">
+        <div class="card-meta">
+          <span class="category-tag"><i data-lucide="award"></i>最佳实践</span>
+          <span class="type-badge">文档</span>
+        </div>
+        <h3 class="card-title">项目脚手架重整</h3>
+        <p class="card-desc">规范如何将散装脚本升级为拥有 docs/ (PRD/RFC)、tests/、scripts/ 和 AGENTS.md 约束的标准仓库。</p>
+      </div>
+      <div class="card-bottom">
+        <a href="https://github.com/grapeot/context-infrastructure/blob/master/rules/skills/project_scaffold.md" target="_blank" class="btn-card btn-primary-card">查看文档</a>
+        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/master/rules/skills/project_scaffold.md', this)" title="复制安装 Prompt">
+          <i data-lucide="copy"></i>
+        </button>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Installation Protocol -->
+  <section class="installation-protocol">
+    <div class="protocol-card">
+      <h2><i data-lucide="terminal" style="display: inline-block; vertical-align: middle; margin-right: 8px; color: var(--accent-cyan);"></i>AI 自动安装协议</h2>
+      <p>将下方协议模版连同具体的技能 URL 一并贴给你的 AI 编程助手。它能够自动解析并下载文件，完成你本地工作区的技能挂载。</p>
+      <div class="protocol-code" id="protocolCode">
+        Install this public skill repo into my workspace:
+&lt;GitHub URL&gt;
+
+Start from my workspace AGENTS.md or CLAUDE.md. Follow any WORKSPACE.md or skills/INDEX.md routing rules. Clone or vendor the repo under an appropriate project directory. Expose exactly one root skill to my global skill index or agent instructions. Keep private aliases, local paths, credentials, endpoint defaults, and business context in a local overlay, not in the public repo.
+        <button class="protocol-code-btn" onclick="copyProtocolText(this)">复制协议内容</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- JS Logic -->
+  <script>
+    // Initialize Icons
+    lucide.createIcons();
+
+    // Search and Filtering
+    const searchInput = document.getElementById('searchInput');
+    const filterPills = document.querySelectorAll('.filter-pill');
+    const skillCards = document.querySelectorAll('.skill-card');
+
+    let activeFilter = 'all';
+    let searchQuery = '';
+
+    // Handle search input
+    searchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value.toLowerCase().trim();
+      filterCards();
+    });
+
+    // Handle filter pills
+    filterPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        filterPills.forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        activeFilter = pill.getAttribute('data-filter');
+        filterCards();
+      });
+    });
+
+    function filterCards() {
+      skillCards.forEach(card => {
+        const title = card.querySelector('.card-title').textContent.toLowerCase();
+        const desc = card.querySelector('.card-desc').textContent.toLowerCase();
+        const category = card.getAttribute('data-category');
+        const name = card.getAttribute('data-name').toLowerCase();
+
+        const matchesSearch = title.includes(searchQuery) || desc.includes(searchQuery) || name.includes(searchQuery);
+        const matchesFilter = activeFilter === 'all' || category === activeFilter;
+
+        if (matchesSearch && matchesFilter) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Copy prompt helper
+    function copyPrompt(url, btnElement) {
+      const promptText = `Install this public skill repo into my workspace:
+${url}
+
+Start from my workspace AGENTS.md or CLAUDE.md. Follow any WORKSPACE.md or skills/INDEX.md routing rules. Clone or vendor the repo under an appropriate project directory. Expose exactly one root skill to my global skill index or agent instructions. Keep private aliases, local paths, credentials, endpoint defaults, and business context in a local overlay, not in the public repo.`;
+      
+      navigator.clipboard.writeText(promptText).then(() => {
+        // Visual Feedback
+        const originalHtml = btnElement.innerHTML;
+        btnElement.innerHTML = '<i data-lucide="check" style="color: var(--accent-emerald)"></i>';
+        btnElement.classList.add('tooltip-success');
+        lucide.createIcons();
+        
+        setTimeout(() => {
+          btnElement.innerHTML = originalHtml;
+          btnElement.classList.remove('tooltip-success');
+          lucide.createIcons();
+        }, 2000);
+      });
+    }
+
+    // Copy protocol text
+    function copyProtocolText(btnElement) {
+      const codeElement = document.getElementById('protocolCode');
+      // Extract code excluding button text
+      const textToCopy = codeElement.innerText.replace('复制协议内容', '').trim();
+      
+      navigator.clipboard.writeText(textToCopy).then(() => {
+        const originalText = btnElement.innerText;
+        btnElement.innerText = '已复制！';
+        btnElement.style.borderColor = 'var(--accent-emerald)';
+        btnElement.style.color = 'var(--accent-emerald)';
+        
+        setTimeout(() => {
+          btnElement.innerText = originalText;
+          btnElement.style.borderColor = '';
+          btnElement.style.color = '';
+        }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>

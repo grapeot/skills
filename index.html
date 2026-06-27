@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Agent Skills Showcase</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="top-nav">
+    <div class="brand">
+      <i data-lucide="sparkles"></i>
+      <span>AI Agent Skills</span>
+    </div>
+    <div class="nav-actions">
+      <a href="index_zh.html" class="lang-toggle">简体中文 (Chinese)</a>
+      <a href="https://github.com/grapeot/skills" class="btn-github">
+        <i data-lucide="github"></i>
+        <span>GitHub</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header>
+    <h1>AI Agent Skills Showcase</h1>
+    <p>A curated registry of public agentic skills under the Progressive Disclosure paradigm. Feed these URLs directly to your AI agent to install or trigger capabilities in your workspace.</p>
+    <a href="https://github.com/grapeot/skills/blob/master/README.md" class="lang-toggle" style="display: inline-block;">
+      <i data-lucide="file-text" style="display: inline-block; vertical-align: middle; width: 16px; height: 16px; margin-right: 4px;"></i>
+      Read README.md
+    </a>
+  </header>
+
+  <!-- Controls -->
+  <section class="controls-container">
+    <div class="search-wrapper">
+      <i data-lucide="search" class="search-icon"></i>
+      <input type="text" id="searchInput" class="search-input" placeholder="Search skills, descriptions, or commands...">
+    </div>
+    <div class="filter-pills">
+      <button class="filter-pill active" data-filter="all">All Skills</button>
+      <button class="filter-pill" data-filter="tool">🛠️ Connected Tools & APIs</button>
+      <button class="filter-pill" data-filter="workflow">🔄 Workflows</button>
+      <button class="filter-pill" data-filter="bestpractice">💡 Best Practices</button>
+    </div>
+  </section>
+
+  <!-- Skills Grid -->
+  <main class="skills-grid" id="skillsGrid">
+    
+    <!-- 🛠️ API & Tools -->
+    <div class="skill-card" data-category="tool" data-name="tavily-skill">
+      <div class="card-top">
+        <div class="card-meta">
+          <span class="category-tag"><i data-lucide="wrench"></i>Tool & API</span>
+          <span class="type-badge">Repo</span>
+        </div>
+        <h3 class="card-title">Tavily Search Skill</h3>
+        <p class="card-desc">Web search and HTML content extraction optimized for AI agents, returning clean, developer-friendly JSON structures.</p>
+      </div>
+      <div class="card-bottom">
+        <a href="https://github.com/grapeot/tavily-skill" target="_blank" class="btn-card btn-primary-card">View GitHub</a>
+        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/tavily-skill', this)" title="Copy Installation Prompt">
+          <i data-lucide="copy"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="skill-card" data-category="tool" data-name="gdocs-skill">
+      <div class="card-top">
+        <div class="card-meta">
+          <span class="category-tag"><i data-lucide="wrench"></i>Tool & API</span>
+          <span class="type-badge">Repo</span>
+        </div>
+        <h3 class="card-title">Google Docs Skill</h3>
+        <p class="card-desc">CLI tool enabling AI agents to search, read, modify, and publish Markdown files into Google Docs and manage tabs.</p>
+      </div>
+      <div class="card-bottom">
+        <a href="https://github.com/grapeot/gdocs-skill" target="_blank" class="btn-card btn-primary-card">View GitHub</a>
+        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/gdocs-skill', this)" title="Copy Installation Prompt">
+          <i data-lucide="copy"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="skill-card" data-category="tool" data-name="outlook_skill">
+      <div class="card-top">
+        <div class="card-meta">
+          <span class="category-tag"><i data-lucide="wrench"></i>Tool & API</span>
+          <span class="type-badge">Repo</span>
+        </div>
+        <h3 class="card-title">Outlook Mail Archive</h3>
+        <p class="card-desc">Graph API wrapper to download, parse, and locally archive Outlook.com inbox emails into SQLite and .eml files.</p>
+      </div>
+      <div class="card-bottom">
+        <a href="https://github.com/grapeot/outlook_skill" target="_blank" class="btn-card btn-primary-card">View GitHub</a>
+        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/outlook_skill', this)" title="Copy Installation Prompt">
+          <i data-lucide="copy"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="skill-card" data-category="tool" data-name="resend_email_skill">
+      <div class="card-top">
+        <div class="card-meta">
+          <span class="category-tag"><i data-lucide="wrench"></i>Tool & API</span>
+          <span class="type-badge">Repo</span>
+        </div>
+        <h3 class="card-title">Resend Email Connector</h3>
+        <p class="card-desc">Send transactional emails and parse inbound webhooks directly to local Markdown structures using the Resend platform.</p>
+      </div>
+      <div class="card-bottom">
+        <a href="https://github.com/grapeot/resend_email_skill" target="_blank" class="btn-card btn-primary-card">View GitHub</a>
+        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/resend_email_skill', this)" title="Copy Installation Prompt">
+          <i data-lucide="copy"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="skill-card" data-category="tool" data-name="imessage_skill">
+      <div class="card-top">
+        <div class="card-meta">
+          <span class="category-tag"><i data-lucide="wrench"></i>Tool & API</span>
+          <span class="type-badge">Repo</span>
+        </div>
+        <h3 class="card-title">iMessage CLI Skill</h3>
+        <p class="card-desc">Mac-native send-only iMessage utility facilitating automated notifications with local overlay contact routing.</p>
+      </div>
+      <div class="card-bottom">
+        <a href="https://github.com/grapeot/imessage_skill" target="_blank" class="btn-card btn-primary-card">View GitHub</a>
+        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/imessage_skill', this)" title="Copy Installation Prompt">
+          <i data-lucide="copy"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="skill-card" data-category="tool" data-name="process-launcher">
+      <div class="card-top">
+        <div class="card-meta">
+          <span class="category-tag"><i data-lucide="wrench"></i>Tool & API</span>
+          <span class="type-badge">Repo</span>
+        </div>
+        <h3 class="card-title">Process Launcher</h3>
+        <p class="card-desc">Terminal process manager bridging macOS system permissions (TCC/microphone/keychain) to background API execution.</p>
+      </div>
+      <div class="card-bottom">
+        <a href="https://github.com/grapeot/process-launcher" target="_blank" class="btn-card btn-primary-card">View GitHub</a>
+        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/process-launcher', this)" title="Copy Installation Prompt">
+          <i data-lucide="copy"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="skill-card" data-category="tool" data-name="ai_usage_dashboard">
+      <div class="card-top">
+        <div class="card-meta">
+          <span class="category-tag"><i data-lucide="wrench"></i>Tool & API</span>
+          <span class="type-badge">Repo</span>
+        </div>
+        <h3 class="card-title">AI Usage Dashboard</h3>
+        <p class="card-desc">Tracks token consumption and API costs across OpenAI, Anthropic, and other providers, with a local Web dashboard.</p>
+      </div>
+      <div class="card-bottom">
+        <a href="https://github.com/grapeot/ai_usage_dashboard" target="_blank" class="btn-card btn-primary-card">View GitHub</a>
+        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/ai_usage_dashboard', this)" title="Copy Installation Prompt">
+          <i data-lucide="copy"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="skill-card" data-category="tool" data-name="typefully-twitter-skill">
+      <div class="card-top">
+        <div class="card-meta">
+          <span class="category-tag"><i data-lucide="wrench"></i>Tool & API</span>
+          <span class="type-badge">Repo</span>
+        </div>
+        <h3 class="card-title">Typefully Twitter CLI</h3>
+        <p class="card-desc">Schedule threads and post updates using Typefully's API, and extract single-post metrics and account analytics.</p>
+      </div>
+      <div class="card-bottom">
+        <a href="https://github.com/grapeot/typefully-twitter-skill" target="_blank" class="btn-card btn-primary-card">View GitHub</a>
+        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/typefully-twitter-skill', this)" title="Copy Installation Prompt">
+          <i data-lucide="copy"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="skill-card" data-category="tool" data-name="stripe-skill">
+      <div class="card-top">
+        <div class="card-meta">
+          <span class="category-tag"><i data-lucide="wrench"></i>Tool & API</span>
+          <span class="type-badge">Repo</span>
+        </div>
+        <h3 class="card-title">Stripe Finance Analyst</h3>
+        <p class="card-desc">Read-only Stripe financial integration CLI to extract sales records, client activity, and subscription trends.</p>
+      </div>
+      <div class="card-bottom">
+        <a href="https://github.com/grapeot/stripe-skill" target="_blank" class="btn-card btn-primary-card">View GitHub</a>
+        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/stripe-skill', this)" title="Copy Installation Prompt">
+          <i data-lucide="copy"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="skill-card" data-category="tool" data-name="pptx.skill">
+      <div class="card-top">
+        <div class="card-meta">
+          <span class="category-tag"><i data-lucide="wrench"></i>Tool & API</span>
+          <span class="type-badge">Repo</span>
+        </div>
+        <h3 class="card-title">PPTX Slide Engine</h3>
+        <p class="card-desc">AI-first engine to read, edit slides, swap text blocks, and render layout sheets with strict consistency rules.</p>
+      </div>
+      <div class="card-bottom">
+        <a href="https://github.com/grapeot/pptx.skill" target="_blank" class="btn-card btn-primary-card">View GitHub</a>
+        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/pptx.skill', this)" title="Copy Installation Prompt">
+          <i data-lucide="copy"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="skill-card" data-category="tool" data-name="image-generation-skill">
+      <div class="card-top">
+        <div class="card-meta">
+          <span class="category-tag"><i data-lucide="wrench"></i>Tool & API</span>
+          <span class="type-badge">Repo</span>
+        </div>
+        <h3 class="card-title">AI Image Gen & Upscale</h3>
+        <p class="card-desc">Interface for text-to-image generation, design adjustments, and super-resolution upscaling (Gemini & GPT backends).</p>
+      </div>
+      <div class="card-bottom">
+        <a href="https://github.com/grapeot/image-generation-skill" target="_blank" class="btn-card btn-primary-card">View GitHub</a>
+        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/image-generation-skill', this)" title="Copy Installation Prompt">
+          <i data-lucide="copy"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="skill-card" data-category="tool" data-name="tiff-icc-profile">
+      <div class="card-top">
+        <div class="card-meta">
+          <span class="category-tag"><i data-lucide="wrench"></i>Tool & API</span>
+          <span class="type-badge">Repo</span>
+        </div>
+        <h3 class="card-title">TIFF Color Embedder</h3>
+        <p class="card-desc">Embeds default P3-D65 PQ profiles or custom color spaces into DaVinci Resolve or cinema camera TIFF output files.</p>
+      </div>
+      <div class="card-bottom">
+        <a href="https://github.com/grapeot/tiff-icc-profile" target="_blank" class="btn-card btn-primary-card">View GitHub</a>
+        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/tiff-icc-profile', this)" title="Copy Installation Prompt">
+          <i data-lucide="copy"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="skill-card" data-category="tool" data-name="health-quantification">
+      <div class="card-top">
+        <div class="card-meta">
+          <span class="category-tag"><i data-lucide="wrench"></i>Tool & API</span>
+          <span class="type-badge">Repo</span>
+        </div>
+        <h3 class="card-title">Health Quantifier</h3>
+        <p class="card-desc">Aggregates Apple HealthKit stats, caffeine/alcohol logs, and runs regressions on sleep logs using local SQLite.</p>
+      </div>
+      <div class="card-bottom">
+        <a href="https://github.com/grapeot/health-quantification" target="_blank" class="btn-card btn-primary-card">View GitHub</a>
+        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/health-quantification', this)" title="Copy Installation Prompt">
+          <i data-lucide="copy"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="skill-card" data-category="tool" data-name="roest-analysis">
+      <div class="card-top">
+        <div class="card-meta">
+          <span class="category-tag"><i data-lucide="wrench"></i>Tool & API</span>
+          <span class="type-badge">Repo</span>
+        </div>
+        <h3 class="card-title">Roest Coffee Analyzer</h3>
+        <p class="card-desc">Scrapes Roest API sample logs, detects crack clusters, and runs telemetry charts on roasting profiles.</p>
+      </div>
+      <div class="card-bottom">
+        <a href="https://github.com/grapeot/roest-analysis" target="_blank" class="btn-card btn-primary-card">View GitHub</a>
+        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/roest-analysis', this)" title="Copy Installation Prompt">
+          <i data-lucide="copy"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="skill-card" data-category="tool" data-name="intake-skill">
+      <div class="card-top">
+        <div class="card-meta">
+          <span class="category-tag"><i data-lucide="wrench"></i>Tool & API</span>
+          <span class="type-badge">Repo</span>
+        </div>
+        <h3 class="card-title">Voice Intake CLI</h3>
+        <p class="card-desc">Ingests local voice recordings, runs transcription, and outputs structured index logs of personal audio notes.</p>
+      </div>
+      <div class="card-bottom">
+        <a href="https://github.com/grapeot/intake-skill" target="_blank" class="btn-card btn-primary-card">View GitHub</a>
+        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/intake-skill', this)" title="Copy Installation Prompt">
+          <i data-lucide="copy"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="skill-card" data-category="tool" data-name="opencode_skill">
+      <div class="card-top">
+        <div class="card-meta">
+          <span class="category-tag"><i data-lucide="wrench"></i>Tool & API</span>
+          <span class="type-badge">Repo</span>
+        </div>
+        <h3 class="card-title">OpenCode Task Skill</h3>
+        <p class="card-desc">Manages OpenCode session execution states, schedules jobs, and archives aged SQLite rows.</p>
+      </div>
+      <div class="card-bottom">
+        <a href="https://github.com/grapeot/opencode_skill" target="_blank" class="btn-card btn-primary-card">View GitHub</a>
+        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/opencode_skill', this)" title="Copy Installation Prompt">
+          <i data-lucide="copy"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="skill-card" data-category="tool" data-name="ai-cli-agent-guide">
+      <div class="card-top">
+        <div class="card-meta">
+          <span class="category-tag"><i data-lucide="wrench"></i>Tool & API</span>
+          <span class="type-badge">Doc</span>
+        </div>
+        <h3 class="card-title">AI CLI Agent Guide</h3>
+        <p class="card-desc">Core architectural instructions explaining file-driven layouts, and chaining offline and nested AI-to-AI calls.</p>
+      </div>
+      <div class="card-bottom">
+        <a href="https://github.com/grapeot/context-infrastructure/blob/master/rules/skills/ai_agent_cli_guide.md" target="_blank" class="btn-card btn-primary-card">View Doc</a>
+        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/master/rules/skills/ai_agent_cli_guide.md', this)" title="Copy Installation Prompt">
+          <i data-lucide="copy"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- 🔄 Workflows -->
+    <div class="skill-card" data-category="workflow" data-name="parallel-subagents">
+      <div class="card-top">
+        <div class="card-meta">
+          <span class="category-tag"><i data-lucide="shuffle"></i>Workflow</span>
+          <span class="type-badge">Doc</span>
+        </div>
+        <h3 class="card-title">Parallel Subagents</h3>
+        <p class="card-desc">Orchestrates multiple parallel agents to resolve separate task branches concurrently without system-polling bottlenecks.</p>
+      </div>
+      <div class="card-bottom">
+        <a href="https://github.com/grapeot/context-infrastructure/blob/master/rules/skills/workflow_parallel_subagents.md" target="_blank" class="btn-card btn-primary-card">View Doc</a>
+        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/master/rules/skills/workflow_parallel_subagents.md', this)" title="Copy Installation Prompt">
+          <i data-lucide="copy"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="skill-card" data-category="workflow" data-name="deep-research">
+      <div class="card-top">
+        <div class="card-meta">
+          <span class="category-tag"><i data-lucide="shuffle"></i>Workflow</span>
+          <span class="type-badge">Doc</span>
+        </div>
+        <h3 class="card-title">Deep Research & Survey</h3>
+        <p class="card-desc">Multi-step scanning and categorization framework to run parallel sub-agents and cross-validate findings against contradictions.</p>
+      </div>
+      <div class="card-bottom">
+        <a href="https://github.com/grapeot/context-infrastructure/blob/master/rules/skills/workflow_deep_research_survey.md" target="_blank" class="btn-card btn-primary-card">View Doc</a>
+        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/master/rules/skills/workflow_deep_research_survey.md', this)" title="Copy Installation Prompt">
+          <i data-lucide="copy"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="skill-card" data-category="workflow" data-name="analytical-writing">
+      <div class="card-top">
+        <div class="card-meta">
+          <span class="category-tag"><i data-lucide="shuffle"></i>Workflow</span>
+          <span class="type-badge">Doc</span>
+        </div>
+        <h3 class="card-title">Analytical Writing</h3>
+        <p class="card-desc">Synthesizes research findings into opinionated, clear analytical copy using L1-L6 thesis patterns while avoiding translation-ese.</p>
+      </div>
+      <div class="card-bottom">
+        <a href="https://github.com/grapeot/context-infrastructure/blob/master/rules/skills/workflow_analytical_writing.md" target="_blank" class="btn-card btn-primary-card">View Doc</a>
+        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/master/rules/skills/workflow_analytical_writing.md', this)" title="Copy Installation Prompt">
+          <i data-lucide="copy"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="skill-card" data-category="workflow" data-name="cognitive-profile">
+      <div class="card-top">
+        <div class="card-meta">
+          <span class="category-tag"><i data-lucide="shuffle"></i>Workflow</span>
+          <span class="type-badge">Doc</span>
+        </div>
+        <h3 class="card-title">Cognitive Profile Extraction</h3>
+        <p class="card-desc">Extracts personal axioms, tone traits, and structured preferences from unstructured dialogue logs using recursive analysis loops.</p>
+      </div>
+      <div class="card-bottom">
+        <a href="https://github.com/grapeot/context-infrastructure/blob/master/rules/skills/workflow_cognitive_profile_extraction.md" target="_blank" class="btn-card btn-primary-card">View Doc</a>
+        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/master/rules/skills/workflow_cognitive_profile_extraction.md', this)" title="Copy Installation Prompt">
+          <i data-lucide="copy"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- 💡 Best Practices -->
+    <div class="skill-card" data-category="bestpractice" data-name="programming-mindset">
+      <div class="card-top">
+        <div class="card-meta">
+          <span class="category-tag"><i data-lucide="award"></i>Best Practice</span>
+          <span class="type-badge">Doc</span>
+        </div>
+        <h3 class="card-title">AI Programming Mindset</h3>
+        <p class="card-desc">Philosophical foundations regarding the 70% boundary, verifiable targets, and why iterative agentic scripts outperform raw chat.</p>
+      </div>
+      <div class="card-bottom">
+        <a href="https://github.com/grapeot/context-infrastructure/blob/master/rules/skills/bestpractice_ai_programming_mindset.md" target="_blank" class="btn-card btn-primary-card">View Doc</a>
+        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/master/rules/skills/bestpractice_ai_programming_mindset.md', this)" title="Copy Installation Prompt">
+          <i data-lucide="copy"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="skill-card" data-category="bestpractice" data-name="skill-writing">
+      <div class="card-top">
+        <div class="card-meta">
+          <span class="category-tag"><i data-lucide="award"></i>Best Practice</span>
+          <span class="type-badge">Doc</span>
+        </div>
+        <h3 class="card-title">Skill Writing Guide</h3>
+        <p class="card-desc">Guidelines for writing reusable skills that prioritize enablement, constraints, and success bounds over step-by-step lists.</p>
+      </div>
+      <div class="card-bottom">
+        <a href="https://github.com/grapeot/context-infrastructure/blob/master/rules/skills/bestpractice_skill_writing.md" target="_blank" class="btn-card btn-primary-card">View Doc</a>
+        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/master/rules/skills/bestpractice_skill_writing.md', this)" title="Copy Installation Prompt">
+          <i data-lucide="copy"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="skill-card" data-category="bestpractice" data-name="pdf-to-markdown">
+      <div class="card-top">
+        <div class="card-meta">
+          <span class="category-tag"><i data-lucide="award"></i>Best Practice</span>
+          <span class="type-badge">Doc</span>
+        </div>
+        <h3 class="card-title">PDF to Markdown</h3>
+        <p class="card-desc">Advocates utilizing Docling parser over MarkItDown to retain exact document hierarchy and tabular layouts.</p>
+      </div>
+      <div class="card-bottom">
+        <a href="https://github.com/grapeot/context-infrastructure/blob/master/rules/skills/bestpractice_pdf_to_markdown.md" target="_blank" class="btn-card btn-primary-card">View Doc</a>
+        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/master/rules/skills/bestpractice_pdf_to_markdown.md', this)" title="Copy Installation Prompt">
+          <i data-lucide="copy"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="skill-card" data-category="bestpractice" data-name="project-scaffold">
+      <div class="card-top">
+        <div class="card-meta">
+          <span class="category-tag"><i data-lucide="award"></i>Best Practice</span>
+          <span class="type-badge">Doc</span>
+        </div>
+        <h3 class="card-title">Project Scaffolding</h3>
+        <p class="card-desc">Reorganizes loose shell scripts and ad-hoc folders into standard directories complete with AGENTS.md, PRD, RFC, and tests.</p>
+      </div>
+      <div class="card-bottom">
+        <a href="https://github.com/grapeot/context-infrastructure/blob/master/rules/skills/project_scaffold.md" target="_blank" class="btn-card btn-primary-card">View Doc</a>
+        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/master/rules/skills/project_scaffold.md', this)" title="Copy Installation Prompt">
+          <i data-lucide="copy"></i>
+        </button>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Installation Protocol -->
+  <section class="installation-protocol">
+    <div class="protocol-card">
+      <h2><i data-lucide="terminal" style="display: inline-block; vertical-align: middle; margin-right: 8px; color: var(--accent-cyan);"></i>AI Installation Protocol</h2>
+      <p>Pass this instruction template along with the Skill URL to your AI agent. The agent will read this instructions, copy/vendor the files into your workspace, and hook it up to your discovery index.</p>
+      <div class="protocol-code" id="protocolCode">
+        Install this public skill repo into my workspace:
+&lt;GitHub URL&gt;
+
+Start from my workspace AGENTS.md or CLAUDE.md. Follow any WORKSPACE.md or skills/INDEX.md routing rules. Clone or vendor the repo under an appropriate project directory. Expose exactly one root skill to my global skill index or agent instructions. Keep private aliases, local paths, credentials, endpoint defaults, and business context in a local overlay, not in the public repo.
+        <button class="protocol-code-btn" onclick="copyProtocolText(this)">Copy Protocol</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- JS Logic -->
+  <script>
+    // Initialize Icons
+    lucide.createIcons();
+
+    // Search and Filtering
+    const searchInput = document.getElementById('searchInput');
+    const filterPills = document.querySelectorAll('.filter-pill');
+    const skillCards = document.querySelectorAll('.skill-card');
+
+    let activeFilter = 'all';
+    let searchQuery = '';
+
+    // Handle search input
+    searchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value.toLowerCase().trim();
+      filterCards();
+    });
+
+    // Handle filter pills
+    filterPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        filterPills.forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        activeFilter = pill.getAttribute('data-filter');
+        filterCards();
+      });
+    });
+
+    function filterCards() {
+      skillCards.forEach(card => {
+        const title = card.querySelector('.card-title').textContent.toLowerCase();
+        const desc = card.querySelector('.card-desc').textContent.toLowerCase();
+        const category = card.getAttribute('data-category');
+        const name = card.getAttribute('data-name').toLowerCase();
+
+        const matchesSearch = title.includes(searchQuery) || desc.includes(searchQuery) || name.includes(searchQuery);
+        const matchesFilter = activeFilter === 'all' || category === activeFilter;
+
+        if (matchesSearch && matchesFilter) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Copy prompt helper
+    function copyPrompt(url, btnElement) {
+      const promptText = `Install this public skill repo into my workspace:
+${url}
+
+Start from my workspace AGENTS.md or CLAUDE.md. Follow any WORKSPACE.md or skills/INDEX.md routing rules. Clone or vendor the repo under an appropriate project directory. Expose exactly one root skill to my global skill index or agent instructions. Keep private aliases, local paths, credentials, endpoint defaults, and business context in a local overlay, not in the public repo.`;
+      
+      navigator.clipboard.writeText(promptText).then(() => {
+        // Visual Feedback
+        const originalHtml = btnElement.innerHTML;
+        btnElement.innerHTML = '<i data-lucide="check" style="color: var(--accent-emerald)"></i>';
+        btnElement.classList.add('tooltip-success');
+        lucide.createIcons();
+        
+        setTimeout(() => {
+          btnElement.innerHTML = originalHtml;
+          btnElement.classList.remove('tooltip-success');
+          lucide.createIcons();
+        }, 2000);
+      });
+    }
+
+    // Copy protocol text
+    function copyProtocolText(btnElement) {
+      const codeElement = document.getElementById('protocolCode');
+      // Extract code excluding button text
+      const textToCopy = codeElement.innerText.replace('Copy Protocol', '').trim();
+      
+      navigator.clipboard.writeText(textToCopy).then(() => {
+        const originalText = btnElement.innerText;
+        btnElement.innerText = 'Copied!';
+        btnElement.style.borderColor = 'var(--accent-emerald)';
+        btnElement.style.color = 'var(--accent-emerald)';
+        
+        setTimeout(() => {
+          btnElement.innerText = originalText;
+          btnElement.style.borderColor = '';
+          btnElement.style.color = '';
+        }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>
