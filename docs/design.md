@@ -8,6 +8,12 @@ This document outlines the architectural, interaction, and visual design decisio
 
 The project is built on the belief that AI coding agents require a different interface design than traditional software components.
 
+### Platform-Agnosticism vs. Codified SDKs
+Other editors or plugin systems (e.g. Cursor, Codex, Cloud Code Skills) utilize heavily codified JSON configurations, strict function definitions, and vendor-specific APIs. Our Skill system is **platform-agnostic**:
+* **Natural Language Priority**: The core logic is natural language (`SKILL.md`) outlining reasoning steps, checklists, and outcomes. Any agent can parse and follow it.
+* **Optional CLI Connectors**: Code execution is wrapped in standalone CLI tools (e.g., Python scripts). The agent executes it through standard terminal interfaces without special IDE integration.
+* **Process & Result Certainty**: The documentation explicitly maps execution paths, validation steps, and expected outputs, ensuring the agent performs task segments with absolute certainty.
+
 ### Files-as-Interfaces
 Traditional AI integrations use REST endpoints, WebSocket servers, or SDK wrappers. This adds setup overhead and makes debugging difficult. Our skills interact with the host environment by reading and writing files in the local workspace. 
 * **Statefulness**: Files preserve the history of inputs and outputs in plain text.
@@ -18,6 +24,7 @@ Traditional AI integrations use REST endpoints, WebSocket servers, or SDK wrappe
 Public skill repositories describe generic interfaces and technical contracts. Private configuration stays in the workspace.
 * **Symbolic Links (Local)**: In the user's workspace, skills in `rules/skills/` are relative symlinks pointing to `adhoc_jobs/<skill_repo>/skills/<file>.md`. When the agent or human updates the skill guidelines in `rules/skills/`, the changes are automatically tracked in the nested git repository for easy commits and upstream pushes.
 * **Flat Reference (Public)**: In the public `context-infrastructure` starter set, these are represented as flat documentation guides. The registry lists the standalone tool repositories so that agents can clone them and set up their own symlinks automatically.
+
 
 ---
 

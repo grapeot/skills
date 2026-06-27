@@ -1,111 +1,90 @@
-# AI Agent 技能生态系统
-
 本文档也有英文版：[English Version](README.md) | 想要获得更直观的视觉体验，请访问我们的 [网页展示端](https://grapeot.github.io/skills/index_zh.html)。
 
-> **面向 AI Agent 的「渐进式披露」范式。**
-> 在我们的体系中，「技能 (Skill)」不是绑死在特定厂商平台上的复杂 Schema，也不是死板的格式文件。它本质上是一份自然语言编写的 Markdown 文档，向 AI 交代任务的目标、验收标准和异常处理方法，并辅以可选的 CLI 命令行工具或连接器。
+# AI Agent 技能仓库与索引
 
-本仓库是一个公开的技能索引集散地。你可以将这里的地址直接发给你的 AI 编程助手（如 Claude Code, Cursor, Codex, OpenCode 等），它能够自主阅读并将其自动安装到你的本地工作区中。
-
----
-
-## 核心哲学：什么是 Skill？
-
-大多数 AI Agent 在执行复杂任务时容易「一本正经地胡说八道」或者重复踩坑，这是因为它们在每个会话开始时都处于“盲目状态”，缺乏本地业务背景和运行教训。
-**Skill** 解决了这一难题。它将知识、规则和踩坑经验外化到 Markdown 文件中，供 Agent 自动发现与阅读。
-
-我们采用 **「渐进式披露 (Progressive Disclosure)」** 机制：
-1. **L1（全局入口）**：Agent 在会话启动时自动加载并阅读 `AGENTS.md` 或 `CLAUDE.md`，进而被引导至技能索引。
-2. **L2（索引路由）**：通过类似 `rules/skills/INDEX.md` 的索引文件，列出所有可用技能和触发条件。
-3. **L3（技能详情）**：具体的 Skill 详情页（例如 `skill_imessage.md`），描述具体的 CLI 命令参数、运行边界、踩坑点和安全规则。
-4. **本地 Overlay 覆盖**：将敏感数据（如联系人别名、私密 API 密钥）留在本地工作区配置中，仅通过公共 Skill 仓库共享通用的命令行技术契约与实现代码。
+本仓库是 **AI 编码智能体技能（AI Coding Agent Skills）** 的集中展示与注册中心。
 
 ---
 
-## 公开技能目录
+## 1. 什么是 Skill？（核心哲学）
 
-### 🛠️ 工具连接与 API 指南 (API Guides)
+与 Cursor、Codex 或 Cloud Code 等平台所倡导的技能体系不同（它们通常绑定特定编辑器、使用严格类型定义的 JSON 配置或繁重的 SDK 开发包），我们的技能生态遵循以下设计原则：
 
-扩展 Agent 执行能力的专属命令行工具和接口封装。
+1.  **平台无关，自然语言优先**：Skill 的核心是一份 Markdown 格式的操作指南（`SKILL.md`），用于记录人类的工作流程、判断标准与防错教训。任何大模型或 Agent 都能直接阅读并消费它。在需要自动化执行的场景下，我们仅需为其配上一个轻量的 CLI 脚本（如 Python 命令行工具）。它在 Claude Code、Cursor、OpenCode 或自定义的终端 Agent 中完全通用。
+2.  **过程与结果的确定性**：AI Agent 在执行任务时容易发生幻觉或擅自简化流程。我们的 Skill 模版中明确定义了执行边界、多重验证步骤以及交付标准检查清单，以此确保 Agent 产出的结果高度可靠。
+3.  **文件即接口 (Files-as-Interfaces)**：技能与工作区的交互通过读写文件进行。输入和输出都是工作区里的普通文本文件（Markdown、JSON、SQLite），不依赖网络 API 服务。这让 Agent 的所有操作都处于 Git 的版本控制下，可被随时审计、修改和回滚。
+4.  **本地与公共隔离**：公开的 Skill 仓库仅定义通用的技术契约与 CLI 协议，所有私人路径、敏感 API Key、联系人别名均以 Overlay（覆盖层）的形式保存在用户本地的私有工作区中。
 
-| 技能 / 仓库名称 | 类型 | 说明 | 链接 |
-|---|---|---|---|
-| **tavily-skill** | 仓库 | 专为 Agent 优化设计的 Tavily 网页搜索工具，返回干净的 JSON | [GitHub](https://github.com/grapeot/tavily-skill) |
-| **gdocs-skill** | 仓库 | Google Docs 创建、编辑、分享及 Tab 标签管理工具 | [GitHub](https://github.com/grapeot/gdocs-skill) |
-| **outlook_skill** | 仓库 | Outlook.com 邮件拉取、Markdown 渲染及本地 SQLite 归档 | [GitHub](https://github.com/grapeot/outlook_skill) |
-| **resend_email_skill** | 仓库 | Resend 邮件发送、收件箱 Webhook 解析和 Markdown 导出 | [GitHub](https://github.com/grapeot/resend_email_skill) |
-| **imessage_skill** | 仓库 | macOS 发送 iMessage 的 CLI 工具，支持本地联系人别名解析 | [GitHub](https://github.com/grapeot/imessage_skill) |
-| **process-launcher** | 仓库 | 本地 HTTP 进程启动器，用于桥接 macOS GUI 与 TCC 权限 | [GitHub](https://github.com/grapeot/process-launcher) |
-| **ai_usage_dashboard** | 仓库 | 多平台 AI Token 用量及成本统计看板 | [GitHub](https://github.com/grapeot/ai_usage_dashboard) |
-| **typefully-twitter-skill** | 仓库 | Typefully 联动工具，支持推特草稿排期与单条推文数据分析 | [GitHub](https://github.com/grapeot/typefully-twitter-skill) |
-| **stripe-skill** | 仓库 | Stripe 财务、销售和增长指标只读分析 CLI | [GitHub](https://github.com/grapeot/stripe-skill) |
-| **pptx.skill** | 仓库 | 专为 AI 设计的 PowerPoint 演示文稿读取、编辑和渲染库 | [GitHub](https://github.com/grapeot/pptx.skill) |
-| **image-generation-skill** | 仓库 | 基于 Gemini / GPT 的文生图与图片超分辨率放大 CLI | [GitHub](https://github.com/grapeot/image-generation-skill) |
-| **tiff-icc-profile** | 仓库 | 针对达芬奇静帧导出的未标记 TIFF 图片嵌入色彩配置文件的 CLI | [GitHub](https://github.com/grapeot/tiff-icc-profile) |
-| **health-quantification** | 仓库 | 个人 HealthKit 数据同步服务端及健康指标命令行分析工具 | [GitHub](https://github.com/grapeot/health-quantification) |
-| **roest-analysis** | 仓库 | Roest 烘焙机 API 数据抓取与烘焙曲线分析工具 | [GitHub](https://github.com/grapeot/roest-analysis) |
-| **intake-skill** | 仓库 | 语音备忘录与录音数据自动化整理与转录 CLI | [GitHub](https://github.com/grapeot/intake-skill) |
-| **opencode-docker** | 仓库 | OpenCode Server 的 Docker 快速部署与配置模版 | [GitHub](https://github.com/grapeot/opencode-docker) |
-| **opencode_skill** | 仓库 | OpenCode 会话管理、任务提交、备份与 SQLite 维护工具 | [GitHub](https://github.com/grapeot/opencode_skill) |
-| **AI CLI Agent 实用指南** | 文档 | 关于「文件即接口」设计模式及 AI 嵌套调用的核心最佳实践 | [查看文件](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/ai_agent_cli_guide.md) |
-| **分享报告到 Web** | 文档 | 将本地 Markdown 报告渲染为 HTML 并通过 SSH 部署发布的流程 | [查看文件](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/share_report.md) |
-| **向量语义搜索** | 文档 | 使用向量相似度检索工作区背景知识与记忆 | [查看文件](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/semantic_search.md) |
+### 核心背景阅读
+*   **方法论**：[用好AI的第二步：先写Skill再执行](https://yage.ai/skill-first.html)（英文版：[Step Two to Using AI Well: Write the Skill Before You Execute](https://yage.ai/skill-first-en.html)）
+*   **架构设计**：[为什么AI只会说正确的废话，以及怎么把它逼出舒适区](https://yage.ai/context-infrastructure.html)
 
 ---
 
-### 🔄 任务工作流 (Workflows)
+## 2. 常见问题与安装指引
 
-规范 Agent 执行复杂、多阶段或多智能体任务的标准流程。
-
-| 技能 / 文件名称 | 说明 | 链接 |
-|---|---|---|
-| **并行 Subagent 工作流** | 如何将大任务拆分为子任务，并利用后台智能体并行处理（禁轮询） | [查看文件](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_parallel_subagents.md) |
-| **深度调研工作流** | 多 Agent 并行扫描、维度重叠划分、交叉验证防胡说八道的调研规范 | [查看文件](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_deep_research_survey.md) |
-| **分析性写作工作流** | 将调研素材提炼为具有个人判断力、免翻译腔的深度分析文章的步骤 | [查看文件](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_analytical_writing.md) |
-| **认知画像提取** | 从非结构化对话历史或日志中，滚动提炼个人思维公理与写作风格 | [查看文件](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_cognitive_profile_extraction.md) |
-| **幻灯片渲染工作流** | Clean Ink 极简水墨风格幻灯片多进程并行渲染与 4K 放大规范 | [查看文件](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_presentation_slides.md) |
-| **知识飞轮设计模式** | 通过「小数据 + 笨方法 + 小模型」滚动积累精制知识库的设计模式 | [查看文件](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_knowledge_flywheel.md) |
-| **在线媒体转录** | 自动化视频下载、ASR 语音转录及元数据填充的完整工作流 | [查看文件](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_bilibili_whisper_transcription.md) |
-| **延时与定时执行** | 配置后台延时任务和 Crontab 定时器启动 Agent 的设计约束 | [查看文件](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/delayed_execution.md) |
-
----
-
-### 💡 最佳实践 (Best Practices)
-
-软件开发、AI 编程、系统设计和故障诊断的通用方法论。
-
-| 技能 / 文件名称 | 说明 | 链接 |
-|---|---|---|
-| **AI 编程核心思维** | 70% 问题、推理模型与 Agent 工作流差异、可验证性原则 | [查看文件](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_ai_programming_mindset.md) |
-| **Skill 写作指南** | 如何写出容易被 AI 理解和复用的高质量 Skill（注重使能而非机械SOP） | [查看文件](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_skill_writing.md) |
-| **1Password 密钥管理** | 利用 1Password CLI 安全加载 API Key，避免硬编码泄露风险 | [查看文件](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_api_key_management_1password_cli.md) |
-| **面试评估框架** | 关注特质而非死板技能、探测 candidate 真实技术深度的面试框架 | [查看文件](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_interview_evaluation.md) |
-| **Markdown 转 HTML** | 转换静态页面结构和发布静态资源的本地最佳实践 | [查看文件](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_markdown_html_conversion.md) |
-| **PDF 转换为 Markdown** | 推荐使用 Docling 进行高精度表格和层级解析，弃用 MarkItDown | [查看文件](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_pdf_to_markdown.md) |
-| **时间敏感信息验证** | 验证或抓取超出模型知识截止日期（Knowledge Cutoff）实时数据的方法 | [查看文件](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_temporal_info_verification.md) |
-| **分阶段工作法** | 贯彻「隔离-处理-验证」闭环，在执行破坏性/全局修改前强制 Dry Run | [查看文件](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_staged_approach.md) |
-| **多 Agent 并行分析** | 对大话题拆分 50% 相互重叠区域进行多方研究并交叉验证的实践 | [查看文件](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_multi_agent_analysis.md) |
-| **GUI 自动化方法论** | 将缺乏 API 的 UI 界面通过视觉/按键脚本转化为可编程接口的思路 | [查看文件](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_gui_automation.md) |
-| **AI 编程调试与诊断** | 面对 Agent “改不好代码”时的系统化排错诊断决策树 | [查看文件](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_ai_debugging_diagnosis.md) |
-| **AI 产品设计原则** | AI 原生产品中线性 Chat 模式与 Workspace 模式的取舍与规则解耦 | [查看文件](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_ai_product_design.md) |
-| **产品技术决策逆向分析** | 五步拆解法：重构设计空间、判断约束、追溯 trade-off 与成本结构 | [查看文件](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_product_decision_analysis.md) |
-| **项目脚手架重整** | 将零散、不规范的脚本文件夹升级整理为标准工程模板的规范 | [查看文件](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/project_scaffold.md) |
-
----
-
-## 自动安装协议
-
-如果你想让你的 AI Agent 安装本库中的任意技能，只需向其发送以下指令：
-
+### 问：我该如何安装一个技能？
+我们的技能安装是完全由 **Prompt 驱动**的。不需要编译安装包或配置浏览器插件。你只需要将该技能的 GitHub 地址复制下来，并在你的 AI 编码工具（如 Cursor 或 Claude Code）中输入以下提示词：
 ```text
 Install this public skill repo into my workspace:
-<技能仓库 GitHub URL 或文件 URL>
+<技能仓库的 GitHub 地址>
 
-Start from my workspace AGENTS.md or CLAUDE.md. Follow any WORKSPACE.md or skills/INDEX.md routing rules. Clone or vendor the repo under an appropriate project directory. Expose exactly one root skill to my global skill index or agent instructions. Keep private aliases, local paths, credentials, endpoint defaults, and business context in a local overlay, not in the public repo.
+Read the rules in this repo, clone/vendor it under 'adhoc_jobs/', create a relative symlink under 'rules/skills/', and register it in the rules index.
 ```
+Agent 会自动在本地执行 `git clone`，挂载软链接并将其注册到工作区的索引中。
 
-## 隐私与安全
+### 问：它支持我目前使用的编辑器和大模型吗？
+完全支持。因为交互的媒介仅仅是工作区文件与标准的终端命令行，所以只要你的 Agent 拥有阅读工作区文件并运行命令的权限，就能无缝调用这些技能。
 
-本生态系统中的所有仓库均严格遵循 **「使用虚拟数据发布」** 原则：
-- 所有公开代码或文档中绝不包含真实的邮箱、手机号、密码或 1Password 私密引用。
-- 工作区相关的敏感数据（如真实联系人映射、私密 API Key、接口网关配置）必须作为本地 Overlay 保留在本地，绝对不能提交推送到公共 GitHub 仓库中。
+---
+
+## 3. 技能注册表
+
+### 📈 社交媒体、销售与用量分析
+| 技能名称 | 类型 | 描述 | 链接 |
+|---|---|---|---|
+| **typefully-twitter-skill** | 仓库 | 联动 Typefully，支持推特草稿排期与单条推文数据分析 | [GitHub](https://github.com/grapeot/typefully-twitter-skill) |
+| **stripe-skill** | 仓库 | Stripe 财务、销售和增长指标只读分析 CLI，支持本地 mock 运行 | [GitHub](https://github.com/grapeot/stripe-skill) |
+| **ai_usage_dashboard** | 仓库 | 多平台 AI token 消耗追踪、成本估算与本地可视化面板 | [GitHub](https://github.com/grapeot/ai_usage_dashboard) |
+
+### 🏠 日常量化与生活记录
+| 技能名称 | 类型 | 描述 | 链接 |
+|---|---|---|---|
+| **health-quantification** | 仓库 | 聚合 HealthKit 数据与每日咖啡因/酒精日志，于 SQLite 中跑 sleep 影响回归分析 | [GitHub](https://github.com/grapeot/health-quantification) |
+| **roest-analysis** | 仓库 | 自动抓取 Roest 烘焙机 API 样本日志，分析一爆集聚点并绘制温度曲线 | [GitHub](https://github.com/grapeot/roest-analysis) |
+| **intake-skill** | 仓库 | 自动化整理本地语音备忘录，执行 ASR 转录并滚动维护索引日志 | [GitHub](https://github.com/grapeot/intake-skill) |
+
+### 💼 工作流自动化与多媒体创作
+| 技能名称 | 类型 | 描述 | 链接 |
+|---|---|---|---|
+| **gdocs-skill** | 仓库 | 通过 Markdown 文档在 Google Docs 中执行发布、搜索、修改和团队分享 | [GitHub](https://github.com/grapeot/gdocs-skill) |
+| **outlook_skill** | 仓库 | Outlook 邮件下载归档、Markdown 渲染发信、日历邀请处理与忙闲查询 | [GitHub](https://github.com/grapeot/outlook_skill) |
+| **resend_email_skill** | 仓库 | 基于 Resend 自定义域名发信，支持附件格式检查与收件箱状态读取 | [GitHub](https://github.com/grapeot/resend_email_skill) |
+| **imessage_skill** | 仓库 | macOS iMessage 命令行发信工具，联系人别名配置文件存放在本地 Overlay 中 | [GitHub](https://github.com/grapeot/imessage_skill) |
+| **pptx.skill** | 仓库 | 专为 AI 设计的 PPTX 文稿读取、内容替换与幻灯片极简水墨风格渲染器 | [GitHub](https://github.com/grapeot/pptx.skill) |
+| **image-generation-skill** | 仓库 | 快速生成图画 Prompt、编辑局部图像并执行超分辨率放大（Gemini/GPT 后端） | [GitHub](https://github.com/grapeot/image-generation-skill) |
+| **tiff-icc-profile** | 仓库 | 为未标记的 TIFF 图像（如达芬奇静帧）批量嵌入默认 P3-D65 或自定义 ICC 色彩配置文件 | [GitHub](https://github.com/grapeot/tiff-icc-profile) |
+| **online-media-skill** | 仓库 | 自动化视频下载、ASR 语音转录、关键词匹配与 Query 检索工作流 | [GitHub](https://github.com/grapeot/online-media-skill) |
+
+### ⚙️ Agent 运行基础设施与本地守护
+| 技能名称 | 类型 | 描述 | 链接 |
+|---|---|---|---|
+| **process-launcher** | 仓库 | 本地 HTTP 任务守护进程，用以解决 macOS GUI 权限限制并管理长时间延迟任务 | [GitHub](https://github.com/grapeot/process-launcher) |
+| **opencode_skill** | 仓库 | 提交 OpenCode 异步任务、编排 recurring cron 工作流并真空整理 SQLite | [GitHub](https://github.com/grapeot/opencode_skill) |
+| **opencode-docker** | 仓库 | Docker 部署配置文件，用以容器化并快速部署 OpenCode Server 运行环境 | [GitHub](https://github.com/grapeot/opencode-docker) |
+
+### 🧠 内置方法论、自动化工作流与最佳实践
+| 技能名称 | 类型 | 描述 | 链接 |
+|---|---|---|---|
+| **AI CLI 交互指南** | 文档 | CLI 交互式文件接口的设计约束、Agent 嵌套调用与防死锁设计规范 | [查看文件](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/ai_agent_cli_guide.md) |
+| **分享报告到 Web** | 文档 | 将本地 Markdown 报告通过 Pandoc 渲染为 HTML 并通过 SSH 部署发布的流程 | [查看文件](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/share_report.md) |
+| **向量语义搜索** | 文档 | 利用向量数据库与 Embedding 接口，在本地工作区内对对话历史与背景知识进行检索 | [查看文件](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/semantic_search.md) |
+| **并行 Subagent 工作流** | 文档 | 调用后台智能体、对大任务在隔离的工作空间内进行并行分析的执行规范 | [查看文件](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_parallel_subagents.md) |
+| **深度调研工作流** | 文档 | 多 Agent 并行扫描、维度重叠划分、交叉验证防胡说八道的深度采集规范 | [查看文件](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_deep_research_survey.md) |
+| **认知画像提取工作流** | 文档 | 从非结构化对话历史或日志中，滚动提炼个人思维公理与认知画像的操作指南 | [查看文件](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_cognitive_profile_extraction.md) |
+| **AI 编程核心思维** | 文档 | 剖析 70% 边界问题，阐明为什么「先写脚本，再让 Agent 跑脚本」的确定性更优 | [查看文件](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_ai_programming_mindset.md) |
+| **Skill 写作指南（Meta）** | 文档 | 教授如何以「成功交付标准」和「异常限制」定义技能，避免写成教条 SOP | [查看文件](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_skill_writing.md) |
+| **PDF 转换为 Markdown** | 文档 | 推荐使用 Docling 进行高精度表格和层级解析，弃用 MarkItDown / PyMuPDF | [查看文件](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_pdf_to_markdown.md) |
+| **时间敏感信息验证** | 文档 | 验证或抓取超出模型知识截止日期（Knowledge Cutoff）实时数据的方法 | [查看文件](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_temporal_info_verification.md) |
+| **分阶段工作法** | 文档 | 贯彻「隔离-处理-验证」闭环，在执行破坏性/全局修改前强制 Dry Run | [查看文件](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_staged_approach.md) |
+| **项目脚手架与重整** | 文档 | 规范如何将散装脚本升级为拥有 docs/、src/、scripts/ 和 tests/ 目录的标准仓库 | [查看文件](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/project_scaffold.md) |

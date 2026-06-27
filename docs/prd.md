@@ -13,7 +13,13 @@ The system is designed for two first-class citizens:
 
 ## 2. Core Philosophy (Our Differentiation)
 
-Unlike industry-standard integrations (like LangChain Tools, OpenAI Actions, or ChatGPT Plugins) which enforce heavy SDK bindings, API endpoints, or cloud hosting, our ecosystem is built on a different paradigm:
+Unlike industry-standard integrations (like LangChain Tools, OpenAI Actions, or ChatGPT Plugins) and specific editor plugins (like Cursor, Codex, or Cloud Code Skills) which enforce vendor-locked bindings, strict JSON-typed declarations, or specialized SDK configurations, our ecosystem is built on a different paradigm:
+
+### Platform-Agnosticism & Natural Language First
+Our skills are completely independent of any single IDE or LLM vendor. At its core, a skill is a set of natural language instructions (`SKILL.md`) that any agent can read, understand, and execute. When manual repetition becomes tedious, we append a lightweight Python CLI tool. The system operates on natural language reasoning, making it portable across Cursor, Claude Code, OpenCode, or any custom terminal agent.
+
+### Process & Result Certainty
+Because agents can easily drift or make assumptions, our skills are written to define strict boundaries, error-handling heuristics, and explicit verification steps. Rather than relying on simple "system prompts," a skill specifies *exactly* what the output files should look like and how to verify correctness. This ensures high certainty in both execution processes and final outcomes.
 
 ### Progressive Disclosure
 A skill is not a complex piece of code. It starts as a simple text file (`SKILL.md`) outlining natural language instructions for the agent. Only when operations require automation do we append a lightweight CLI tool. There is no SDK lock-in; the core capability is the instruction set.
@@ -21,8 +27,10 @@ A skill is not a complex piece of code. It starts as a simple text file (`SKILL.
 ### Files-as-Interfaces
 Skills interact with the workspace by reading and writing files rather than calling remote network endpoints or database sockets. Files are inspectable, recoverable, stateful, and naturally match the file-reading nature of coding agents.
 
-### Local-Overlay Architecture
-Public skill repositories define generic, stateless technical contracts. All private variables, local folder paths, credentials, and customized business context remain in a local overlay file in the user's private workspace. The public repository stays clean, secure, and shareable.
+### Key Background Reading
+*   **Conceptual Strategy**: [用好AI的第二步：先写Skill再执行](https://yage.ai/skill-first.html) (English: [Step Two to Using AI Well: Write the Skill Before You Execute](https://yage.ai/skill-first-en.html))
+*   **Infrastructure Design**: [为什么AI只会说正确的废话，以及怎么把它逼出舒适区](https://yage.ai/context-infrastructure.html)
+
 
 ---
 
