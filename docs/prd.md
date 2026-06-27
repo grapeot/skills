@@ -25,3 +25,7 @@ Create a centralized hub (repository and web showcase) to display, search, and e
 - **No Private Data**: Do not list private details, API keys, or private aliases.
 - **No Complex Frameworks**: The web pages are built purely with vanilla CSS and JS to ensure fast, zero-dependency deployment on GitHub Pages.
 - **No Native Tests Required**: As the project contains only HTML/CSS and Markdown files, no test suite is required at this stage.
+- **Ecosystem Segmentation**: 
+  - **Out-of-the-Box Skills**: Kept directly in `context-infrastructure` under `rules/skills/`. Limited strictly to generic methodologies (Best Practices and Workflows) that do not require external API keys, tools, or configuration.
+  - **Ecosystem / Setup-Required Skills**: Maintained in standalone public repositories (e.g. `gdocs-skill`, `typefully-twitter-skill`). These must be installed on-demand, keeping the core `context-infrastructure` clean of broken references or configuration overhead.
+

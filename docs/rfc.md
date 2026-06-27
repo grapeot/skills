@@ -35,7 +35,9 @@ The visual showcase will be styled as a premium dashboard matching high aestheti
   - Direct copy-to-clipboard for installation commands or repo URLs.
 
 ## 4. Skills Directory Strategy
-We aggregate skills from three main vectors into a single structured list:
-1. **Generic Skills**: Residing inside the public `context-infrastructure` rules/skills directory. Link format points directly to `https://github.com/grapeot/context-infrastructure/blob/master/rules/skills/<filename>`.
-2. **Technical Skills with Code**: Standalone repositories. Link format points to `https://github.com/grapeot/<repo-name>`.
-3. They are grouped into the standard three categories (API Guide, Workflow, Best Practice) to match the progressive disclosure structure.
+We aggregate skills from two main vectors into a single structured list:
+1. **Generic Skills**: Residing inside the public `context-infrastructure` rules/skills directory. These must be generic methodologies (Workflows or Best Practices) that work out-of-the-box without external API keys or configurations. Link format points directly to `https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/<filename>`.
+2. **Technical Skills with Code**: Standalone repositories representing setup-required tools (e.g. `tavily-skill`, `gdocs-skill`). Link format points to `https://github.com/grapeot/<repo-name>`.
+
+Any skills requiring custom accounts, credentials, or complex configurations are kept strictly out of the core `context-infrastructure` folder to maintain it as a clean, out-of-the-box reference.
+
