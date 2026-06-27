@@ -42,9 +42,9 @@
 
     <!-- HEADER -->
     <header style="padding:64px 4px 44px;">
-      <div style="font:600 11px 'IBM Plex Mono',monospace; letter-spacing:.22em; color:#1f6f8b; margin-bottom:20px;">注册表&nbsp;·&nbsp; 33&nbsp;个技能&nbsp;·&nbsp; 输入 → 分析 → 输出</div>
-      <h1 style="margin:0 0 18px; font-size:46px; line-height:1.05; font-weight:700; letter-spacing:-.025em; text-wrap:balance;">AI Agent 技能<br>注册表与展示中心</h1>
-      <p style="margin:0; font-size:17px; line-height:1.6; color:#5b6675; max-width:54ch;">一个基于渐进式披露范式构建的、跨平台的模块化规则与终端 CLI 工具目录。</p>
+      <div style="font:600 11px 'IBM Plex Mono',monospace; letter-spacing:.22em; color:#1f6f8b; margin-bottom:20px;">技能目录&nbsp;·&nbsp; 收录 33&nbsp;个技能&nbsp;·&nbsp; 输入 → 分析 → 输出</div>
+      <h1 style="margin:0 0 18px; font-size:46px; line-height:1.05; font-weight:700; letter-spacing:-.025em; text-wrap:balance;">AI Agent 技能<br>目录与直观展示</h1>
+      <p style="margin:0; font-size:17px; line-height:1.6; color:#5b6675; max-width:54ch;">跨平台、模块化的 AI 规则与终端 CLI 工具目录，支持按需渐进式加载。</p>
       <a href="https://github.com/grapeot/skills" target="_blank" class="read-link" style="display:inline-flex; align-items:center; gap:8px; margin-top:26px; padding:9px 15px; border:1px solid #d3d9e0; border-radius:5px; font:500 13px 'IBM Plex Mono',monospace; color:#46505f; text-decoration:none; background:#fbfcfd;">查看源仓库 ↗</a>
     </header>
 
@@ -55,17 +55,17 @@
         <div style="background:#fbfcfd; padding:24px 22px;">
           <div style="font:600 10px 'IBM Plex Mono',monospace; letter-spacing:.12em; color:#1f6f8b; margin-bottom:14px;">01 / 跨平台</div>
           <h3 style="margin:0 0 10px; font-size:17px; font-weight:600; letter-spacing:-.01em;">平台无关性</h3>
-          <p style="margin:0; font-size:13.5px; line-height:1.62; color:#6b7585;">与特定 IDE 中厂商绑定的插件不同，我们的技能是纯 Markdown 指令加可选的 CLI 脚本。它们可以在 Cursor、Claude Code、OpenCode 或任何自定义终端 Agent 中无缝运行。</p>
+          <p style="margin:0; font-size:13.5px; line-height:1.62; color:#6b7585;">与特定 IDE 绑定的插件不同，我们的技能是纯 Markdown 指令加可选的 CLI 脚本。它们可以在 Cursor、Claude Code、OpenCode 或任何自定义终端 Agent 中直接运行。</p>
         </div>
         <div style="background:#fbfcfd; padding:24px 22px;">
           <div style="font:600 10px 'IBM Plex Mono',monospace; letter-spacing:.12em; color:#1f6f8b; margin-bottom:14px;">02 / 确定性</div>
-          <h3 style="margin:0 0 10px; font-size:17px; font-weight:600; letter-spacing:-.01em;">过程与结果确定性</h3>
-          <p style="margin:0; font-size:13.5px; line-height:1.62; color:#6b7585;">我们不依赖模糊的 Prompt，而是通过技能配置定义严格的执行步骤、错误处理启发式规则和核对清单，从而保证 Agent 输出的高度可预测性。</p>
+          <h3 style="margin:0 0 10px; font-size:17px; font-weight:600; letter-spacing:-.01em;">过程与结果可控</h3>
+          <p style="margin:0; font-size:13.5px; line-height:1.62; color:#6b7585;">我们不依赖模糊的 Prompt，而是通过具体的技能定义清晰的执行步骤、容错逻辑和核对清单，让 Agent 的输出结果稳定可预测。</p>
         </div>
         <div style="background:#fbfcfd; padding:24px 22px;">
           <div style="font:600 10px 'IBM Plex Mono',monospace; letter-spacing:.12em; color:#1f6f8b; margin-bottom:14px;">03 / 文件</div>
           <h3 style="margin:0 0 10px; font-size:17px; font-weight:600; letter-spacing:-.01em;">文件即接口</h3>
-          <p style="margin:0; font-size:13.5px; line-height:1.62; color:#6b7585;">所有的输入 and 输出都作为纯文本文件记录在本地工作区中。这消除了复杂的服务器基础设施，保持了 Agent 变更的有状态性，并可通过 Git 进行审查。</p>
+          <p style="margin:0; font-size:13.5px; line-height:1.62; color:#6b7585;">所有的输入与输出都通过工作区内的纯文本文件进行交互。这不需要复杂的服务器支持，所有变更都留在本地，可随时通过 Git 审计与回滚。</p>
         </div>
       </div>
       <div style="display:flex; gap:12px; margin-top:18px; flex-wrap:wrap;">
@@ -80,15 +80,15 @@
       <div style="border:1px solid #e6eaef; border-radius:6px; overflow:hidden; background:#fbfcfd; max-width:820px;">
         <div style="border-bottom:1px solid #edf0f3;">
           <button class="faq-q" style="width:100%; display:flex; align-items:center; justify-content:space-between; gap:12px; padding:17px 20px; background:none; border:none; cursor:pointer; font:600 14.5px 'IBM Plex Sans'; color:#1c2733; text-align:left;">如何安装技能？ <span class="faq-ic" style="font-family:'IBM Plex Mono'; color:#9aa3af; transition:transform .2s; transform:rotate(180deg);">⌄</span></button>
-          <div class="faq-a" style="display:block; padding:0 20px 18px; font-size:13.5px; line-height:1.65; color:#6b7585;">复制该技能的 GitHub URL 并在终端告诉你的 Agent：“阅读此仓库的规则，将其克隆至 adhoc_jobs/ 下，在 rules/skills/ 中映射一个相对软链接，并在 rules 索引中注册。” Agent 会自动拉取代码并进行链接。</div>
+          <div class="faq-a" style="display:block; padding:0 20px 18px; font-size:13.5px; line-height:1.65; color:#6b7585;">复制技能的 GitHub 链接并发送给 Agent：‘阅读这个仓库的规则，克隆到 adhoc_jobs/ 下，在 rules/skills/ 中建立相对软链接，并在 rules 索引里注册。’ Agent 就会自动完成代码下载与链接映射。</div>
         </div>
         <div style="border-bottom:1px solid #edf0f3;">
           <button class="faq-q" style="width:100%; display:flex; align-items:center; justify-content:space-between; gap:12px; padding:17px 20px; background:none; border:none; cursor:pointer; font:600 14.5px 'IBM Plex Sans'; color:#1c2733; text-align:left;">什么是本地覆盖（Local Overlay）？ <span class="faq-ic" style="font-family:'IBM Plex Mono'; color:#9aa3af; transition:transform .2s;">⌄</span></button>
-          <div class="faq-a" style="display:none; padding:0 20px 18px; font-size:13.5px; line-height:1.65; color:#6b7585;">公开仓库仅保留通用的代码契约。你所有的本地路径、API 凭证和个人别名都存储在工作区的私有覆盖（overlay）文件中，确保没有隐私数据泄建。</div>
+          <div class="faq-a" style="display:none; padding:0 20px 18px; font-size:13.5px; line-height:1.65; color:#6b7585;">公开仓库只定义通用的技术契约与 CLI 接口。你所有的本地路径、API 凭证和个人别名都存储在本地工作区的私有覆盖（overlay）文件里，避免任何敏感数据外泄。</div>
         </div>
         <div>
           <button class="faq-q" style="width:100%; display:flex; align-items:center; justify-content:space-between; gap:12px; padding:17px 20px; background:none; border:none; cursor:pointer; font:600 14.5px 'IBM Plex Sans'; color:#1c2733; text-align:left;">我需要编译插件吗？ <span class="faq-ic" style="font-family:'IBM Plex Mono'; color:#9aa3af; transition:transform .2s;">⌄</span></button>
-          <div class="faq-a" style="display:none; padding:0 20px 18px; font-size:13.5px; line-height:1.65; color:#6b7585;">不需要。技能要么是纯文本指南，要么是简单的 Python CLI 封装。它们在 Agent 可以派生的任何终端会话中原生执行。</div>
+          <div class="faq-a" style="display:none; padding:0 20px 18px; font-size:13.5px; line-height:1.65; color:#6b7585;">不需要。这些技能要么是纯 Markdown 操作指南，要么是轻量的 Python CLI 脚本。Agent 可以在终端会话中直接运行它们。</div>
         </div>
       </div>
     </section>
@@ -97,8 +97,8 @@
     <section style="padding:40px 0 8px;">
       <div style="border:1px solid #e6eaef; border-radius:7px; background:#fbfcfd; padding:22px 24px; display:flex; gap:22px; align-items:flex-start; flex-wrap:wrap;">
         <div style="flex:1; min-width:300px;">
-          <h2 style="margin:0 0 9px; font-size:13px; font-weight:600; font-family:'IBM Plex Mono',monospace; letter-spacing:.14em; color:#1c2733;">单行安装</h2>
-          <p style="margin:0; font-size:14.5px; line-height:1.62; color:#5b6675; max-width:62ch;">无需特定 IDE 的斜杠命令，无需为了安装技能而调用另一个技能。点击任意条目上的 <span style="font:600 12px 'IBM Plex Mono'; color:#1f6f8b;">复制</span> 并粘贴给你的 Agent —— 复制的 Prompt 中已包含了该技能类型所需的完整安装流程。</p>
+          <h2 style="margin:0 0 9px; font-size:13px; font-weight:600; font-family:'IBM Plex Mono',monospace; letter-spacing:.14em; color:#1c2733;">一键复制安装</h2>
+          <p style="margin:0; font-size:14.5px; line-height:1.62; color:#5b6675; max-width:62ch;">不用记忆复杂的斜杠命令，也不需要安装器。只需点击任意条目上的 <span style="font:600 12px 'IBM Plex Mono'; color:#1f6f8b;">复制</span> 按钮并将 Prompt 粘贴给 Agent —— 复制的内容已包含了此类型技能所需的全部安装指引。</p>
         </div>
         <div style="display:flex; flex-direction:column; gap:10px; font:500 12px 'IBM Plex Mono',monospace; color:#5b6675; min-width:230px;">
           <div style="display:flex; align-items:baseline; gap:10px;">
@@ -107,7 +107,7 @@
           </div>
           <div style="display:flex; align-items:baseline; gap:10px;">
             <span style="font:500 9.5px 'IBM Plex Mono'; letter-spacing:.09em; padding:2px 7px; border:1px solid #cdd9e2; border-radius:3px; color:#3a7ca5; background:#f1f6f8;">文档</span>
-            <span style="line-height:1.5;">放置到你的技能发现链中</span>
+            <span style="line-height:1.5;">直接放入 Agent 的技能发现路径中</span>
           </div>
         </div>
       </div>
@@ -134,12 +134,12 @@
     <!-- REGISTRY -->
     <main style="padding-top:4px;">
 
-      <p style="margin:18px 0 0; padding:0 16px; font:400 13.5px 'IBM Plex Sans'; line-height:1.6; color:#6b7585; max-width:74ch;">按照 Agent 的工作流程组织 —— <span style="font:600 12px 'IBM Plex Mono'; color:#1f6f8b;">输入 → 分析 → 输出</span> —— 加上运行它的基础设施以及指导工作的最佳实践。有少数技能服务于多个阶段，这些条目标有 <span style="font:500 11px 'IBM Plex Mono'; color:#9aa3af;">↺ 还有…</span> 标记。</p>
+      <p style="margin:18px 0 0; padding:0 16px; font:400 13.5px 'IBM Plex Sans'; line-height:1.6; color:#6b7585; max-width:74ch;">按 Agent 工作流组织 —— <span style="font:600 12px 'IBM Plex Mono'; color:#1f6f8b;">输入 → 分析 → 输出</span>，并包含运行所需的底层基建与最佳实践。部分技能可用于多个阶段，这类条目带有 <span style="font:500 11px 'IBM Plex Mono'; color:#9aa3af;">↺ 兼有…</span> 标记。</p>
 
       <!-- GROUP 1 — INTAKE -->
       <div class="sk-group" data-group="intake">
         <div style="display:flex; align-items:center; gap:16px; margin:34px 0 2px; padding:0 16px;">
-          <span style="font:600 11px 'IBM Plex Mono',monospace; letter-spacing:.16em; color:#1f6f8b; white-space:nowrap;">输入 · 上下文引入</span>
+          <span style="font:600 11px 'IBM Plex Mono',monospace; letter-spacing:.16em; color:#1f6f8b; white-space:nowrap;">输入 · 引入上下文</span>
           <span style="font:600 11px 'IBM Plex Mono',monospace; color:#aeb6c1;">05</span>
           <span style="flex:1; height:1px; background:#e6eaef;"></span>
         </div>
@@ -147,7 +147,7 @@
           <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">01</span>
           <div>
             <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">intake-skill</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #d3d9e0; border-radius:3px; color:#7b8595;">仓库</span></div>
-            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">提取录音便签、运行本地转录，并维护结构化的音频日志。</p>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">提取录音便签，在本地运行语音转文字，并整理成结构化的音频日志。</p>
           </div>
           <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
             <button class="sk-copy" data-url="https://github.com/grapeot/intake-skill" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">复制</button>
@@ -157,8 +157,8 @@
         <div class="sk-row" data-category="intake" data-search="outlook_skill download archive send outlook emails parse calendar invites format markdown context output" style="display:grid; grid-template-columns:34px 1fr auto; gap:18px; padding:18px 16px; border-bottom:1px solid #edf0f3; align-items:start; border-radius:5px;">
           <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">02</span>
           <div>
-            <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">outlook_skill</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #d3d9e0; border-radius:3px; color:#7b8595;">仓库</span><span style="font:500 10px 'IBM Plex Mono',monospace; letter-spacing:.04em; color:#9aa3af;">↺ 还有输出</span></div>
-            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">下载、归档及发送 Outlook.com 邮件，解析日历邀请，并格式化为 Markdown。</p>
+            <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">outlook_skill</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #d3d9e0; border-radius:3px; color:#7b8595;">仓库</span><span style="font:500 10px 'IBM Plex Mono',monospace; letter-spacing:.04em; color:#9aa3af;">↺ 兼有输出</span></div>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">下载、归档与发送 Outlook.com 邮件，解析日历邀请并转为 Markdown。</p>
           </div>
           <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
             <button class="sk-copy" data-url="https://github.com/grapeot/outlook_skill" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">复制</button>
@@ -169,7 +169,7 @@
           <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">03</span>
           <div>
             <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">online-media-skill</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #d3d9e0; border-radius:3px; color:#7b8595;">仓库</span></div>
-            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">下载网络视频、运行 ASR 语音转文字，并格式化为知识库查询包。</p>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">下载网络视频，进行 ASR 语音转文字，并整理成知识库查询包。</p>
           </div>
           <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
             <button class="sk-copy" data-url="https://github.com/grapeot/online-media-skill" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">复制</button>
@@ -180,7 +180,7 @@
           <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">04</span>
           <div>
             <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">PDF 转 Markdown</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #cdd9e2; border-radius:3px; color:#3a7ca5; background:#f1f6f8;">文档</span></div>
-            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">采用 Docling 解析器对 PDF 进行高精度的表格和版面布局提取。</p>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">使用 Docling 解析 PDF，高保真还原表格和排版布局。</p>
           </div>
           <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
             <button class="sk-copy" data-url="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_pdf_to_markdown.md" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">复制</button>
@@ -191,7 +191,7 @@
           <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">05</span>
           <div>
             <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">语义搜索技能</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #cdd9e2; border-radius:3px; color:#3a7ca5; background:#f1f6f8;">文档</span></div>
-            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">使用向量数据库检索工作区长效记忆与背景知识。</p>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">通过向量数据库检索工作区的长期记忆与背景知识。</p>
           </div>
           <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
             <button class="sk-copy" data-url="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/semantic_search.md" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">复制</button>
@@ -203,7 +203,7 @@
       <!-- GROUP 2 — ANALYZE & RESEARCH -->
       <div class="sk-group" data-group="analyze">
         <div style="display:flex; align-items:center; gap:16px; margin:34px 0 2px; padding:0 16px;">
-          <span style="font:600 11px 'IBM Plex Mono',monospace; letter-spacing:.16em; color:#1f6f8b; white-space:nowrap;">分析与研究 · 数据转化为洞察</span>
+          <span style="font:600 11px 'IBM Plex Mono',monospace; letter-spacing:.16em; color:#1f6f8b; white-space:nowrap;">分析与研究 · 从数据到判断</span>
           <span style="font:600 11px 'IBM Plex Mono',monospace; color:#aeb6c1;">06</span>
           <span style="flex:1; height:1px; background:#e6eaef;"></span>
         </div>
@@ -211,7 +211,7 @@
           <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">06</span>
           <div>
             <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">stripe-skill</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #d3d9e0; border-radius:3px; color:#7b8595;">仓库</span></div>
-            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">只读 Stripe 服务端集成，提取销售数据指标、订阅趋势和操作日志。</p>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">只读集成 Stripe 服务，提取销售指标、订阅趋势及操作日志。</p>
           </div>
           <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
             <button class="sk-copy" data-url="https://github.com/grapeot/stripe-skill" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">复制</button>
@@ -222,7 +222,7 @@
           <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">07</span>
           <div>
             <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">ai_usage_dashboard</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #d3d9e0; border-radius:3px; color:#7b8595;">仓库</span></div>
-            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">跨平台跟踪 API 令牌消耗，估算大模型使用成本并导出统计数据。</p>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">跨平台统计 API Token 消耗，估算大模型使用成本并导出统计数据。</p>
           </div>
           <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
             <button class="sk-copy" data-url="https://github.com/grapeot/ai_usage_dashboard" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">复制</button>
@@ -233,7 +233,7 @@
           <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">08</span>
           <div>
             <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">health-quantification</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #d3d9e0; border-radius:3px; color:#7b8595;">仓库</span></div>
-            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">导入 Apple Health 身体指标，追踪咖啡因/睡眠，并在本地 SQLite 中运行回归分析。</p>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">导入 Apple Health 健康指标，记录咖啡因和睡眠数据，并在本地 SQLite 中进行回归分析。</p>
           </div>
           <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
             <button class="sk-copy" data-url="https://github.com/grapeot/health-quantification" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">复制</button>
@@ -244,7 +244,7 @@
           <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">09</span>
           <div>
             <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">roest-analysis</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #d3d9e0; border-radius:3px; color:#7b8595;">仓库</span></div>
-            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">抓取 Roest 咖啡烘焙机 API，检测一爆时间簇，并绘制烘焙温度曲线。</p>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">抓取 Roest 咖啡烘焙机数据，自动分析一爆时间点，并绘制烘焙温度曲线。</p>
           </div>
           <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
             <button class="sk-copy" data-url="https://github.com/grapeot/roest-analysis" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">复制</button>
@@ -255,7 +255,7 @@
           <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">10</span>
           <div>
             <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">深度调研与扫描</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #cdd9e2; border-radius:3px; color:#3a7ca5; background:#f1f6f8;">文档</span></div>
-            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">派发多个 overlapping 重叠主题的并行后台 Agent 以交叉验证检索信息。</p>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">并行运行多个后台 Agent，针对交叉重合的主题进行信息检索与多源核对。</p>
           </div>
           <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
             <button class="sk-copy" data-url="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_deep_research_survey.md" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">复制</button>
@@ -266,7 +266,7 @@
           <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">11</span>
           <div>
             <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">认知画像提取</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #cdd9e2; border-radius:3px; color:#3a7ca5; background:#f1f6f8;">文档</span></div>
-            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">通过多轮滚动从非结构化对话日志中提取可预测的认知公理与行为特征。</p>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">从非结构化的对话日志中，多轮提炼和总结人物的思考逻辑与行为特征。</p>
           </div>
           <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
             <button class="sk-copy" data-url="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_cognitive_profile_extraction.md" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">复制</button>
@@ -278,15 +278,15 @@
       <!-- GROUP 3 — OUTPUT & DELIVERY -->
       <div class="sk-group" data-group="output">
         <div style="display:flex; align-items:center; gap:16px; margin:34px 0 2px; padding:0 16px;">
-          <span style="font:600 11px 'IBM Plex Mono',monospace; letter-spacing:.16em; color:#1f6f8b; white-space:nowrap;">输出与交付 · 交付给人类产物</span>
+          <span style="font:600 11px 'IBM Plex Mono',monospace; letter-spacing:.16em; color:#1f6f8b; white-space:nowrap;">输出与交付 · 生成最终成果</span>
           <span style="font:600 11px 'IBM Plex Mono',monospace; color:#aeb6c1;">10</span>
           <span style="flex:1; height:1px; background:#e6eaef;"></span>
         </div>
         <div class="sk-row" data-category="output" data-search="gdocs-skill search publish share manage google docs markdown tab interfaces intake output" style="display:grid; grid-template-columns:34px 1fr auto; gap:18px; padding:18px 16px; border-bottom:1px solid #edf0f3; align-items:start; border-radius:5px;">
           <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">12</span>
           <div>
-            <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">gdocs-skill</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #d3d9e0; border-radius:3px; color:#7b8595;">仓库</span><span style="font:500 10px 'IBM Plex Mono',monospace; letter-spacing:.04em; color:#9aa3af;">↺ 还有输入</span></div>
-            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">在终端使用 Markdown 及标签页检索、发布、分享及管理 Google Docs。</p>
+            <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">gdocs-skill</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #d3d9e0; border-radius:3px; color:#7b8595;">仓库</span><span style="font:500 10px 'IBM Plex Mono',monospace; letter-spacing:.04em; color:#9aa3af;">↺ 兼有输入</span></div>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">在终端用 Markdown 格式检索、发布、分享和管理 Google Docs，支持标签页操作。</p>
           </div>
           <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
             <button class="sk-copy" data-url="https://github.com/grapeot/gdocs-skill" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">复制</button>
@@ -297,7 +297,7 @@
           <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">13</span>
           <div>
             <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">pptx.skill</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #d3d9e0; border-radius:3px; color:#7b8595;">仓库</span></div>
-            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">读取、修改并利用严格的排版规则渲染 PowerPoint 幻灯片。</p>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">读取、修改 PPTX 文件，并按照排版规则自动渲染 PowerPoint 幻灯片。</p>
           </div>
           <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
             <button class="sk-copy" data-url="https://github.com/grapeot/pptx.skill" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">复制</button>
@@ -308,7 +308,7 @@
           <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">14</span>
           <div>
             <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">presentation_skill</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #d3d9e0; border-radius:3px; color:#7b8595;">仓库</span></div>
-            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">创建 presentation deck：默认生成整页图像幻灯片，用户明确要求时 fallback 到 HTML module deck。</p>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">自动制作 PPT 幻灯片：默认生成整页图像幻灯片，亦可按需生成 HTML 模块化幻灯片。</p>
           </div>
           <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
             <button class="sk-copy" data-url="https://github.com/grapeot/presentation_skill" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">复制</button>
@@ -319,7 +319,7 @@
           <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">15</span>
           <div>
             <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">image-generation-skill</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #d3d9e0; border-radius:3px; color:#7b8595;">仓库</span></div>
-            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">基于 Gemini/GPT 生成文本图稿 Prompt、编辑并超分辨率无损放大图片。</p>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">调用 Gemini/GPT 生成绘图 Prompt、编辑图像，并对图片进行超分辨率无损放大。</p>
           </div>
           <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
             <button class="sk-copy" data-url="https://github.com/grapeot/image-generation-skill" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">复制</button>
@@ -330,7 +330,7 @@
           <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">16</span>
           <div>
             <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">tiff-icc-profile</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #d3d9e0; border-radius:3px; color:#7b8595;">仓库</span></div>
-            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">向未标记的 TIFF 图稿文件中自动嵌入默认的 P3-D65 或自定义 ICC 色彩配置。</p>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">为未标记的 TIFF 图像自动嵌入默认的 P3-D65 或自定义 ICC 色彩配置文件。</p>
           </div>
           <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
             <button class="sk-copy" data-url="https://github.com/grapeot/tiff-icc-profile" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">复制</button>
@@ -341,7 +341,7 @@
           <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">17</span>
           <div>
             <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">分享报告到 Web</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #cdd9e2; border-radius:3px; color:#3a7ca5; background:#f1f6f8;">文档</span></div>
-            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">将本地 Markdown 文件转为漂亮的 HTML 静态页并利用 SSH 发布到服务器。</p>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">将本地 Markdown 转换为精美的 HTML 静态页面，并通过 SSH 快速发布。</p>
           </div>
           <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
             <button class="sk-copy" data-url="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/share_report.md" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">复制</button>
@@ -363,7 +363,7 @@
           <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">19</span>
           <div>
             <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">imessage_skill</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #d3d9e0; border-radius:3px; color:#7b8595;">仓库</span></div>
-            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">在命令行发送 macOS iMessage，将联系人映射到本地私有配置文件以确保隐私。</p>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">通过命令行发送 macOS iMessage，支持将联系人映射到本地，避免暴露隐私。</p>
           </div>
           <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
             <button class="sk-copy" data-url="https://github.com/grapeot/imessage_skill" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">复制</button>
@@ -374,7 +374,7 @@
           <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">20</span>
           <div>
             <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">typefully-twitter-skill</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #d3d9e0; border-radius:3px; color:#7b8595;">仓库</span></div>
-            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">定时发布推文草稿、排队发送 X 多图推文，并拉取推文的互动 telemetry 数据。</p>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">定时发布推文、排队发送 X（Twitter）多图推文，并自动获取互动数据。</p>
           </div>
           <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
             <button class="sk-copy" data-url="https://github.com/grapeot/typefully-twitter-skill" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">复制</button>
@@ -386,7 +386,7 @@
           <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">21</span>
           <div>
             <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">iOS UI 自动化测试</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #cdd9e2; border-radius:3px; color:#3a7ca5; background:#f1f6f8;">文档</span></div>
-            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">基于 Xcode 模拟器构建、XCTest 自动化界面功能点击，以及无隐私泄漏的截图视觉核对。</p>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">在 Xcode 模拟器中运行 XCTest 实现自动点击，并进行无隐私泄露的截图视觉核对。</p>
           </div>
           <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
             <button class="sk-copy" data-url="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/ios_ui_automation.md" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">复制</button>
@@ -398,7 +398,7 @@
       <!-- GROUP 4 — INFRASTRUCTURE -->
       <div class="sk-group" data-group="infra">
         <div style="display:flex; align-items:center; gap:16px; margin:34px 0 2px; padding:0 16px;">
-          <span style="font:600 11px 'IBM Plex Mono',monospace; letter-spacing:.16em; color:#1f6f8b; white-space:nowrap;">基础设施 · 运行 Agent</span>
+          <span style="font:600 11px 'IBM Plex Mono',monospace; letter-spacing:.16em; color:#1f6f8b; white-space:nowrap;">系统基建 · 支撑 Agent 运行</span>
           <span style="font:600 11px 'IBM Plex Mono',monospace; color:#aeb6c1;">06</span>
           <span style="flex:1; height:1px; background:#e6eaef;"></span>
         </div>
@@ -406,7 +406,7 @@
           <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">24</span>
           <div>
             <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">process-launcher</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #d3d9e0; border-radius:3px; color:#7b8595;">仓库</span></div>
-            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">本地 HTTP 进程守护守护进程，用于桥接 GUI/TCC 权限、日志流和进程取消指令。</p>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">本地 HTTP 进程守护服务，用于桥接 GUI/TCC 权限、提供日志流及处理进程取消。</p>
           </div>
           <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
             <button class="sk-copy" data-url="https://github.com/grapeot/process-launcher" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">复制</button>
@@ -417,7 +417,7 @@
           <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">24</span>
           <div>
             <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">opencode_skill</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #d3d9e0; border-radius:3px; color:#7b8595;">仓库</span></div>
-            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">向 OpenCode 提交并监控任务状态，配置定时 cron 任务流水线及 SQLite 备份。</p>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">向 OpenCode 提交并监控任务，支持配置定时任务（cron）流水线与 SQLite 自动备份。</p>
           </div>
           <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
             <button class="sk-copy" data-url="https://github.com/grapeot/opencode_skill" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">复制</button>
@@ -428,7 +428,7 @@
           <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">24</span>
           <div>
             <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">opencode-docker</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #d3d9e0; border-radius:3px; color:#7b8595;">仓库</span></div>
-            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">提供 Docker 部署配置，用于快速将 OpenCode 运行环境容器化。</p>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">提供 Docker 部署配置，便于快速将 OpenCode 运行环境容器化。</p>
           </div>
           <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
             <button class="sk-copy" data-url="https://github.com/grapeot/opencode-docker" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">复制</button>
@@ -439,7 +439,7 @@
           <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">24</span>
           <div>
             <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">AI CLI Agent 实用指南</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #cdd9e2; border-radius:3px; color:#3a7ca5; background:#f1f6f8;">文档</span></div>
-            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">规范如何以文件作为接口契约来设计 CLI 脚本，以及处理 Agent 嵌套调用防死锁的机制。</p>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">规范如何以“文件作为接口”设计 CLI 脚本，并解决多层 Agent 嵌套调用的防死锁机制。</p>
           </div>
           <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
             <button class="sk-copy" data-url="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/ai_agent_cli_guide.md" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">复制</button>
@@ -450,7 +450,7 @@
           <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">29</span>
           <div>
             <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">并行 Subagent 工作流</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #cdd9e2; border-radius:3px; color:#3a7ca5; background:#f1f6f8;">文档</span></div>
-            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">多线程拆分任务以并发呼叫后台子智能体，免去轮询开销并隔离冲突。</p>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">将任务拆分并并发分派给后台子智能体，避免轮询等待并实现环境隔离。</p>
           </div>
           <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
             <button class="sk-copy" data-url="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_parallel_subagents.md" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">复制</button>
@@ -462,7 +462,7 @@
           <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">30</span>
           <div>
             <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">Claude Code CLI 指南</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #cdd9e2; border-radius:3px; color:#3a7ca5; background:#f1f6f8;">文档</span></div>
-            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">针对 Claude Code CLI 的最佳实践，包括非交互式调用命令、会话恢复、长任务超时管理与多层 Agent 嵌套防死锁设计。</p>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">总结 Claude Code CLI 的使用经验，涵盖非交互式调用、会话恢复、超时管理及防嵌套死锁设计。</p>
           </div>
           <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
             <button class="sk-copy" data-url="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/claude_code.md" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">复制</button>
@@ -474,7 +474,7 @@
       <!-- GROUP 5 — BEST PRACTICES -->
       <div class="sk-group" data-group="best">
         <div style="display:flex; align-items:center; gap:16px; margin:34px 0 2px; padding:0 16px;">
-          <span style="font:600 11px 'IBM Plex Mono',monospace; letter-spacing:.16em; color:#1f6f8b; white-space:nowrap;">最佳实践 · 高效工作</span>
+          <span style="font:600 11px 'IBM Plex Mono',monospace; letter-spacing:.16em; color:#1f6f8b; white-space:nowrap;">最佳实践 · 规范与方法论</span>
           <span style="font:600 11px 'IBM Plex Mono',monospace; color:#aeb6c1;">06</span>
           <span style="flex:1; height:1px; background:#e6eaef;"></span>
         </div>
@@ -482,7 +482,7 @@
           <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">29</span>
           <div>
             <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">AI 编程核心思维</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #cdd9e2; border-radius:3px; color:#3a7ca5; background:#f1f6f8;">文档</span></div>
-            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">剖析 70% 边界问题，阐明为什么「先写脚本，再让 Agent 跑脚本」的执行确定性更优。</p>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">分析 70% 边界问题，阐明为什么“先写脚本，再由 Agent 跑脚本”能获得更好的执行确定性。</p>
           </div>
           <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
             <button class="sk-copy" data-url="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_ai_programming_mindset.md" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">复制</button>
@@ -493,7 +493,7 @@
           <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">30</span>
           <div>
             <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">Skill 写作指南（Meta-Skill）</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #cdd9e2; border-radius:3px; color:#3a7ca5; background:#f1f6f8;">文档</span></div>
-            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">创建或重写 skill 时使用，强调结果确定性、验收标准和边界条件而非 SOP 步骤。</p>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">用于创建或改写 Skill，强调结果确定性、验收标准和边界条件，而非死板的 SOP 步骤。</p>
           </div>
           <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
             <button class="sk-copy" data-url="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_skill_writing.md" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">复制</button>
@@ -504,7 +504,7 @@
           <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">29</span>
           <div>
             <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">分阶段工作法</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #cdd9e2; border-radius:3px; color:#3a7ca5; background:#f1f6f8;">文档</span></div>
-            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">保持严格的“隔离-处理-验证”闭环，在执行可能具破坏性的操作前进行 Dry Run。</p>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">遵循“隔离-处理-验证”闭环，在执行可能具有破坏性的操作前强制进行 Dry Run。</p>
           </div>
           <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
             <button class="sk-copy" data-url="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_staged_approach.md" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">复制</button>
@@ -515,7 +515,7 @@
           <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">30</span>
           <div>
             <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">时间敏感信息验证</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #cdd9e2; border-radius:3px; color:#3a7ca5; background:#f1f6f8;">文档</span></div>
-            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">验证可能超出知识截止日期（knowledge cutoff）的实时敏感信息的可靠方案。</p>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">针对可能超出模型知识截止日期（Knowledge Cutoff）的时效性信息，提供可靠的核对方案。</p>
           </div>
           <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
             <button class="sk-copy" data-url="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_temporal_info_verification.md" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">复制</button>
@@ -526,7 +526,7 @@
           <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">31</span>
           <div>
             <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">项目脚手架与重整</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #cdd9e2; border-radius:3px; color:#3a7ca5; background:#f1f6f8;">文档</span></div>
-            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">把散装目录升级成标准项目结构（docs/、src/、scripts/、tests/）与独立 git。</p>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">将零散的目录重整为标准的项目结构（docs/、src/、scripts/、tests/）并配置独立 Git。</p>
           </div>
           <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
             <button class="sk-copy" data-url="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/project_scaffold.md" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">复制</button>
@@ -538,7 +538,7 @@
           <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">33</span>
           <div>
             <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">学术文献检索与转录</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #cdd9e2; border-radius:3px; color:#3a7ca5; background:#f1f6f8;">文档</span></div>
-            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">基于 arXiv ID 进行精确和模糊匹配检索，优先 HTML 抓取并转化为 Latex/Markdown 的质检规范。</p>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">支持基于 arXiv ID 的文献检索，规范了优先抓取 HTML 并转化为 LaTeX/Markdown 的质检流程。</p>
           </div>
           <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
             <button class="sk-copy" data-url="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_academic_paper_conversion.md" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">复制</button>
@@ -553,7 +553,7 @@
 
     <!-- FOOTER -->
     <footer style="margin-top:64px; padding-top:24px; border-top:1px solid #e6eaef; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; font:500 12px 'IBM Plex Mono',monospace; color:#9aa3af;">
-      <span>grapeot/skills · AI Agent 技能注册表</span>
+      <span>grapeot/skills · AI Agent 技能目录</span>
       <span>输入 → 分析 → 输出 · 文件即接口</span>
     </footer>
 
