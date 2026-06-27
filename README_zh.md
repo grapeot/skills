@@ -37,6 +37,7 @@
 * [resend_email_skill](https://github.com/grapeot/resend_email_skill) — Resend 自定义域名邮件发送器
 * [imessage_skill](https://github.com/grapeot/imessage_skill) — macOS iMessage 本地发信工具
 * [pptx.skill](https://github.com/grapeot/pptx.skill) — PPTX 幻灯片大纲修改器
+* [presentation_skill](https://github.com/grapeot/presentation_skill) — 默认图像生成、必要时 fallback 到 HTML 的 presentation deck skill
 * [image-generation-skill](https://github.com/grapeot/image-generation-skill) — AI 画图与高清放大工具
 * [tiff-icc-profile](https://github.com/grapeot/tiff-icc-profile) — TIFF 图像色彩配置文件嵌入器
 * [online-media-skill](https://github.com/grapeot/online-media-skill) — 视频下载与 Whisper 转录工具
