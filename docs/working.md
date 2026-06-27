@@ -3,6 +3,7 @@
 ## Changelog
 
 ### 2026-06-27
+- Updated the English and Chinese GitHub Pages headers so the page points to the source repository instead of sending readers back to the README.
 - Initialized repository scaffolding.
 - Created `AGENTS.md` and `.gitignore`.
 - Drafted Product Requirements Document (`docs/prd.md`).
