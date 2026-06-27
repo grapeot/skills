@@ -3,6 +3,9 @@
 ## Changelog
 
 ### 2026-06-27
+- Polished Chinese copywriting across `index_zh.html` and `README_zh.md` to improve natural flow and readability.
+- Replaced rigid, literal translations like "注册表" (Registry) with natural terms like "技能目录" (Directory) or "技能索引" (Index).
+- Reduced translationese, AI-like phrasing, and overused descriptors (e.g., "高度", "无缝", "多维", "确保", "范式") while keeping key technical terminology intact.
 - Added `presentation_skill` to the English and Chinese registry pages and README quick lists.
 - Updated the English and Chinese GitHub Pages headers so the page points to the source repository instead of sending readers back to the README.
 - Initialized repository scaffolding.
