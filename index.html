@@ -1,1017 +1,592 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Agent Skills Showcase</title>
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
-  <!-- Styles -->
-  <link rel="stylesheet" href="styles.css">
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
 </head>
 <body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;}
+    body{margin:0;}
+    ::selection{background:#cfe3ec;}
+    .sk-row:hover{background:#f3f7f9 !important;}
+    .sk-copy:hover{background:#e7f1f5 !important;}
+    .vlink:hover{color:#1f6f8b !important; border-color:#c8d7df !important;}
+    .read-link:hover{border-color:#1f6f8b !important; color:#1c2733 !important;}
+    .faq-q:hover{color:#1f6f8b !important;}
+    .sk-search::placeholder{color:#9aa3af;}
+  </style>
+</helmet>
 
-  <!-- Navigation -->
-  <nav class="top-nav">
-    <div class="brand">
-      <i data-lucide="sparkles"></i>
-      <span>AI Agent Skills</span>
+<div id="skillsPage" style="min-height:100vh; background:#f7f8fa; font-family:'IBM Plex Sans',sans-serif; color:#1c2733; -webkit-font-smoothing:antialiased;">
+
+  <!-- NAV -->
+  <nav style="display:flex; align-items:center; justify-content:space-between; padding:16px 32px; border-bottom:1px solid #e6eaef; background:#fbfcfd;">
+    <div style="display:flex; align-items:center; gap:10px;">
+      <span style="width:16px; height:16px; background:#1f6f8b; display:inline-block; border-radius:3px;"></span>
+      <span style="font:600 14px 'IBM Plex Mono',monospace; letter-spacing:.01em;">ai-agent-skills</span>
     </div>
-    <div class="nav-actions">
-      <a href="index_zh.html" class="lang-toggle">简体中文 (Chinese)</a>
-      <a href="https://github.com/grapeot/skills" class="btn-github" target="_blank">
-        <i data-lucide="github"></i>
-        <span>GitHub</span>
-      </a>
+    <div style="display:flex; align-items:center; gap:18px; font:500 12.5px 'IBM Plex Mono',monospace; color:#5b6675;">
+      <span><span style="color:#1c2733;">EN</span> <span style="color:#c2c9d2;">/</span> <a href="index_zh.html" style="color:#5b6675; text-decoration:none;">中文</a></span>
+      <a href="https://github.com/grapeot/skills" target="_blank" style="display:flex; align-items:center; gap:7px; padding:6px 13px; border:1px solid #d3d9e0; border-radius:4px; color:#1c2733; text-decoration:none;">GitHub ↗</a>
     </div>
   </nav>
 
-  <!-- Header -->
-  <header>
-    <h1>AI Agent Skills Registry & Showcase</h1>
-    <p>A platform-agnostic directory of modular rules and terminal CLI tools built on the progressive disclosure paradigm.</p>
-    <a href="https://github.com/grapeot/skills/blob/master/README.md" target="_blank" class="lang-toggle" style="display: inline-block; margin-top: 1rem;">
-      <i data-lucide="file-text" style="display: inline-block; vertical-align: middle; width: 16px; height: 16px; margin-right: 4px;"></i>
-      Read README.md
-    </a>
-  </header>
+  <div style="max-width:1080px; margin:0 auto; padding:0 28px 100px;">
 
-  <!-- Philosophy & FAQ Section -->
-  <section class="intro-faq-section">
-    <div class="philosophies">
-      <h2>Core Philosophy</h2>
-      <div class="philosophy-item">
-        <h3><i data-lucide="layers"></i>Platform-Agnosticism</h3>
-        <p>Unlike vendor-locked extensions in specific IDEs, our skills are plain Markdown instructions with optional CLI scripts. They run seamlessly in Cursor, Claude Code, OpenCode, or any custom terminal agent.</p>
-      </div>
-      <div class="philosophy-item">
-        <h3><i data-lucide="shield-check"></i>Process & Result Certainty</h3>
-        <p>Instead of relying on fuzzy prompts, our skill configurations define strict execution steps, error-handling heuristics, and checklists to guarantee highly predictable agent outcomes.</p>
-      </div>
-      <div class="philosophy-item">
-        <h3><i data-lucide="terminal"></i>Files-as-Interfaces</h3>
-        <p>All inputs and outputs are recorded as plain text files in your local workspace. This eliminates complex server infrastructure, keeping agent changes stateful and reviewable via Git.</p>
-      </div>
-      <div class="reading-links">
-        <a href="https://yage.ai/skill-first-en.html" target="_blank" class="reading-link">
-          <i data-lucide="link"></i>
-          <span>Read Blog: Write the Skill Before You Execute</span>
-        </a>
-        <a href="https://yage.ai/context-infrastructure.html" target="_blank" class="reading-link">
-          <i data-lucide="link"></i>
-          <span>Read Blog: Context Infrastructure & AI Cognition</span>
-        </a>
-      </div>
-    </div>
+    <!-- HEADER -->
+    <header style="padding:64px 4px 44px;">
+      <div style="font:600 11px 'IBM Plex Mono',monospace; letter-spacing:.22em; color:#1f6f8b; margin-bottom:20px;">THE&nbsp;REGISTRY &nbsp;·&nbsp; 29&nbsp;SKILLS &nbsp;·&nbsp; INTAKE → ANALYZE → OUTPUT</div>
+      <h1 style="margin:0 0 18px; font-size:46px; line-height:1.05; font-weight:700; letter-spacing:-.025em; text-wrap:balance;">AI Agent Skills<br>Registry &amp; Showcase</h1>
+      <p style="margin:0; font-size:17px; line-height:1.6; color:#5b6675; max-width:54ch;">A platform-agnostic directory of modular rules and terminal CLI tools built on the progressive disclosure paradigm.</p>
+      <a href="https://github.com/grapeot/skills/blob/master/README.md" target="_blank" class="read-link" style="display:inline-flex; align-items:center; gap:8px; margin-top:26px; padding:9px 15px; border:1px solid #d3d9e0; border-radius:5px; font:500 13px 'IBM Plex Mono',monospace; color:#46505f; text-decoration:none; background:#fbfcfd;">Read README.md ↗</a>
+    </header>
 
-    <div class="faqs">
-      <h2>Frequently Asked Questions</h2>
-      <div class="faq-item">
-        <button class="faq-question">How do I install a skill? <i data-lucide="chevron-down"></i></button>
-        <div class="faq-answer">
-          <p>Copy the GitHub URL of the skill and tell your agent in the terminal: "Read this repo's rules, clone it under adhoc_jobs/, map a symlink in rules/skills/, and register it in the index." The agent will fetch the code and link it automatically.</p>
+    <!-- PHILOSOPHY -->
+    <section style="padding:18px 0 8px;">
+      <h2 style="margin:0 0 26px; font-size:13px; font-weight:600; font-family:'IBM Plex Mono',monospace; letter-spacing:.14em; color:#1c2733;">CORE&nbsp;PHILOSOPHY</h2>
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:#e6eaef; border:1px solid #e6eaef; border-radius:6px; overflow:hidden;">
+        <div style="background:#fbfcfd; padding:24px 22px;">
+          <div style="font:600 10px 'IBM Plex Mono',monospace; letter-spacing:.12em; color:#1f6f8b; margin-bottom:14px;">01 / AGNOSTIC</div>
+          <h3 style="margin:0 0 10px; font-size:17px; font-weight:600; letter-spacing:-.01em;">Platform-Agnosticism</h3>
+          <p style="margin:0; font-size:13.5px; line-height:1.62; color:#6b7585;">Unlike vendor-locked extensions in specific IDEs, our skills are plain Markdown instructions with optional CLI scripts. They run seamlessly in Cursor, Claude Code, OpenCode, or any custom terminal agent.</p>
+        </div>
+        <div style="background:#fbfcfd; padding:24px 22px;">
+          <div style="font:600 10px 'IBM Plex Mono',monospace; letter-spacing:.12em; color:#1f6f8b; margin-bottom:14px;">02 / DETERMINISTIC</div>
+          <h3 style="margin:0 0 10px; font-size:17px; font-weight:600; letter-spacing:-.01em;">Process &amp; Result Certainty</h3>
+          <p style="margin:0; font-size:13.5px; line-height:1.62; color:#6b7585;">Instead of relying on fuzzy prompts, our skill configurations define strict execution steps, error-handling heuristics, and checklists to guarantee highly predictable agent outcomes.</p>
+        </div>
+        <div style="background:#fbfcfd; padding:24px 22px;">
+          <div style="font:600 10px 'IBM Plex Mono',monospace; letter-spacing:.12em; color:#1f6f8b; margin-bottom:14px;">03 / FILES</div>
+          <h3 style="margin:0 0 10px; font-size:17px; font-weight:600; letter-spacing:-.01em;">Files-as-Interfaces</h3>
+          <p style="margin:0; font-size:13.5px; line-height:1.62; color:#6b7585;">All inputs and outputs are recorded as plain text files in your local workspace. This eliminates complex server infrastructure, keeping agent changes stateful and reviewable via Git.</p>
         </div>
       </div>
-      <div class="faq-item">
-        <button class="faq-question">What is the local overlay? <i data-lucide="chevron-down"></i></button>
-        <div class="faq-answer">
-          <p>Public repositories only hold generic code contracts. All your local paths, API credentials, and personal aliases are stored in a private overlay file in your workspace, ensuring no private data gets leaked.</p>
+      <div style="display:flex; gap:12px; margin-top:18px; flex-wrap:wrap;">
+        <a href="https://yage.ai/skill-first-en.html" target="_blank" class="read-link" style="display:inline-flex; align-items:center; gap:9px; padding:11px 15px; border:1px solid #e0e4e9; border-radius:5px; font:500 13px 'IBM Plex Sans'; color:#46505f; text-decoration:none; background:#fbfcfd;"><span style="color:#1f6f8b; font-family:'IBM Plex Mono';">↳</span> Read Blog: Write the Skill Before You Execute</a>
+        <a href="https://yage.ai/context-infrastructure.html" target="_blank" class="read-link" style="display:inline-flex; align-items:center; gap:9px; padding:11px 15px; border:1px solid #e0e4e9; border-radius:5px; font:500 13px 'IBM Plex Sans'; color:#46505f; text-decoration:none; background:#fbfcfd;"><span style="color:#1f6f8b; font-family:'IBM Plex Mono';">↳</span> Read Blog: Context Infrastructure &amp; AI Cognition</a>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section style="padding:40px 0 8px;">
+      <h2 style="margin:0 0 20px; font-size:13px; font-weight:600; font-family:'IBM Plex Mono',monospace; letter-spacing:.14em; color:#1c2733;">FREQUENTLY&nbsp;ASKED&nbsp;QUESTIONS</h2>
+      <div style="border:1px solid #e6eaef; border-radius:6px; overflow:hidden; background:#fbfcfd; max-width:820px;">
+        <div style="border-bottom:1px solid #edf0f3;">
+          <button class="faq-q" style="width:100%; display:flex; align-items:center; justify-content:space-between; gap:12px; padding:17px 20px; background:none; border:none; cursor:pointer; font:600 14.5px 'IBM Plex Sans'; color:#1c2733; text-align:left;">How do I install a skill? <span class="faq-ic" style="font-family:'IBM Plex Mono'; color:#9aa3af; transition:transform .2s; transform:rotate(180deg);">⌄</span></button>
+          <div class="faq-a" style="display:block; padding:0 20px 18px; font-size:13.5px; line-height:1.65; color:#6b7585;">Copy the GitHub URL of the skill and tell your agent in the terminal: "Read this repo's rules, clone it under adhoc_jobs/, map a symlink in rules/skills/, and register it in the index." The agent will fetch the code and link it automatically.</div>
+        </div>
+        <div style="border-bottom:1px solid #edf0f3;">
+          <button class="faq-q" style="width:100%; display:flex; align-items:center; justify-content:space-between; gap:12px; padding:17px 20px; background:none; border:none; cursor:pointer; font:600 14.5px 'IBM Plex Sans'; color:#1c2733; text-align:left;">What is the local overlay? <span class="faq-ic" style="font-family:'IBM Plex Mono'; color:#9aa3af; transition:transform .2s;">⌄</span></button>
+          <div class="faq-a" style="display:none; padding:0 20px 18px; font-size:13.5px; line-height:1.65; color:#6b7585;">Public repositories only hold generic code contracts. All your local paths, API credentials, and personal aliases are stored in a private overlay file in your workspace, ensuring no private data gets leaked.</div>
+        </div>
+        <div>
+          <button class="faq-q" style="width:100%; display:flex; align-items:center; justify-content:space-between; gap:12px; padding:17px 20px; background:none; border:none; cursor:pointer; font:600 14.5px 'IBM Plex Sans'; color:#1c2733; text-align:left;">Do I need to compile plugins? <span class="faq-ic" style="font-family:'IBM Plex Mono'; color:#9aa3af; transition:transform .2s;">⌄</span></button>
+          <div class="faq-a" style="display:none; padding:0 20px 18px; font-size:13.5px; line-height:1.65; color:#6b7585;">No. Skills are either pure text-based guidelines or plain Python CLI wrappers. They execute natively in any terminal session that the agent can spawn.</div>
         </div>
       </div>
-      <div class="faq-item">
-        <button class="faq-question">Do I need to compile plugins? <i data-lucide="chevron-down"></i></button>
-        <div class="faq-answer">
-          <p>No. Skills are either pure text-based guidelines or plain Python CLI wrappers. They execute natively in any terminal session that the agent can spawn.</p>
+    </section>
+
+    <!-- INSTALL — philosophy callout (detail is enforced inside the copied prompt) -->
+    <section style="padding:40px 0 8px;">
+      <div style="border:1px solid #e6eaef; border-radius:7px; background:#fbfcfd; padding:22px 24px; display:flex; gap:22px; align-items:flex-start; flex-wrap:wrap;">
+        <div style="flex:1; min-width:300px;">
+          <h2 style="margin:0 0 9px; font-size:13px; font-weight:600; font-family:'IBM Plex Mono',monospace; letter-spacing:.14em; color:#1c2733;">ONE-LINE&nbsp;INSTALL</h2>
+          <p style="margin:0; font-size:14.5px; line-height:1.62; color:#5b6675; max-width:62ch;">No IDE-specific slash commands. No invoking a skill just to install a skill. Hit <span style="font:600 12px 'IBM Plex Mono'; color:#1f6f8b;">copy</span> on any entry and paste into your agent — the prompt already carries the full install procedure for that skill's type.</p>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:10px; font:500 12px 'IBM Plex Mono',monospace; color:#5b6675; min-width:230px;">
+          <div style="display:flex; align-items:baseline; gap:10px;">
+            <span style="font:500 9.5px 'IBM Plex Mono'; letter-spacing:.09em; padding:2px 7px; border:1px solid #d3d9e0; border-radius:3px; color:#7b8595;">REPO</span>
+            <span style="line-height:1.5;">clone &amp; symlink into <span style="color:#1c2733;">rules/skills/</span></span>
+          </div>
+          <div style="display:flex; align-items:baseline; gap:10px;">
+            <span style="font:500 9.5px 'IBM Plex Mono'; letter-spacing:.09em; padding:2px 7px; border:1px solid #cdd9e2; border-radius:3px; color:#3a7ca5; background:#f1f6f8;">DOC</span>
+            <span style="line-height:1.5;">place into your skill-discovery chain</span>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Installation Protocol Prompt Card -->
-  <section style="max-width: 1400px; margin: 0 auto 3rem auto; padding: 0 2rem;">
-    <div class="protocol-card">
-      <h2>One-Click Agent Installation Protocol</h2>
-      <p>Click copy, paste this instructions prompt block directly into your agent terminal or workspace rules to guide your agent in setting up any repository-based skill below.</p>
-      <div class="protocol-code">
-        <button class="protocol-code-btn" id="copyProtocolBtn" onclick="copyProtocol()">Copy Protocol</button>
-        <code id="protocolText">Install this public skill repo into my workspace:
-[GitHub Repository URL]
-
-Start from my workspace AGENTS.md. Follow any WORKSPACE.md routing rules. Clone or vendor the repo under an appropriate project directory. Expose exactly one root skill to my global rules/skills/ directory via a relative symlink. Keep private aliases, local paths, and credentials in a local overlay, not in the public repo.</code>
-      </div>
-    </div>
-  </section>
-
-  <!-- Controls -->
-  <section class="controls-container">
-    <div class="search-wrapper">
-      <i data-lucide="search" class="search-icon"></i>
-      <input type="text" id="searchInput" class="search-input" placeholder="Search skills, descriptions, or trigger queries...">
-    </div>
-    <div class="filter-pills">
-      <button class="filter-pill active" data-filter="all">All Skills</button>
-      <button class="filter-pill" data-filter="tool">🛠️ Tools & API Connectors</button>
-      <button class="filter-pill" data-filter="workflow">🔄 Agentic Workflows</button>
-      <button class="filter-pill" data-filter="bestpractice">💡 Best Practices</button>
-    </div>
-  </section>
-
-  <!-- Skills Grid -->
-  <main class="skills-grid" id="skillsGrid">
-    
-    <!-- 🛠️ API & Tools (Repositories) -->
-    <div class="skill-card" data-category="tool" data-name="tavily-skill">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="wrench"></i>Tool & API</span>
-          <span class="type-badge">Repo</span>
+    <!-- CONTROLS (sticky) -->
+    <section style="position:sticky; top:0; z-index:10; margin:44px 0 0; padding:18px 0 16px; background:rgba(247,248,250,.92); backdrop-filter:blur(8px); border-bottom:1px solid #e6eaef;">
+      <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap;">
+        <div style="position:relative; flex:1; min-width:240px;">
+          <span style="position:absolute; left:13px; top:50%; transform:translateY(-50%); font:500 13px 'IBM Plex Mono'; color:#9aa3af;">⌕</span>
+          <input id="skSearch" class="sk-search" type="text" placeholder="Search skills or descriptions…" style="width:100%; font:400 14px 'IBM Plex Sans'; padding:11px 14px 11px 34px; border:1px solid #d8dde3; border-radius:6px; background:#fff; color:#1c2733; outline:none;">
         </div>
-        <h3 class="card-title">Tavily Web Search</h3>
-        <p class="card-desc">Web search and HTML scraping optimizer returning developer-friendly JSON output structures for agent queries.</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/tavily-skill" target="_blank" class="btn-card btn-primary-card">View GitHub</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/tavily-skill', this)" title="Copy Installation Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="tool" data-name="gdocs-skill">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="wrench"></i>Tool & API</span>
-          <span class="type-badge">Repo</span>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <button class="sk-filter" data-filter="all" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; letter-spacing:.05em; padding:9px 14px; background:#1c2733; color:#fbfcfd; border:1px solid #1c2733; border-radius:5px;">ALL</button>
+          <button class="sk-filter" data-filter="intake" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; letter-spacing:.05em; padding:9px 14px; background:#fff; color:#5b6675; border:1px solid #d3d9e0; border-radius:5px;">INTAKE</button>
+          <button class="sk-filter" data-filter="analyze" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; letter-spacing:.05em; padding:9px 14px; background:#fff; color:#5b6675; border:1px solid #d3d9e0; border-radius:5px;">ANALYZE</button>
+          <button class="sk-filter" data-filter="output" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; letter-spacing:.05em; padding:9px 14px; background:#fff; color:#5b6675; border:1px solid #d3d9e0; border-radius:5px;">OUTPUT</button>
+          <button class="sk-filter" data-filter="infra" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; letter-spacing:.05em; padding:9px 14px; background:#fff; color:#5b6675; border:1px solid #d3d9e0; border-radius:5px;">INFRA</button>
+          <button class="sk-filter" data-filter="best" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; letter-spacing:.05em; padding:9px 14px; background:#fff; color:#5b6675; border:1px solid #d3d9e0; border-radius:5px;">PRACTICES</button>
         </div>
-        <h3 class="card-title">Google Docs Skill</h3>
-        <p class="card-desc">Integrates markdown documents, shares files, reads headings, and manages doc tabs natively via CLI.</p>
       </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/gdocs-skill" target="_blank" class="btn-card btn-primary-card">View GitHub</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/gdocs-skill', this)" title="Copy Installation Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
+    </section>
 
-    <div class="skill-card" data-category="tool" data-name="outlook_skill">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="wrench"></i>Tool & API</span>
-          <span class="type-badge">Repo</span>
+    <!-- REGISTRY -->
+    <main style="padding-top:4px;">
+
+      <p style="margin:18px 0 0; padding:0 16px; font:400 13.5px 'IBM Plex Sans'; line-height:1.6; color:#6b7585; max-width:74ch;">Organized along the agent's working flow — <span style="font:600 12px 'IBM Plex Mono'; color:#1f6f8b;">intake → analyze → output</span> — plus the infrastructure that runs it and the practices that guide it. A few skills serve more than one stage; those carry an <span style="font:500 11px 'IBM Plex Mono'; color:#9aa3af;">↺ also…</span> marker.</p>
+
+      <!-- GROUP 1 — INTAKE -->
+      <div class="sk-group" data-group="intake">
+        <div style="display:flex; align-items:center; gap:16px; margin:34px 0 2px; padding:0 16px;">
+          <span style="font:600 11px 'IBM Plex Mono',monospace; letter-spacing:.16em; color:#1f6f8b; white-space:nowrap;">INTAKE · CONTEXT IN</span>
+          <span style="font:600 11px 'IBM Plex Mono',monospace; color:#aeb6c1;">05</span>
+          <span style="flex:1; height:1px; background:#e6eaef;"></span>
         </div>
-        <h3 class="card-title">Outlook Mail & Calendar</h3>
-        <p class="card-desc">Extracts inbox messages, downloads attachment logs, sends template invites, and archives mail threads.</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/outlook_skill" target="_blank" class="btn-card btn-primary-card">View GitHub</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/outlook_skill', this)" title="Copy Installation Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="tool" data-name="resend_email_skill">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="wrench"></i>Tool & API</span>
-          <span class="type-badge">Repo</span>
+        <div class="sk-row" data-category="intake" data-search="intake-skill ingest voice recording notes local transcription organized audio logs context" style="display:grid; grid-template-columns:34px 1fr auto; gap:18px; padding:18px 16px; border-bottom:1px solid #edf0f3; align-items:start; border-radius:5px;">
+          <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">01</span>
+          <div>
+            <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">intake-skill</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #d3d9e0; border-radius:3px; color:#7b8595;">REPO</span></div>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">Ingest voice recording notes, run local transcription, and maintain organized audio logs.</p>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
+            <button class="sk-copy" data-url="https://github.com/grapeot/intake-skill" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">copy</button>
+            <a class="vlink" href="https://github.com/grapeot/intake-skill" target="_blank" style="text-decoration:none; font:600 12px 'IBM Plex Mono',monospace; color:#9aa3af; border:1px solid #e0e4e9; border-radius:4px; padding:6px 10px;">↗</a>
+          </div>
         </div>
-        <h3 class="card-title">Resend Custom Mailer</h3>
-        <p class="card-desc">Sends transactional markdown emails, checks attachment sizes, and retrieves domain verification flags.</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/resend_email_skill" target="_blank" class="btn-card btn-primary-card">View GitHub</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/resend_email_skill', this)" title="Copy Installation Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="tool" data-name="imessage_skill">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="wrench"></i>Tool & API</span>
-          <span class="type-badge">Repo</span>
+        <div class="sk-row" data-category="intake" data-search="outlook_skill download archive send outlook emails parse calendar invites format markdown context output" style="display:grid; grid-template-columns:34px 1fr auto; gap:18px; padding:18px 16px; border-bottom:1px solid #edf0f3; align-items:start; border-radius:5px;">
+          <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">02</span>
+          <div>
+            <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">outlook_skill</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #d3d9e0; border-radius:3px; color:#7b8595;">REPO</span><span style="font:500 10px 'IBM Plex Mono',monospace; letter-spacing:.04em; color:#9aa3af;">↺ also output</span></div>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">Download, archive, and send Outlook.com emails, parse calendar invites, and format Markdown.</p>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
+            <button class="sk-copy" data-url="https://github.com/grapeot/outlook_skill" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">copy</button>
+            <a class="vlink" href="https://github.com/grapeot/outlook_skill" target="_blank" style="text-decoration:none; font:600 12px 'IBM Plex Mono',monospace; color:#9aa3af; border:1px solid #e0e4e9; border-radius:4px; padding:6px 10px;">↗</a>
+          </div>
         </div>
-        <h3 class="card-title">macOS iMessage Link</h3>
-        <p class="card-desc">Sends instant messages via macOS iMessage CLI, resolving contacts locally to safeguard privacy.</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/imessage_skill" target="_blank" class="btn-card btn-primary-card">View GitHub</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/imessage_skill', this)" title="Copy Installation Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="tool" data-name="opencode_skill">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="wrench"></i>Tool & API</span>
-          <span class="type-badge">Repo</span>
+        <div class="sk-row" data-category="intake" data-search="online-media-skill download online videos asr transcription format query packs context" style="display:grid; grid-template-columns:34px 1fr auto; gap:18px; padding:18px 16px; border-bottom:1px solid #edf0f3; align-items:start; border-radius:5px;">
+          <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">03</span>
+          <div>
+            <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">online-media-skill</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #d3d9e0; border-radius:3px; color:#7b8595;">REPO</span></div>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">Download online videos, run ASR transcription, and format query packs.</p>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
+            <button class="sk-copy" data-url="https://github.com/grapeot/online-media-skill" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">copy</button>
+            <a class="vlink" href="https://github.com/grapeot/online-media-skill" target="_blank" style="text-decoration:none; font:600 12px 'IBM Plex Mono',monospace; color:#9aa3af; border:1px solid #e0e4e9; border-radius:4px; padding:6px 10px;">↗</a>
+          </div>
         </div>
-        <h3 class="card-title">OpenCode Task Controller</h3>
-        <p class="card-desc">Submits asynchronous operations, runs SQLite maintenance crons, and schedules backend jobs.</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/opencode_skill" target="_blank" class="btn-card btn-primary-card">View GitHub</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/opencode_skill', this)" title="Copy Installation Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="tool" data-name="process-launcher">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="wrench"></i>Tool & API</span>
-          <span class="type-badge">Repo</span>
+        <div class="sk-row" data-category="intake" data-search="pdf to markdown docling parser high-accuracy tabular layout extraction pdfs context" style="display:grid; grid-template-columns:34px 1fr auto; gap:18px; padding:18px 16px; border-bottom:1px solid #edf0f3; align-items:start; border-radius:5px;">
+          <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">04</span>
+          <div>
+            <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">PDF to Markdown</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #cdd9e2; border-radius:3px; color:#3a7ca5; background:#f1f6f8;">DOC</span></div>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">Employs Docling parser for high-accuracy tabular and layout extraction from PDFs.</p>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
+            <button class="sk-copy" data-url="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_pdf_to_markdown.md" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">copy</button>
+            <a class="vlink" href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_pdf_to_markdown.md" target="_blank" style="text-decoration:none; font:600 12px 'IBM Plex Mono',monospace; color:#9aa3af; border:1px solid #e0e4e9; border-radius:4px; padding:6px 10px;">↗</a>
+          </div>
         </div>
-        <h3 class="card-title">macOS Process Launcher</h3>
-        <p class="card-desc">Spawns persistent tasks locally, bypasses TCC sandbox permissions, and streams logs to SQLite.</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/process-launcher" target="_blank" class="btn-card btn-primary-card">View GitHub</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/process-launcher', this)" title="Copy Installation Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="tool" data-name="ai_usage_dashboard">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="wrench"></i>Tool & API</span>
-          <span class="type-badge">Repo</span>
+        <div class="sk-row" data-category="intake" data-search="semantic search skill retrieves workspace memory background knowledge vector database queries context recall" style="display:grid; grid-template-columns:34px 1fr auto; gap:18px; padding:18px 16px; align-items:start; border-radius:5px;">
+          <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">05</span>
+          <div>
+            <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">Semantic Search Skill</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #cdd9e2; border-radius:3px; color:#3a7ca5; background:#f1f6f8;">DOC</span></div>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">Retrieves workspace memory and background knowledge using vector database queries.</p>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
+            <button class="sk-copy" data-url="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/semantic_search.md" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">copy</button>
+            <a class="vlink" href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/semantic_search.md" target="_blank" style="text-decoration:none; font:600 12px 'IBM Plex Mono',monospace; color:#9aa3af; border:1px solid #e0e4e9; border-radius:4px; padding:6px 10px;">↗</a>
+          </div>
         </div>
-        <h3 class="card-title">AI Token Dashboard</h3>
-        <p class="card-desc">Extracts cross-platform token consumption, runs billing regressions, and displays cost charts.</p>
       </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/ai_usage_dashboard" target="_blank" class="btn-card btn-primary-card">View GitHub</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/ai_usage_dashboard', this)" title="Copy Installation Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
 
-    <div class="skill-card" data-category="tool" data-name="typefully-twitter-skill">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="wrench"></i>Tool & API</span>
-          <span class="type-badge">Repo</span>
+      <!-- GROUP 2 — ANALYZE & RESEARCH -->
+      <div class="sk-group" data-group="analyze">
+        <div style="display:flex; align-items:center; gap:16px; margin:34px 0 2px; padding:0 16px;">
+          <span style="font:600 11px 'IBM Plex Mono',monospace; letter-spacing:.16em; color:#1f6f8b; white-space:nowrap;">ANALYZE &amp; RESEARCH · DATA INTO INSIGHT</span>
+          <span style="font:600 11px 'IBM Plex Mono',monospace; color:#aeb6c1;">06</span>
+          <span style="flex:1; height:1px; background:#e6eaef;"></span>
         </div>
-        <h3 class="card-title">Typefully X Publisher</h3>
-        <p class="card-desc">Schedules draft tweets, posts multi-node threads, and scrapes tweet impression telemetry.</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/typefully-twitter-skill" target="_blank" class="btn-card btn-primary-card">View GitHub</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/typefully-twitter-skill', this)" title="Copy Installation Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="tool" data-name="stripe-skill">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="wrench"></i>Tool & API</span>
-          <span class="type-badge">Repo</span>
+        <div class="sk-row" data-category="analyze" data-search="stripe-skill read-only stripe sales metrics subscription trends logs finance analyze" style="display:grid; grid-template-columns:34px 1fr auto; gap:18px; padding:18px 16px; border-bottom:1px solid #edf0f3; align-items:start; border-radius:5px;">
+          <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">06</span>
+          <div>
+            <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">stripe-skill</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #d3d9e0; border-radius:3px; color:#7b8595;">REPO</span></div>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">Read-only Stripe integrations to extract sales metrics, subscription trends, and logs.</p>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
+            <button class="sk-copy" data-url="https://github.com/grapeot/stripe-skill" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">copy</button>
+            <a class="vlink" href="https://github.com/grapeot/stripe-skill" target="_blank" style="text-decoration:none; font:600 12px 'IBM Plex Mono',monospace; color:#9aa3af; border:1px solid #e0e4e9; border-radius:4px; padding:6px 10px;">↗</a>
+          </div>
         </div>
-        <h3 class="card-title">Stripe Finance Ledger</h3>
-        <p class="card-desc">Runs read-only queries to pull sales records, client transaction history, and subscription metrics.</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/stripe-skill" target="_blank" class="btn-card btn-primary-card">View GitHub</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/stripe-skill', this)" title="Copy Installation Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="tool" data-name="online-media-skill">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="wrench"></i>Tool & API</span>
-          <span class="type-badge">Repo</span>
+        <div class="sk-row" data-category="analyze" data-search="ai_usage_dashboard track cross-platform api token consumption estimate costs export stats analyze" style="display:grid; grid-template-columns:34px 1fr auto; gap:18px; padding:18px 16px; border-bottom:1px solid #edf0f3; align-items:start; border-radius:5px;">
+          <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">07</span>
+          <div>
+            <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">ai_usage_dashboard</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #d3d9e0; border-radius:3px; color:#7b8595;">REPO</span></div>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">Track cross-platform API token consumption, estimate costs, and export stats.</p>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
+            <button class="sk-copy" data-url="https://github.com/grapeot/ai_usage_dashboard" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">copy</button>
+            <a class="vlink" href="https://github.com/grapeot/ai_usage_dashboard" target="_blank" style="text-decoration:none; font:600 12px 'IBM Plex Mono',monospace; color:#9aa3af; border:1px solid #e0e4e9; border-radius:4px; padding:6px 10px;">↗</a>
+          </div>
         </div>
-        <h3 class="card-title">Online Media Ingestion</h3>
-        <p class="card-desc">Downloads web videos, triggers ASR transcription workflows, and outputs keyword search indexes.</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/online-media-skill" target="_blank" class="btn-card btn-primary-card">View GitHub</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/online-media-skill', this)" title="Copy Installation Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="tool" data-name="pptx.skill">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="wrench"></i>Tool & API</span>
-          <span class="type-badge">Repo</span>
+        <div class="sk-row" data-category="analyze" data-search="health-quantification apple health metrics caffeine sleep logs regressions local sqlite analyze" style="display:grid; grid-template-columns:34px 1fr auto; gap:18px; padding:18px 16px; border-bottom:1px solid #edf0f3; align-items:start; border-radius:5px;">
+          <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">08</span>
+          <div>
+            <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">health-quantification</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #d3d9e0; border-radius:3px; color:#7b8595;">REPO</span></div>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">Ingest Apple Health metrics, track caffeine/sleep logs, and run regressions in local SQLite.</p>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
+            <button class="sk-copy" data-url="https://github.com/grapeot/health-quantification" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">copy</button>
+            <a class="vlink" href="https://github.com/grapeot/health-quantification" target="_blank" style="text-decoration:none; font:600 12px 'IBM Plex Mono',monospace; color:#9aa3af; border:1px solid #e0e4e9; border-radius:4px; padding:6px 10px;">↗</a>
+          </div>
         </div>
-        <h3 class="card-title">PPTX Presentation Engine</h3>
-        <p class="card-desc">Edits PowerPoint document contents, swaps layout objects, and extracts slides into text outlines.</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/pptx.skill" target="_blank" class="btn-card btn-primary-card">View GitHub</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/pptx.skill', this)" title="Copy Installation Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="tool" data-name="image-generation-skill">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="wrench"></i>Tool & API</span>
-          <span class="type-badge">Repo</span>
+        <div class="sk-row" data-category="analyze" data-search="roest-analysis scrape roest coffee roaster api crack clusters chart roasting telemetry analyze" style="display:grid; grid-template-columns:34px 1fr auto; gap:18px; padding:18px 16px; border-bottom:1px solid #edf0f3; align-items:start; border-radius:5px;">
+          <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">09</span>
+          <div>
+            <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">roest-analysis</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #d3d9e0; border-radius:3px; color:#7b8595;">REPO</span></div>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">Scrape Roest coffee roaster API, detect crack clusters, and chart roasting telemetry.</p>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
+            <button class="sk-copy" data-url="https://github.com/grapeot/roest-analysis" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">copy</button>
+            <a class="vlink" href="https://github.com/grapeot/roest-analysis" target="_blank" style="text-decoration:none; font:600 12px 'IBM Plex Mono',monospace; color:#9aa3af; border:1px solid #e0e4e9; border-radius:4px; padding:6px 10px;">↗</a>
+          </div>
         </div>
-        <h3 class="card-title">AI Image Gen & Edit</h3>
-        <p class="card-desc">Generates text-to-image prompts, triggers local edit masks, and runs upscaling via Gemini/GPT.</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/image-generation-skill" target="_blank" class="btn-card btn-primary-card">View GitHub</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/image-generation-skill', this)" title="Copy Installation Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="tool" data-name="tiff-icc-profile">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="wrench"></i>Tool & API</span>
-          <span class="type-badge">Repo</span>
+        <div class="sk-row" data-category="analyze" data-search="deep research survey gathers info multiple parallel agents overlapping topics cross-validate knowledge work" style="display:grid; grid-template-columns:34px 1fr auto; gap:18px; padding:18px 16px; border-bottom:1px solid #edf0f3; align-items:start; border-radius:5px;">
+          <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">10</span>
+          <div>
+            <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">Deep Research &amp; Survey</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #cdd9e2; border-radius:3px; color:#3a7ca5; background:#f1f6f8;">DOC</span></div>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">Gathers info using multiple parallel agents with overlapping topics to cross-validate.</p>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
+            <button class="sk-copy" data-url="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_deep_research_survey.md" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">copy</button>
+            <a class="vlink" href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_deep_research_survey.md" target="_blank" style="text-decoration:none; font:600 12px 'IBM Plex Mono',monospace; color:#9aa3af; border:1px solid #e0e4e9; border-radius:4px; padding:6px 10px;">↗</a>
+          </div>
         </div>
-        <h3 class="card-title">TIFF Color Profile Link</h3>
-        <p class="card-desc">Embeds color profiles (P3-D65 PQ or custom spaces) into unmarked TIFF stills generated by DaVinci Resolve.</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/tiff-icc-profile" target="_blank" class="btn-card btn-primary-card">View GitHub</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/tiff-icc-profile', this)" title="Copy Installation Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="tool" data-name="health-quantification">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="wrench"></i>Tool & API</span>
-          <span class="type-badge">Repo</span>
+        <div class="sk-row" data-category="analyze" data-search="cognitive profile extraction iteratively extracts predictable cognitive axioms traits conversation logs knowledge work" style="display:grid; grid-template-columns:34px 1fr auto; gap:18px; padding:18px 16px; align-items:start; border-radius:5px;">
+          <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">11</span>
+          <div>
+            <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">Cognitive Profile Extraction</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #cdd9e2; border-radius:3px; color:#3a7ca5; background:#f1f6f8;">DOC</span></div>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">Iteratively extracts predictable cognitive axioms and traits from conversation logs.</p>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
+            <button class="sk-copy" data-url="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_cognitive_profile_extraction.md" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">copy</button>
+            <a class="vlink" href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_cognitive_profile_extraction.md" target="_blank" style="text-decoration:none; font:600 12px 'IBM Plex Mono',monospace; color:#9aa3af; border:1px solid #e0e4e9; border-radius:4px; padding:6px 10px;">↗</a>
+          </div>
         </div>
-        <h3 class="card-title">Apple Health Quantification</h3>
-        <p class="card-desc">Consolidates HealthKit data, sleep charts, and coffee logs into SQLite regressions to track life metrics.</p>
       </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/health-quantification" target="_blank" class="btn-card btn-primary-card">View GitHub</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/health-quantification', this)" title="Copy Installation Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
 
-    <div class="skill-card" data-category="tool" data-name="roest-analysis">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="wrench"></i>Tool & API</span>
-          <span class="type-badge">Repo</span>
+      <!-- GROUP 3 — OUTPUT & DELIVERY -->
+      <div class="sk-group" data-group="output">
+        <div style="display:flex; align-items:center; gap:16px; margin:34px 0 2px; padding:0 16px;">
+          <span style="font:600 11px 'IBM Plex Mono',monospace; letter-spacing:.16em; color:#1f6f8b; white-space:nowrap;">OUTPUT &amp; DELIVERY · ARTIFACTS FOR PEOPLE</span>
+          <span style="font:600 11px 'IBM Plex Mono',monospace; color:#aeb6c1;">08</span>
+          <span style="flex:1; height:1px; background:#e6eaef;"></span>
         </div>
-        <h3 class="card-title">Roest Roaster Telemetry</h3>
-        <p class="card-desc">Scrapes Roest API samples, calculates first crack aggregates, and plots roast logs.</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/roest-analysis" target="_blank" class="btn-card btn-primary-card">View GitHub</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/roest-analysis', this)" title="Copy Installation Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="tool" data-name="intake-skill">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="wrench"></i>Tool & API</span>
-          <span class="type-badge">Repo</span>
+        <div class="sk-row" data-category="output" data-search="gdocs-skill search publish share manage google docs markdown tab interfaces intake output" style="display:grid; grid-template-columns:34px 1fr auto; gap:18px; padding:18px 16px; border-bottom:1px solid #edf0f3; align-items:start; border-radius:5px;">
+          <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">12</span>
+          <div>
+            <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">gdocs-skill</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #d3d9e0; border-radius:3px; color:#7b8595;">REPO</span><span style="font:500 10px 'IBM Plex Mono',monospace; letter-spacing:.04em; color:#9aa3af;">↺ also intake</span></div>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">Search, publish, share, and manage Google Docs using Markdown and Tab interfaces.</p>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
+            <button class="sk-copy" data-url="https://github.com/grapeot/gdocs-skill" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">copy</button>
+            <a class="vlink" href="https://github.com/grapeot/gdocs-skill" target="_blank" style="text-decoration:none; font:600 12px 'IBM Plex Mono',monospace; color:#9aa3af; border:1px solid #e0e4e9; border-radius:4px; padding:6px 10px;">↗</a>
+          </div>
         </div>
-        <h3 class="card-title">Voice Intake Logger</h3>
-        <p class="card-desc">Processes audio voice notes, formats transcription files, and populates index archives.</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/intake-skill" target="_blank" class="btn-card btn-primary-card">View GitHub</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/intake-skill', this)" title="Copy Installation Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="tool" data-name="opencode-docker">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="wrench"></i>Tool & API</span>
-          <span class="type-badge">Repo</span>
+        <div class="sk-row" data-category="output" data-search="pptx.skill read write render slide decks strict design layouts powerpoint output" style="display:grid; grid-template-columns:34px 1fr auto; gap:18px; padding:18px 16px; border-bottom:1px solid #edf0f3; align-items:start; border-radius:5px;">
+          <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">13</span>
+          <div>
+            <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">pptx.skill</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #d3d9e0; border-radius:3px; color:#7b8595;">REPO</span></div>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">Read, write, and render slide decks with strict design layouts.</p>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
+            <button class="sk-copy" data-url="https://github.com/grapeot/pptx.skill" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">copy</button>
+            <a class="vlink" href="https://github.com/grapeot/pptx.skill" target="_blank" style="text-decoration:none; font:600 12px 'IBM Plex Mono',monospace; color:#9aa3af; border:1px solid #e0e4e9; border-radius:4px; padding:6px 10px;">↗</a>
+          </div>
         </div>
-        <h3 class="card-title">OpenCode Docker Template</h3>
-        <p class="card-desc">Docker deployment configuration files and environment templates to spin up OpenCode Server runtimes.</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/opencode-docker" target="_blank" class="btn-card btn-primary-card">View GitHub</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/opencode-docker', this)" title="Copy Installation Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <!-- 🛠️ API & Tools (Docs) -->
-    <div class="skill-card" data-category="tool" data-name="ai-cli-agent-guide">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="wrench"></i>Tool & API</span>
-          <span class="type-badge">Doc</span>
+        <div class="sk-row" data-category="output" data-search="image-generation-skill generate text-to-image prompts edit images upscale resolution gemini gpt output" style="display:grid; grid-template-columns:34px 1fr auto; gap:18px; padding:18px 16px; border-bottom:1px solid #edf0f3; align-items:start; border-radius:5px;">
+          <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">14</span>
+          <div>
+            <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">image-generation-skill</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #d3d9e0; border-radius:3px; color:#7b8595;">REPO</span></div>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">Generate text-to-image prompts, edit images, and upscale resolution via Gemini/GPT.</p>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
+            <button class="sk-copy" data-url="https://github.com/grapeot/image-generation-skill" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">copy</button>
+            <a class="vlink" href="https://github.com/grapeot/image-generation-skill" target="_blank" style="text-decoration:none; font:600 12px 'IBM Plex Mono',monospace; color:#9aa3af; border:1px solid #e0e4e9; border-radius:4px; padding:6px 10px;">↗</a>
+          </div>
         </div>
-        <h3 class="card-title">AI CLI Agent Guide</h3>
-        <p class="card-desc">Core rules defining files-as-interfaces layouts and nesting agent-to-agent terminal processes.</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/ai_agent_cli_guide.md" target="_blank" class="btn-card btn-primary-card">View Doc</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/ai_agent_cli_guide.md', this)" title="Copy Installation Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="tool" data-name="claude-code-guide">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="wrench"></i>Tool & API</span>
-          <span class="type-badge">Doc</span>
+        <div class="sk-row" data-category="output" data-search="tiff-icc-profile embed default p3-d65 custom icc color profiles unmarked tiff files output" style="display:grid; grid-template-columns:34px 1fr auto; gap:18px; padding:18px 16px; border-bottom:1px solid #edf0f3; align-items:start; border-radius:5px;">
+          <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">15</span>
+          <div>
+            <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">tiff-icc-profile</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #d3d9e0; border-radius:3px; color:#7b8595;">REPO</span></div>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">Embed default P3-D65 or custom ICC color profiles into unmarked TIFF files.</p>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
+            <button class="sk-copy" data-url="https://github.com/grapeot/tiff-icc-profile" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">copy</button>
+            <a class="vlink" href="https://github.com/grapeot/tiff-icc-profile" target="_blank" style="text-decoration:none; font:600 12px 'IBM Plex Mono',monospace; color:#9aa3af; border:1px solid #e0e4e9; border-radius:4px; padding:6px 10px;">↗</a>
+          </div>
         </div>
-        <h3 class="card-title">Claude Code CLI Guide</h3>
-        <p class="card-desc">Runtime optimization rules (adaptive thinking bypass, effort flags), nested agent recursion rules, and long task timeouts.</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/claude_code.md" target="_blank" class="btn-card btn-primary-card">View Doc</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/claude_code.md', this)" title="Copy Installation Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="tool" data-name="share-report">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="wrench"></i>Tool & API</span>
-          <span class="type-badge">Doc</span>
+        <div class="sk-row" data-category="output" data-search="share report to web converts markdown html pages deploys servers ssh publish output" style="display:grid; grid-template-columns:34px 1fr auto; gap:18px; padding:18px 16px; border-bottom:1px solid #edf0f3; align-items:start; border-radius:5px;">
+          <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">16</span>
+          <div>
+            <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">Share Report to Web</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #cdd9e2; border-radius:3px; color:#3a7ca5; background:#f1f6f8;">DOC</span></div>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">Converts Markdown to HTML pages and deploys to servers via SSH.</p>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
+            <button class="sk-copy" data-url="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/share_report.md" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">copy</button>
+            <a class="vlink" href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/share_report.md" target="_blank" style="text-decoration:none; font:600 12px 'IBM Plex Mono',monospace; color:#9aa3af; border:1px solid #e0e4e9; border-radius:4px; padding:6px 10px;">↗</a>
+          </div>
         </div>
-        <h3 class="card-title">Share Report to Web</h3>
-        <p class="card-desc">Converts markdown documents to static HTML templates and uploads them to servers via SSH.</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/share_report.md" target="_blank" class="btn-card btn-primary-card">View Doc</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/share_report.md', this)" title="Copy Installation Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="tool" data-name="semantic-search">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="wrench"></i>Tool & API</span>
-          <span class="type-badge">Doc</span>
+        <div class="sk-row" data-category="output" data-search="resend_email_skill send custom domain emails check attachments retrieve notifications deliver output" style="display:grid; grid-template-columns:34px 1fr auto; gap:18px; padding:18px 16px; border-bottom:1px solid #edf0f3; align-items:start; border-radius:5px;">
+          <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">17</span>
+          <div>
+            <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">resend_email_skill</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #d3d9e0; border-radius:3px; color:#7b8595;">REPO</span></div>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">Send custom domain emails, check attachments, and retrieve notifications.</p>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
+            <button class="sk-copy" data-url="https://github.com/grapeot/resend_email_skill" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">copy</button>
+            <a class="vlink" href="https://github.com/grapeot/resend_email_skill" target="_blank" style="text-decoration:none; font:600 12px 'IBM Plex Mono',monospace; color:#9aa3af; border:1px solid #e0e4e9; border-radius:4px; padding:6px 10px;">↗</a>
+          </div>
         </div>
-        <h3 class="card-title">Semantic Search Skill</h3>
-        <p class="card-desc">Retrieves contextual rules and data from vector databases using embedding queries.</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/semantic_search.md" target="_blank" class="btn-card btn-primary-card">View Doc</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/semantic_search.md', this)" title="Copy Installation Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="tool" data-name="compressor">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="wrench"></i>Tool & API</span>
-          <span class="type-badge">Doc</span>
+        <div class="sk-row" data-category="output" data-search="imessage_skill send macos imessages cli maps contacts local overlay names deliver output" style="display:grid; grid-template-columns:34px 1fr auto; gap:18px; padding:18px 16px; border-bottom:1px solid #edf0f3; align-items:start; border-radius:5px;">
+          <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">18</span>
+          <div>
+            <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">imessage_skill</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #d3d9e0; border-radius:3px; color:#7b8595;">REPO</span></div>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">Send macOS iMessages using CLI; maps contacts to local overlay names.</p>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
+            <button class="sk-copy" data-url="https://github.com/grapeot/imessage_skill" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">copy</button>
+            <a class="vlink" href="https://github.com/grapeot/imessage_skill" target="_blank" style="text-decoration:none; font:600 12px 'IBM Plex Mono',monospace; color:#9aa3af; border:1px solid #e0e4e9; border-radius:4px; padding:6px 10px;">↗</a>
+          </div>
         </div>
-        <h3 class="card-title">Apple Compressor Tool</h3>
-        <p class="card-desc">Orchestrates background media transcodes using Compressor command line presets.</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/compressor.md" target="_blank" class="btn-card btn-primary-card">View Doc</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/compressor.md', this)" title="Copy Installation Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="tool" data-name="delayed-execution">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="wrench"></i>Tool & API</span>
-          <span class="type-badge">Doc</span>
+        <div class="sk-row" data-category="output" data-search="typefully-twitter-skill schedule draft tweets queue threads fetch x twitter statistics publish output" style="display:grid; grid-template-columns:34px 1fr auto; gap:18px; padding:18px 16px; align-items:start; border-radius:5px;">
+          <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">19</span>
+          <div>
+            <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">typefully-twitter-skill</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #d3d9e0; border-radius:3px; color:#7b8595;">REPO</span></div>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">Schedule draft tweets, queue threads, and fetch X (Twitter) statistics.</p>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
+            <button class="sk-copy" data-url="https://github.com/grapeot/typefully-twitter-skill" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">copy</button>
+            <a class="vlink" href="https://github.com/grapeot/typefully-twitter-skill" target="_blank" style="text-decoration:none; font:600 12px 'IBM Plex Mono',monospace; color:#9aa3af; border:1px solid #e0e4e9; border-radius:4px; padding:6px 10px;">↗</a>
+          </div>
         </div>
-        <h3 class="card-title">Delayed Task Launcher</h3>
-        <p class="card-desc">Coordinates asynchronous deferred tasks and local daemon queues cleanly.</p>
       </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/delayed_execution.md" target="_blank" class="btn-card btn-primary-card">View Doc</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/delayed_execution.md', this)" title="Copy Installation Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
 
-    <div class="skill-card" data-category="tool" data-name="api-key-management">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="wrench"></i>Tool & API</span>
-          <span class="type-badge">Doc</span>
+      <!-- GROUP 4 — INFRASTRUCTURE -->
+      <div class="sk-group" data-group="infra">
+        <div style="display:flex; align-items:center; gap:16px; margin:34px 0 2px; padding:0 16px;">
+          <span style="font:600 11px 'IBM Plex Mono',monospace; letter-spacing:.16em; color:#1f6f8b; white-space:nowrap;">INFRASTRUCTURE · RUN THE AGENTS</span>
+          <span style="font:600 11px 'IBM Plex Mono',monospace; color:#aeb6c1;">05</span>
+          <span style="flex:1; height:1px; background:#e6eaef;"></span>
         </div>
-        <h3 class="card-title">1Password Credentials</h3>
-        <p class="card-desc">Safegaurds API keys by injecting credentials dynamically via 1Password CLI prompts.</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_api_key_management_1password_cli.md" target="_blank" class="btn-card btn-primary-card">View Doc</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_api_key_management_1password_cli.md', this)" title="Copy Installation Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="tool" data-name="gui-automation">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="wrench"></i>Tool & API</span>
-          <span class="type-badge">Doc</span>
+        <div class="sk-row" data-category="infra" data-search="process-launcher local http process daemon bridge gui tcc permissions logs cancellations runtime" style="display:grid; grid-template-columns:34px 1fr auto; gap:18px; padding:18px 16px; border-bottom:1px solid #edf0f3; align-items:start; border-radius:5px;">
+          <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">20</span>
+          <div>
+            <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">process-launcher</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #d3d9e0; border-radius:3px; color:#7b8595;">REPO</span></div>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">Local HTTP process daemon to bridge GUI/TCC permissions, logs, and process cancellations.</p>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
+            <button class="sk-copy" data-url="https://github.com/grapeot/process-launcher" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">copy</button>
+            <a class="vlink" href="https://github.com/grapeot/process-launcher" target="_blank" style="text-decoration:none; font:600 12px 'IBM Plex Mono',monospace; color:#9aa3af; border:1px solid #e0e4e9; border-radius:4px; padding:6px 10px;">↗</a>
+          </div>
         </div>
-        <h3 class="card-title">GUI Scripting Method</h3>
-        <p class="card-desc">Maps visual desktop states into scripting coordinates for platforms lacking official APIs.</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_gui_automation.md" target="_blank" class="btn-card btn-primary-card">View Doc</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_gui_automation.md', this)" title="Copy Installation Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="tool" data-name="pdf-to-markdown">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="wrench"></i>Tool & API</span>
-          <span class="type-badge">Doc</span>
+        <div class="sk-row" data-category="infra" data-search="opencode_skill submit monitor opencode tasks cron pipelines archive sqlite databases runtime" style="display:grid; grid-template-columns:34px 1fr auto; gap:18px; padding:18px 16px; border-bottom:1px solid #edf0f3; align-items:start; border-radius:5px;">
+          <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">21</span>
+          <div>
+            <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">opencode_skill</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #d3d9e0; border-radius:3px; color:#7b8595;">REPO</span></div>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">Submit and monitor OpenCode tasks, run cron pipelines, and archive SQLite databases.</p>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
+            <button class="sk-copy" data-url="https://github.com/grapeot/opencode_skill" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">copy</button>
+            <a class="vlink" href="https://github.com/grapeot/opencode_skill" target="_blank" style="text-decoration:none; font:600 12px 'IBM Plex Mono',monospace; color:#9aa3af; border:1px solid #e0e4e9; border-radius:4px; padding:6px 10px;">↗</a>
+          </div>
         </div>
-        <h3 class="card-title">PDF Semantic Parser</h3>
-        <p class="card-desc">Leverages the Docling engine for highly accurate tabular and structural PDF conversions.</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_pdf_to_markdown.md" target="_blank" class="btn-card btn-primary-card">View Doc</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_pdf_to_markdown.md', this)" title="Copy Installation Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="tool" data-name="project-scaffold">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="wrench"></i>Tool & API</span>
-          <span class="type-badge">Doc</span>
+        <div class="sk-row" data-category="infra" data-search="opencode-docker docker deployment configurations containerize opencode execution environments runtime" style="display:grid; grid-template-columns:34px 1fr auto; gap:18px; padding:18px 16px; border-bottom:1px solid #edf0f3; align-items:start; border-radius:5px;">
+          <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">22</span>
+          <div>
+            <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">opencode-docker</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #d3d9e0; border-radius:3px; color:#7b8595;">REPO</span></div>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">Docker deployment configurations to quickly containerize OpenCode execution environments.</p>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
+            <button class="sk-copy" data-url="https://github.com/grapeot/opencode-docker" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">copy</button>
+            <a class="vlink" href="https://github.com/grapeot/opencode-docker" target="_blank" style="text-decoration:none; font:600 12px 'IBM Plex Mono',monospace; color:#9aa3af; border:1px solid #e0e4e9; border-radius:4px; padding:6px 10px;">↗</a>
+          </div>
         </div>
-        <h3 class="card-title">Project Scaffolder</h3>
-        <p class="card-desc">Restructures loose workspace scripts into standardized folders under local Git tracking.</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/project_scaffold.md" target="_blank" class="btn-card btn-primary-card">View Doc</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/project_scaffold.md', this)" title="Copy Installation Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <!-- 🔄 Workflows -->
-    <div class="skill-card" data-category="workflow" data-name="parallel-subagents">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="shuffle"></i>Workflow</span>
-          <span class="type-badge">Doc</span>
+        <div class="sk-row" data-category="infra" data-search="ai cli agent guide architectural rules designing cli interfaces nesting agent-to-agent calls runtime" style="display:grid; grid-template-columns:34px 1fr auto; gap:18px; padding:18px 16px; border-bottom:1px solid #edf0f3; align-items:start; border-radius:5px;">
+          <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">23</span>
+          <div>
+            <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">AI CLI Agent Guide</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #cdd9e2; border-radius:3px; color:#3a7ca5; background:#f1f6f8;">DOC</span></div>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">Architectural rules for designing CLI interfaces and nesting agent-to-agent calls.</p>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
+            <button class="sk-copy" data-url="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/ai_agent_cli_guide.md" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">copy</button>
+            <a class="vlink" href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/ai_agent_cli_guide.md" target="_blank" style="text-decoration:none; font:600 12px 'IBM Plex Mono',monospace; color:#9aa3af; border:1px solid #e0e4e9; border-radius:4px; padding:6px 10px;">↗</a>
+          </div>
         </div>
-        <h3 class="card-title">Parallel Subagents</h3>
-        <p class="card-desc">Delegates isolated tasks to concurrent background subagents without polling bottlenecks.</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_parallel_subagents.md" target="_blank" class="btn-card btn-primary-card">View Doc</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_parallel_subagents.md', this)" title="Copy Installation Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="workflow" data-name="ios-ui-automation">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="shuffle"></i>Workflow</span>
-          <span class="type-badge">Doc</span>
+        <div class="sk-row" data-category="infra" data-search="parallel subagents orchestrates concurrent background subagents independent task branches runtime" style="display:grid; grid-template-columns:34px 1fr auto; gap:18px; padding:18px 16px; align-items:start; border-radius:5px;">
+          <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">24</span>
+          <div>
+            <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">Parallel Subagents</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #cdd9e2; border-radius:3px; color:#3a7ca5; background:#f1f6f8;">DOC</span></div>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">Orchestrates concurrent background subagents for independent task branches.</p>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
+            <button class="sk-copy" data-url="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_parallel_subagents.md" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">copy</button>
+            <a class="vlink" href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_parallel_subagents.md" target="_blank" style="text-decoration:none; font:600 12px 'IBM Plex Mono',monospace; color:#9aa3af; border:1px solid #e0e4e9; border-radius:4px; padding:6px 10px;">↗</a>
+          </div>
         </div>
-        <h3 class="card-title">iOS UI Automation</h3>
-        <p class="card-desc">Xcode simulator builds, XCTest UI click-through testing, and visual screenshot verification flows without private data leakage.</p>
       </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/ios_ui_automation.md" target="_blank" class="btn-card btn-primary-card">View Doc</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/ios_ui_automation.md', this)" title="Copy Installation Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
 
-    <div class="skill-card" data-category="workflow" data-name="deep-research">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="shuffle"></i>Workflow</span>
-          <span class="type-badge">Doc</span>
+      <!-- GROUP 5 — BEST PRACTICES -->
+      <div class="sk-group" data-group="best">
+        <div style="display:flex; align-items:center; gap:16px; margin:34px 0 2px; padding:0 16px;">
+          <span style="font:600 11px 'IBM Plex Mono',monospace; letter-spacing:.16em; color:#1f6f8b; white-space:nowrap;">BEST PRACTICES · WORK WELL</span>
+          <span style="font:600 11px 'IBM Plex Mono',monospace; color:#aeb6c1;">05</span>
+          <span style="flex:1; height:1px; background:#e6eaef;"></span>
         </div>
-        <h3 class="card-title">Deep Research Scan</h3>
-        <p class="card-desc">Scans, divides topics with overlap, and cross-validates findings to prevent agent hallucination.</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_deep_research_survey.md" target="_blank" class="btn-card btn-primary-card">View Doc</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_deep_research_survey.md', this)" title="Copy Installation Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="workflow" data-name="cognitive-profile">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="shuffle"></i>Workflow</span>
-          <span class="type-badge">Doc</span>
+        <div class="sk-row" data-category="best" data-search="ai programming mindset strategy 70% accuracy boundary script-writing priority practice" style="display:grid; grid-template-columns:34px 1fr auto; gap:18px; padding:18px 16px; border-bottom:1px solid #edf0f3; align-items:start; border-radius:5px;">
+          <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">25</span>
+          <div>
+            <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">AI Programming Mindset</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #cdd9e2; border-radius:3px; color:#3a7ca5; background:#f1f6f8;">DOC</span></div>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">Strategy detailing the 70% accuracy boundary and script-writing priority.</p>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
+            <button class="sk-copy" data-url="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_ai_programming_mindset.md" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">copy</button>
+            <a class="vlink" href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_ai_programming_mindset.md" target="_blank" style="text-decoration:none; font:600 12px 'IBM Plex Mono',monospace; color:#9aa3af; border:1px solid #e0e4e9; border-radius:4px; padding:6px 10px;">↗</a>
+          </div>
         </div>
-        <h3 class="card-title">Cognitive Profiler</h3>
-        <p class="card-desc">Extracts stable thought axioms and writing patterns from conversation history logs.</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_cognitive_profile_extraction.md" target="_blank" class="btn-card btn-primary-card">View Doc</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_cognitive_profile_extraction.md', this)" title="Copy Installation Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="workflow" data-name="bilibili-whisper">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="shuffle"></i>Workflow</span>
-          <span class="type-badge">Doc</span>
+        <div class="sk-row" data-category="best" data-search="skill writing guide meta-instructions reusable outcome-focused skill files practice" style="display:grid; grid-template-columns:34px 1fr auto; gap:18px; padding:18px 16px; border-bottom:1px solid #edf0f3; align-items:start; border-radius:5px;">
+          <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">26</span>
+          <div>
+            <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">Skill Writing Guide</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #cdd9e2; border-radius:3px; color:#3a7ca5; background:#f1f6f8;">DOC</span></div>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">Meta-instructions explaining how to write reusable, outcome-focused Skill files.</p>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
+            <button class="sk-copy" data-url="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_skill_writing.md" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">copy</button>
+            <a class="vlink" href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_skill_writing.md" target="_blank" style="text-decoration:none; font:600 12px 'IBM Plex Mono',monospace; color:#9aa3af; border:1px solid #e0e4e9; border-radius:4px; padding:6px 10px;">↗</a>
+          </div>
         </div>
-        <h3 class="card-title">Online Media ASR</h3>
-        <p class="card-desc">Automated video downloader, Whisper transcriber, and markdown document ingestion pipeline.</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_bilibili_whisper_transcription.md" target="_blank" class="btn-card btn-primary-card">View Doc</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_bilibili_whisper_transcription.md', this)" title="Copy Installation Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="workflow" data-name="external-writing">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="shuffle"></i>Workflow</span>
-          <span class="type-badge">Doc</span>
+        <div class="sk-row" data-category="best" data-search="staged workflow isolate-process-validate loop execute dry-runs code changes practice" style="display:grid; grid-template-columns:34px 1fr auto; gap:18px; padding:18px 16px; border-bottom:1px solid #edf0f3; align-items:start; border-radius:5px;">
+          <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">27</span>
+          <div>
+            <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">Staged Workflow</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #cdd9e2; border-radius:3px; color:#3a7ca5; background:#f1f6f8;">DOC</span></div>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">Maintains a strict "isolate-process-validate" loop to execute dry-runs on code changes.</p>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
+            <button class="sk-copy" data-url="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_staged_approach.md" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">copy</button>
+            <a class="vlink" href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_staged_approach.md" target="_blank" style="text-decoration:none; font:600 12px 'IBM Plex Mono',monospace; color:#9aa3af; border:1px solid #e0e4e9; border-radius:4px; padding:6px 10px;">↗</a>
+          </div>
         </div>
-        <h3 class="card-title">External Writing Flow</h3>
-        <p class="card-desc">Translates facts into highly structured, translation-free, high-opinion article drafts.</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_external_writing.md" target="_blank" class="btn-card btn-primary-card">View Doc</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_external_writing.md', this)" title="Copy Installation Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="workflow" data-name="internal-writing">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="shuffle"></i>Workflow</span>
-          <span class="type-badge">Doc</span>
+        <div class="sk-row" data-category="best" data-search="temporal verification guidelines verify information past model knowledge cutoff dates practice" style="display:grid; grid-template-columns:34px 1fr auto; gap:18px; padding:18px 16px; border-bottom:1px solid #edf0f3; align-items:start; border-radius:5px;">
+          <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">28</span>
+          <div>
+            <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">Temporal Verification</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #cdd9e2; border-radius:3px; color:#3a7ca5; background:#f1f6f8;">DOC</span></div>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">Guidelines to verify information lying past model knowledge cutoff dates.</p>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
+            <button class="sk-copy" data-url="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_temporal_info_verification.md" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">copy</button>
+            <a class="vlink" href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_temporal_info_verification.md" target="_blank" style="text-decoration:none; font:600 12px 'IBM Plex Mono',monospace; color:#9aa3af; border:1px solid #e0e4e9; border-radius:4px; padding:6px 10px;">↗</a>
+          </div>
         </div>
-        <h3 class="card-title">Internal Writing Flow</h3>
-        <p class="card-desc">Renders engineering notebooks, logs, and code document reviews with high precision.</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_internal_writing.md" target="_blank" class="btn-card btn-primary-card">View Doc</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_internal_writing.md', this)" title="Copy Installation Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="workflow" data-name="knowledge-flywheel">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="shuffle"></i>Workflow</span>
-          <span class="type-badge">Doc</span>
+        <div class="sk-row" data-category="best" data-search="project scaffold reorg scaffolds loose workspaces organized directories docs src tests practice" style="display:grid; grid-template-columns:34px 1fr auto; gap:18px; padding:18px 16px; align-items:start; border-radius:5px;">
+          <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">29</span>
+          <div>
+            <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">Project Scaffold &amp; Reorg</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #cdd9e2; border-radius:3px; color:#3a7ca5; background:#f1f6f8;">DOC</span></div>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">Scaffolds loose workspaces into organized directories (docs/, src/, tests/).</p>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
+            <button class="sk-copy" data-url="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/project_scaffold.md" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">copy</button>
+            <a class="vlink" href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/project_scaffold.md" target="_blank" style="text-decoration:none; font:600 12px 'IBM Plex Mono',monospace; color:#9aa3af; border:1px solid #e0e4e9; border-radius:4px; padding:6px 10px;">↗</a>
+          </div>
         </div>
-        <h3 class="card-title">Knowledge Flywheel</h3>
-        <p class="card-desc">Iteratively extracts facts from chat histories and updates structured workspace rules.</p>
       </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_knowledge_flywheel.md" target="_blank" class="btn-card btn-primary-card">View Doc</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_knowledge_flywheel.md', this)" title="Copy Installation Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
 
-    <div class="skill-card" data-category="workflow" data-name="presentation-slides">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="shuffle"></i>Workflow</span>
-          <span class="type-badge">Doc</span>
-        </div>
-        <h3 class="card-title">Gemini Slides Render</h3>
-        <p class="card-desc">8-way parallel slide generation, markdown-to-PPTX outline compile, and visual layouts.</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_presentation_slides.md" target="_blank" class="btn-card btn-primary-card">View Doc</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_presentation_slides.md', this)" title="Copy Installation Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
+      <div id="skEmpty" style="display:none; padding:60px 16px; text-align:center; font:500 14px 'IBM Plex Mono',monospace; color:#9aa3af;">No skills match your query.</div>
 
-    <!-- 💡 Best Practices -->
-    <div class="skill-card" data-category="bestpractice" data-name="programming-mindset">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="lightbulb"></i>Best Practice</span>
-          <span class="type-badge">Doc</span>
-        </div>
-        <h3 class="card-title">AI Programming Mindset</h3>
-        <p class="card-desc">Philosophy highlighting the 70% boundary and why running scripts is better than manual coding.</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_ai_programming_mindset.md" target="_blank" class="btn-card btn-primary-card">View Doc</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_ai_programming_mindset.md', this)" title="Copy Installation Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
+    </main>
 
-    <div class="skill-card" data-category="bestpractice" data-name="academic-paper-conversion">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="lightbulb"></i>Best Practice</span>
-          <span class="type-badge">Doc</span>
-        </div>
-        <h3 class="card-title">Academic Paper Ingestion</h3>
-        <p class="card-desc">arXiv ID query aggregation, HTML/PDF conversion to markdown via Docling/Tavily, and duplicate matching quality checks.</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_academic_paper_conversion.md" target="_blank" class="btn-card btn-primary-card">View Doc</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_academic_paper_conversion.md', this)" title="Copy Installation Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
+    <!-- FOOTER -->
+    <footer style="margin-top:64px; padding-top:24px; border-top:1px solid #e6eaef; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; font:500 12px 'IBM Plex Mono',monospace; color:#9aa3af;">
+      <span>grapeot/skills · AI Agent Skills Registry</span>
+      <span>intake → analyze → output · files-as-interfaces</span>
+    </footer>
 
-    <div class="skill-card" data-category="bestpractice" data-name="ai-debugging">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="lightbulb"></i>Best Practice</span>
-          <span class="type-badge">Doc</span>
-        </div>
-        <h3 class="card-title">AI Debugging Tree</h3>
-        <p class="card-desc">Decoupled diagnostics and root-cause decision tree when the agent gets stuck editing code.</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_ai_debugging_diagnosis.md" target="_blank" class="btn-card btn-primary-card">View Doc</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_ai_debugging_diagnosis.md', this)" title="Copy Installation Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="bestpractice" data-name="ai-product-design">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="lightbulb"></i>Best Practice</span>
-          <span class="type-badge">Doc</span>
-        </div>
-        <h3 class="card-title">AI Product Design</h3>
-        <p class="card-desc">Principles comparing linear Chat modes vs workspace layouts, and rules decoupling.</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_ai_product_design.md" target="_blank" class="btn-card btn-primary-card">View Doc</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_ai_product_design.md', this)" title="Copy Installation Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="bestpractice" data-name="interview-evaluation">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="lightbulb"></i>Best Practice</span>
-          <span class="type-badge">Doc</span>
-        </div>
-        <h3 class="card-title">Candidate Evaluation</h3>
-        <p class="card-desc">Hiring structures emphasizing builder traits, custom projects, and AI plagiarism detection.</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_interview_evaluation.md" target="_blank" class="btn-card btn-primary-card">View Doc</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_interview_evaluation.md', this)" title="Copy Installation Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="bestpractice" data-name="markdown-html">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="lightbulb"></i>Best Practice</span>
-          <span class="type-badge">Doc</span>
-        </div>
-        <h3 class="card-title">MD to HTML Conversion</h3>
-        <p class="card-desc">Local compile methods and publishing templates for static asset layouts.</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_markdown_html_conversion.md" target="_blank" class="btn-card btn-primary-card">View Doc</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_markdown_html_conversion.md', this)" title="Copy Installation Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="bestpractice" data-name="product-decision">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="lightbulb"></i>Best Practice</span>
-          <span class="type-badge">Doc</span>
-        </div>
-        <h3 class="card-title">Decision Reverse Engineering</h3>
-        <p class="card-desc">Reverse engineering constraints, trade-offs, and alternative design paths from output systems.</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_product_decision_analysis.md" target="_blank" class="btn-card btn-primary-card">View Doc</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_product_decision_analysis.md', this)" title="Copy Installation Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="bestpractice" data-name="skill-writing">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="lightbulb"></i>Best Practice</span>
-          <span class="type-badge">Doc</span>
-        </div>
-        <h3 class="card-title">Skill Writing Guide</h3>
-        <p class="card-desc">Meta-guidelines detailing how to structure readable, outcome-focused Skill Markdown files.</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_skill_writing.md" target="_blank" class="btn-card btn-primary-card">View Doc</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_skill_writing.md', this)" title="Copy Installation Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="bestpractice" data-name="staged-approach">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="lightbulb"></i>Best Practice</span>
-          <span class="type-badge">Doc</span>
-        </div>
-        <h3 class="card-title">Staged Execution</h3>
-        <p class="card-desc">Maintaining a strict "isolate-process-validate" loop to execute dry-runs on workspace alterations.</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_staged_approach.md" target="_blank" class="btn-card btn-primary-card">View Doc</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_staged_approach.md', this)" title="Copy Installation Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="bestpractice" data-name="temporal-verification">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="lightbulb"></i>Best Practice</span>
-          <span class="type-badge">Doc</span>
-        </div>
-        <h3 class="card-title">Temporal Verification</h3>
-        <p class="card-desc">Guidelines and patterns to search and verify data lying past model knowledge cutoff dates.</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_temporal_info_verification.md" target="_blank" class="btn-card btn-primary-card">View Doc</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_temporal_info_verification.md', this)" title="Copy Installation Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-  </main>
-
-  <!-- Script for Filtering, Search, and Copying -->
-  <script>
-    // Initialize Lucide Icons
-    lucide.createIcons();
-
-    // Toggle FAQ answers
-    const faqQuestions = document.querySelectorAll('.faq-question');
-    faqQuestions.forEach(question => {
-      question.addEventListener('click', () => {
-        const answer = question.nextElementSibling;
-        question.classList.toggle('active');
-        answer.classList.toggle('open');
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    const root = document.getElementById('skillsPage');
+    if (!root) return;
+    const search = root.querySelector('#skSearch');
+    const pills = [...root.querySelectorAll('.sk-filter')];
+    const rows = [...root.querySelectorAll('.sk-row')];
+    const groups = [...root.querySelectorAll('.sk-group')];
+    const empty = root.querySelector('#skEmpty');
+    let cat = 'all';
+    const apply = () => {
+      const q = (search.value || '').trim().toLowerCase();
+      let anyVisible = false;
+      rows.forEach(r => {
+        const okCat = cat === 'all' || r.dataset.category === cat;
+        const okQ = !q || (r.dataset.search || '').includes(q);
+        const vis = okCat && okQ;
+        r.style.display = vis ? '' : 'none';
+        if (vis) anyVisible = true;
+      });
+      groups.forEach(g => {
+        const vis = [...g.querySelectorAll('.sk-row')].some(r => r.style.display !== 'none');
+        g.style.display = vis ? '' : 'none';
+      });
+      if (empty) empty.style.display = anyVisible ? 'none' : 'block';
+    };
+    if (search) search.addEventListener('input', apply);
+    pills.forEach(p => p.addEventListener('click', () => {
+      cat = p.dataset.filter;
+      pills.forEach(x => { x.style.background = '#fff'; x.style.color = '#5b6675'; x.style.borderColor = '#d3d9e0'; });
+      p.style.background = '#1c2733'; p.style.color = '#fbfcfd'; p.style.borderColor = '#1c2733';
+      apply();
+    }));
+    root.querySelectorAll('.sk-copy').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const url = btn.dataset.url || '';
+        const isDoc = /\.md(\?|#|$)/.test(url);
+        this._copy(isDoc ? this._docPrompt(url) : this._repoPrompt(url));
+        const orig = btn.textContent;
+        btn.textContent = 'copied ✓';
+        btn.style.color = '#1f8a5b'; btn.style.borderColor = '#bfe0cd'; btn.style.background = '#eef8f2';
+        clearTimeout(btn._t);
+        btn._t = setTimeout(() => { btn.textContent = orig; btn.style.color = '#1f6f8b'; btn.style.borderColor = '#c8d7df'; btn.style.background = '#f1f6f8'; }, 1500);
       });
     });
-
-    // Copy prompt helper
-    function copyPrompt(repoUrl, buttonElement) {
-      const template = `Install this public skill repo into my workspace:
-${repoUrl}
-
-Start from my workspace AGENTS.md. Follow any WORKSPACE.md routing rules. Clone or vendor the repo under an appropriate project directory. Expose exactly one root skill to my global rules/skills/ directory via a relative symlink. Keep private aliases, local paths, and credentials in a local overlay, not in the public repo.`;
-      
-      navigator.clipboard.writeText(template).then(() => {
-        const icon = buttonElement.querySelector('i');
-        buttonElement.classList.add('copied');
-        buttonElement.innerHTML = '<i data-lucide="check" style="color: var(--accent-emerald)"></i>';
-        lucide.createIcons();
-        setTimeout(() => {
-          buttonElement.classList.remove('copied');
-          buttonElement.innerHTML = '<i data-lucide="copy"></i>';
-          lucide.createIcons();
-        }, 2000);
-      }).catch(err => {
-        console.error('Failed to copy text: ', err);
-      });
+    root.querySelectorAll('.faq-q').forEach(q => q.addEventListener('click', () => {
+      const a = q.nextElementSibling;
+      const open = a.style.display === 'block';
+      a.style.display = open ? 'none' : 'block';
+      const ic = q.querySelector('.faq-ic');
+      if (ic) ic.style.transform = open ? 'rotate(0deg)' : 'rotate(180deg)';
+    }));
+  }
+  _repoPrompt(url) {
+    return 'Install this public skill repo into my workspace:\n' + url +
+      '\n\nStart from my AGENTS.md and follow any WORKSPACE.md routing rules. Clone or vendor the repo under an appropriate directory (e.g. adhoc_jobs/). Expose exactly one root skill to my rules/skills/ via a relative symlink and register it in the rules index. Keep private aliases, paths, and credentials in a local overlay — never in the public repo.';
+  }
+  _docPrompt(url) {
+    return 'Install this standalone skill doc into my workspace:\n' + url +
+      '\n\nFirst explore the source repo structure and read this specific .md file to understand what it does. Then wire it into my local skill-discovery chain: trace how my workspace surfaces skills — start at AGENTS.md / CLAUDE.md and follow each include or reference down to rules/skills/ — and place this skill at the correct layer so the agent will actually discover it. Vendor the file under an appropriate directory and link/register it where that chain expects it.' +
+      '\n\nIf no such discovery chain or rules/skills/ structure exists yet, do NOT create it silently — first propose the directory structure you intend to create and ask me to approve it before writing anything. Keep private paths and credentials in a local overlay, not in the public repo.';
+  }
+  _copy(t) {
+    try { navigator.clipboard.writeText(t); }
+    catch (e) {
+      const ta = document.createElement('textarea');
+      ta.value = t; document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); } catch (_) {}
+      ta.remove();
     }
-
-    // Copy protocol instructions
-    function copyProtocol() {
-      const protocolText = document.getElementById('protocolText').innerText;
-      const copyBtn = document.getElementById('copyProtocolBtn');
-      navigator.clipboard.writeText(protocolText).then(() => {
-        copyBtn.innerText = 'Copied!';
-        setTimeout(() => {
-          copyBtn.innerText = 'Copy Protocol';
-        }, 2000);
-      });
-    }
-
-    // Filter Cards logic
-    const filterPills = document.querySelectorAll('.filter-pill');
-    const skillCards = document.querySelectorAll('.skill-card');
-    const searchInput = document.getElementById('searchInput');
-
-    function filterAndSearch() {
-      const query = searchInput.value.toLowerCase().trim();
-      const activeFilter = document.querySelector('.filter-pill.active').getAttribute('data-filter');
-
-      skillCards.forEach(card => {
-        const category = card.getAttribute('data-category');
-        const name = card.getAttribute('data-name').toLowerCase();
-        const title = card.querySelector('.card-title').innerText.toLowerCase();
-        const desc = card.querySelector('.card-desc').innerText.toLowerCase();
-
-        const matchesFilter = (activeFilter === 'all' || category === activeFilter);
-        const matchesSearch = (name.includes(query) || title.includes(query) || desc.includes(query));
-
-        if (matchesFilter && matchesSearch) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    }
-
-    filterPills.forEach(pill => {
-      pill.addEventListener('click', () => {
-        filterPills.forEach(p => p.classList.remove('active'));
-        pill.classList.add('active');
-        filterAndSearch();
-      });
-    });
-
-    searchInput.addEventListener('input', filterAndSearch);
-  </script>
+  }
+  renderVals() { return {}; }
+}
+</script>
 </body>
 </html>
