@@ -3,6 +3,7 @@
 ## Changelog
 
 ### 2026-06-27
+- Added `presentation_skill` to the English and Chinese registry pages and README quick lists.
 - Updated the English and Chinese GitHub Pages headers so the page points to the source repository instead of sending readers back to the README.
 - Initialized repository scaffolding.
 - Created `AGENTS.md` and `.gitignore`.
