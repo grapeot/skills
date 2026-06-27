@@ -9,9 +9,9 @@
 - Drafted Request for Comments (`docs/rfc.md`).
 - Prepared working log (`docs/working.md`).
 - Cleaned up link mapping to use the correct `main` branch for `context-infrastructure`.
-- Finalized architecture: retain classic template docs (Google Docs, Send Email, Share Report, Growth Analytics, Semantic Search) inside `context-infrastructure/rules/skills/` as reference implementations/overlays.
-- Restored Doc links and added Send Email, Share Report, Growth Analytics, and Semantic Search cards to the HTML web dashboards in the `skills` showcase repository.
-- Added `opencode-docker` under Agent operations in both showcase dashboards and `docs/SKILL_ECOSYSTEM.md`.
+- Finalized architecture: Retain core built-in skills (`Semantic Search` and `Share Report`) in `context-infrastructure`, while moving other setup-required ones (`Google Docs`, `Send Email`, `Growth Analytics`, `Typefully`) to standalone ecosystem repositories.
+- Updated `INDEX.md`, READMEs, and HTML dashboards accordingly, keeping `opencode-docker` in `SKILL_ECOSYSTEM.md` and both dashboards.
+- Merged upstream `main` changes and resolved PR conflicts for `context-infrastructure`.
 
 
 ## Lessons Learned
