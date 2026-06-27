@@ -1,31 +1,54 @@
-# PRD: Public AI Agent Skills Showcase
+# PRD: AI Agent Skills Showcase & Registry
 
-## 1. Objective
-Create a centralized hub (repository and web showcase) to display, search, and explain all public GitHub skills for AI agents in both English and Chinese. The project aims to explain the "Skill" concept—not as complex vendor-locked features, but as natural-language instructions with optional CLIs following the progressive disclosure paradigm—and list all active public skills with links.
+## 1. Objective & Target Audience
 
-## 2. Target Audience
-- **Developers & AI Builders**: Humans who want to understand what skills are available and how to install them in their workspaces.
-- **AI Coding Agents** (e.g., Claude Code, Cursor, OpenCode, Codex): Agents that receive instructions to install a specific skill and need to look up documentation and public repo locations.
+This project provides a centralized, high-aesthetic hub (both a markdown-first repository and a visual web showcase) to register, explain, and install public skills for AI coding agents.
 
-## 3. Key Requirements
-1. **Bilingual Documentation**: Support both English (default) and Chinese versions of documentation, cross-linked at the top of every view.
-2. **Double Exposure Formats**:
-   - **Markdown Hub (`README.md` / `README_zh.md`)**: Text-first view on GitHub, direct and easy for AI agents to parse.
-   - **Visual Showcase (`index.html` / `index_zh.html`)**: Rich visual experience served via GitHub Pages for humans.
-3. **Progressive Disclosure Explanation**: Teach users that a skill is just a markdown instruction file + an optional CLI/connector.
-4. **Curated Skills Directory**: A clean, categorized list of all public skills, including workflows, best practices, and API guides with working public GitHub URLs.
-5. **Premium Web Design**: The visual page on GitHub Pages must feel state-of-the-art:
-   - Modern typography (e.g., Outfit or Inter from Google Fonts).
-   - Rich color palettes (dark mode by default, gradient borders, subtle neon accents).
-   - Dynamic hover animations and micro-interactions.
-   - Glassmorphic card layouts.
-   - Responsive grid for different screen sizes.
+### Target Audience
+The system is designed for two first-class citizens:
+1. **AI Builders & Developers (Humans)**: Creators who want to understand the philosophy of skills, browse available tools, and quickly install them in their personal workspaces.
+2. **AI Coding Agents (Agents)**: Autonomous agents (e.g., Claude Code, Cursor, OpenCode) that navigate the repository to find skill registries, fetch repo URLs, read documentation, and execute installation instructions.
+
+---
+
+## 2. Core Philosophy (Our Differentiation)
+
+Unlike industry-standard integrations (like LangChain Tools, OpenAI Actions, or ChatGPT Plugins) which enforce heavy SDK bindings, API endpoints, or cloud hosting, our ecosystem is built on a different paradigm:
+
+### Progressive Disclosure
+A skill is not a complex piece of code. It starts as a simple text file (`SKILL.md`) outlining natural language instructions for the agent. Only when operations require automation do we append a lightweight CLI tool. There is no SDK lock-in; the core capability is the instruction set.
+
+### Files-as-Interfaces
+Skills interact with the workspace by reading and writing files rather than calling remote network endpoints or database sockets. Files are inspectable, recoverable, stateful, and naturally match the file-reading nature of coding agents.
+
+### Local-Overlay Architecture
+Public skill repositories define generic, stateless technical contracts. All private variables, local folder paths, credentials, and customized business context remain in a local overlay file in the user's private workspace. The public repository stays clean, secure, and shareable.
+
+---
+
+## 3. Core Features
+
+### Bilingual Showcase Hub
+The repository serves two representations of the registry:
+- **Markdown Index (`README.md` / `README_zh.md`)**: A text-first representation structured for AI agents to easily parse.
+- **Visual Dashboard (`index.html` / `index_zh.html`)**: A premium, responsive web experience served via GitHub Pages for human builders.
+
+### Categorized Skills Directory
+Skills are classified into three types:
+1. **API Guides & Connectors**: Tools interacting with external services (e.g., Google Docs, Outlook, Stripe, Typefully).
+2. **Workflows**: Comprehensive, multi-step procedures (e.g., Parallel Subagents, Deep Research, Slide Generation).
+3. **Best Practices**: Mindsets, debugging trees, and general principles (e.g., AI Programming Mindset, Skill Writing Guide).
+
+### One-Click Agent Installation Prompt
+Each card in the dashboard and entry in the README provides a copy-to-clipboard button generating a standardized prompt. A human builder copies this prompt and pastes it to their agent (e.g., Cursor or Claude Code). The agent then automatically:
+1. Clones/vendors the skill repository under `adhoc_jobs/`.
+2. Creates the local symbolic link in `rules/skills/` pointing to the public repository's skill guide.
+3. Configures local parameters or environment files.
+4. Registers the new skill in the workspace `INDEX.md`.
+
+---
 
 ## 4. Scope & Exclusions
-- **No Private Data**: Do not list private details, API keys, or private aliases.
-- **No Complex Frameworks**: The web pages are built purely with vanilla CSS and JS to ensure fast, zero-dependency deployment on GitHub Pages.
-- **No Native Tests Required**: As the project contains only HTML/CSS and Markdown files, no test suite is required at this stage.
-- **Ecosystem Segmentation**: 
-  - **Out-of-the-Box Skills**: Kept directly in `context-infrastructure` under `rules/skills/`. Limited strictly to generic methodologies (Best Practices and Workflows) that do not require external API keys, tools, or configuration.
-  - **Ecosystem / Setup-Required Skills**: Maintained in standalone public repositories (e.g. `gdocs-skill`, `typefully-twitter-skill`). These must be installed on-demand, keeping the core `context-infrastructure` clean of broken references or configuration overhead.
 
+- **Zero-Dependency Hosting**: The visual dashboard is implemented strictly with vanilla HTML, CSS, and JS to ensure fast loads and zero-build deployment on GitHub Pages.
+- **No Credentials**: No private endpoints, tokens, or credentials will be stored in the public repositories.
