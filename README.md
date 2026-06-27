@@ -48,6 +48,9 @@ Specialized CLIs and connectors that extend an agent's capability to read/write 
 | **opencode-docker** | Repo | Docker deployment helper for OpenCode server instances | [GitHub](https://github.com/grapeot/opencode-docker) |
 | **opencode_skill** | Repo | OpenCode session management, scheduling, and archiving tool | [GitHub](https://github.com/grapeot/opencode_skill) |
 | **AI CLI Agent Guide** | Doc | Core guidelines on files-as-interface design and AI-to-AI calls | [View File](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/ai_agent_cli_guide.md) |
+| **Send Email** | Doc | Sending notification emails to oneself using Gmail App Passwords | [View File](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/send_email.md) |
+| **Share Report** | Doc | Converting MD reports to HTML and publishing via SSH | [View File](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/share_report.md) |
+| **Growth Analytics Overlay** | Doc | Aggregating search (GSC), web (GA4), and mailing list statistics | [View File](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/growth_analytics.md) |
 
 ---
 

@@ -9,8 +9,9 @@
 - Drafted Request for Comments (`docs/rfc.md`).
 - Prepared working log (`docs/working.md`).
 - Cleaned up link mapping to use the correct `main` branch for `context-infrastructure`.
-- Updated PRD, RFC, and READMEs to separate "out-of-the-box" skills (generic workflows & best practices in context-infrastructure) from "setup-required" skills (standalone repositories).
-- Removed Send Email, Share Report, and Growth Analytics Overlay rows from the README hubs to prevent broken links due to context-infrastructure housekeeping.
+- Finalized architecture: retain classic template docs (Google Docs, Send Email, Share Report, Growth Analytics, Semantic Search) inside `context-infrastructure/rules/skills/` as reference implementations/overlays.
+- Restored Doc links and added Send Email, Share Report, Growth Analytics, and Semantic Search cards to the HTML web dashboards in the `skills` showcase repository.
+- Added `opencode-docker` under Agent operations in both showcase dashboards and `docs/SKILL_ECOSYSTEM.md`.
 
 
 ## Lessons Learned
