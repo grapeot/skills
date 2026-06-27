@@ -48,9 +48,8 @@
 | **opencode-docker** | 仓库 | OpenCode Server 的 Docker 快速部署与配置模版 | [GitHub](https://github.com/grapeot/opencode-docker) |
 | **opencode_skill** | 仓库 | OpenCode 会话管理、任务提交、备份与 SQLite 维护工具 | [GitHub](https://github.com/grapeot/opencode_skill) |
 | **AI CLI Agent 实用指南** | 文档 | 关于「文件即接口」设计模式及 AI 嵌套调用的核心最佳实践 | [查看文件](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/ai_agent_cli_guide.md) |
-| **给自己发邮件** | 文档 | 利用 Gmail App Password 快速向自己发送通知邮件的技能 | [查看文件](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/send_email.md) |
 | **分享报告到 Web** | 文档 | 将本地 Markdown 报告渲染为 HTML 并通过 SSH 部署发布的流程 | [查看文件](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/share_report.md) |
-| **增长数据分析 Overlay** | 文档 | 结合 GSC 搜索、GA4 流量和 Kit 邮件列表的本地分析配置 | [查看文件](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/growth_analytics.md) |
+| **向量语义搜索** | 文档 | 使用向量相似度检索工作区背景知识与记忆 | [查看文件](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/semantic_search.md) |
 
 ---
 
