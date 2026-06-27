@@ -1,1017 +1,592 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Agent 技能展示中心</title>
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700;800&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
-  <!-- Styles -->
-  <link rel="stylesheet" href="styles.css">
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
 </head>
 <body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;}
+    body{margin:0;}
+    ::selection{background:#cfe3ec;}
+    .sk-row:hover{background:#f3f7f9 !important;}
+    .sk-copy:hover{background:#e7f1f5 !important;}
+    .vlink:hover{color:#1f6f8b !important; border-color:#c8d7df !important;}
+    .read-link:hover{border-color:#1f6f8b !important; color:#1c2733 !important;}
+    .faq-q:hover{color:#1f6f8b !important;}
+    .sk-search::placeholder{color:#9aa3af;}
+  </style>
+</helmet>
 
-  <!-- Navigation -->
-  <nav class="top-nav">
-    <div class="brand">
-      <i data-lucide="sparkles"></i>
-      <span>AI Agent Skills</span>
+<div id="skillsPage" style="min-height:100vh; background:#f7f8fa; font-family:'IBM Plex Sans',sans-serif; color:#1c2733; -webkit-font-smoothing:antialiased;">
+
+  <!-- NAV -->
+  <nav style="display:flex; align-items:center; justify-content:space-between; padding:16px 32px; border-bottom:1px solid #e6eaef; background:#fbfcfd;">
+    <div style="display:flex; align-items:center; gap:10px;">
+      <span style="width:16px; height:16px; background:#1f6f8b; display:inline-block; border-radius:3px;"></span>
+      <span style="font:600 14px 'IBM Plex Mono',monospace; letter-spacing:.01em;">ai-agent-skills</span>
     </div>
-    <div class="nav-actions">
-      <a href="index.html" class="lang-toggle">English Version</a>
-      <a href="https://github.com/grapeot/skills" class="btn-github" target="_blank">
-        <i data-lucide="github"></i>
-        <span>GitHub</span>
-      </a>
+    <div style="display:flex; align-items:center; gap:18px; font:500 12.5px 'IBM Plex Mono',monospace; color:#5b6675;">
+      <span><a href="index.html" style="color:#5b6675; text-decoration:none;">EN</a> <span style="color:#c2c9d2;">/</span> <span style="color:#1c2733;">中文</span></span>
+      <a href="https://github.com/grapeot/skills" target="_blank" style="display:flex; align-items:center; gap:7px; padding:6px 13px; border:1px solid #d3d9e0; border-radius:4px; color:#1c2733; text-decoration:none;">GitHub ↗</a>
     </div>
   </nav>
 
-  <!-- Header -->
-  <header>
-    <h1>AI Agent 技能仓库与展示中心</h1>
-    <p>平台无关的模块化规则与终端 CLI 工具目录，遵循「渐进式披露」哲学，让 AI Agent 完美对齐人类判断。</p>
-    <a href="https://github.com/grapeot/skills/blob/master/README_zh.md" target="_blank" class="lang-toggle" style="display: inline-block; margin-top: 1rem;">
-      <i data-lucide="file-text" style="display: inline-block; vertical-align: middle; width: 16px; height: 16px; margin-right: 4px;"></i>
-      阅读中文 README.md
-    </a>
-  </header>
+  <div style="max-width:1080px; margin:0 auto; padding:0 28px 100px;">
 
-  <!-- Philosophy & FAQ Section -->
-  <section class="intro-faq-section">
-    <div class="philosophies">
-      <h2>核心哲学</h2>
-      <div class="philosophy-item">
-        <h3><i data-lucide="layers"></i>平台无关（Platform-Agnostic）</h3>
-        <p>不同于绑定特定 IDE 的插件，我们的技能是纯 Markdown 指南与轻量 CLI 脚本。这使得它可以在 Cursor、Claude Code、OpenCode 或任何自定义终端 Agent 中无缝运行。</p>
-      </div>
-      <div class="philosophy-item">
-        <h3><i data-lucide="shield-check"></i>过程与结果的确定性</h3>
-        <p>不依赖模糊的 Prompt 聊天，我们的技能文件定义了严密的执行步骤、异常处理分支与交付核对清单，确保 Agent 执行特定任务时结果高度 predictable。</p>
-      </div>
-      <div class="philosophy-item">
-        <h3><i data-lucide="terminal"></i>文件即接口 (Files-as-Interfaces)</h3>
-        <p>技能与工作区的交互通过读写文件进行。输入和输出均为工作区内的普通文本文件，天然适配 Git 版本控制，可随时进行审计、比对和版本回滚。</p>
-      </div>
-      <div class="reading-links">
-        <a href="https://yage.ai/skill-first.html" target="_blank" class="reading-link">
-          <i data-lucide="link"></i>
-          <span>阅读文章：用好AI的第二步：先写Skill再执行</span>
-        </a>
-        <a href="https://yage.ai/context-infrastructure.html" target="_blank" class="reading-link">
-          <i data-lucide="link"></i>
-          <span>阅读文章：上下文基础设施与 AI 逼出舒适区</span>
-        </a>
-      </div>
-    </div>
+    <!-- HEADER -->
+    <header style="padding:64px 4px 44px;">
+      <div style="font:600 11px 'IBM Plex Mono',monospace; letter-spacing:.22em; color:#1f6f8b; margin-bottom:20px;">注册表&nbsp;·&nbsp; 29&nbsp;个技能&nbsp;·&nbsp; 输入 → 分析 → 输出</div>
+      <h1 style="margin:0 0 18px; font-size:46px; line-height:1.05; font-weight:700; letter-spacing:-.025em; text-wrap:balance;">AI Agent 技能<br>注册表与展示中心</h1>
+      <p style="margin:0; font-size:17px; line-height:1.6; color:#5b6675; max-width:54ch;">一个基于渐进式披露范式构建的、跨平台的模块化规则与终端 CLI 工具目录。</p>
+      <a href="https://github.com/grapeot/skills/blob/master/README_zh.md" target="_blank" class="read-link" style="display:inline-flex; align-items:center; gap:8px; margin-top:26px; padding:9px 15px; border:1px solid #d3d9e0; border-radius:5px; font:500 13px 'IBM Plex Mono',monospace; color:#46505f; text-decoration:none; background:#fbfcfd;">阅读中文 README_zh.md ↗</a>
+    </header>
 
-    <div class="faqs">
-      <h2>常见问题解答 (FAQ)</h2>
-      <div class="faq-item">
-        <button class="faq-question">如何安装一个技能？ <i data-lucide="chevron-down"></i></button>
-        <div class="faq-answer">
-          <p>复制技能的 GitHub URL，并在终端 Agent 对话中输入：“读取此仓库的规则，克隆到 adhoc_jobs/，在 rules/skills/ 建立相对软链接，并注册进索引文件。” Agent 便会自动完成全部挂载。</p>
+    <!-- PHILOSOPHY -->
+    <section style="padding:18px 0 8px;">
+      <h2 style="margin:0 0 26px; font-size:13px; font-weight:600; font-family:'IBM Plex Mono',monospace; letter-spacing:.14em; color:#1c2733;">核心理念</h2>
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:#e6eaef; border:1px solid #e6eaef; border-radius:6px; overflow:hidden;">
+        <div style="background:#fbfcfd; padding:24px 22px;">
+          <div style="font:600 10px 'IBM Plex Mono',monospace; letter-spacing:.12em; color:#1f6f8b; margin-bottom:14px;">01 / 跨平台</div>
+          <h3 style="margin:0 0 10px; font-size:17px; font-weight:600; letter-spacing:-.01em;">平台无关性</h3>
+          <p style="margin:0; font-size:13.5px; line-height:1.62; color:#6b7585;">与特定 IDE 中厂商绑定的插件不同，我们的技能是纯 Markdown 指令加可选的 CLI 脚本。它们可以在 Cursor、Claude Code、OpenCode 或任何自定义终端 Agent 中无缝运行。</p>
+        </div>
+        <div style="background:#fbfcfd; padding:24px 22px;">
+          <div style="font:600 10px 'IBM Plex Mono',monospace; letter-spacing:.12em; color:#1f6f8b; margin-bottom:14px;">02 / 确定性</div>
+          <h3 style="margin:0 0 10px; font-size:17px; font-weight:600; letter-spacing:-.01em;">过程与结果确定性</h3>
+          <p style="margin:0; font-size:13.5px; line-height:1.62; color:#6b7585;">我们不依赖模糊的 Prompt，而是通过技能配置定义严格的执行步骤、错误处理启发式规则和核对清单，从而保证 Agent 输出的高度可预测性。</p>
+        </div>
+        <div style="background:#fbfcfd; padding:24px 22px;">
+          <div style="font:600 10px 'IBM Plex Mono',monospace; letter-spacing:.12em; color:#1f6f8b; margin-bottom:14px;">03 / 文件</div>
+          <h3 style="margin:0 0 10px; font-size:17px; font-weight:600; letter-spacing:-.01em;">文件即接口</h3>
+          <p style="margin:0; font-size:13.5px; line-height:1.62; color:#6b7585;">所有的输入和输出都作为纯文本文件记录在本地工作区中。这消除了复杂的服务器基础设施，保持了 Agent 变更的有状态性，并可通过 Git 进行审查。</p>
         </div>
       </div>
-      <div class="faq-item">
-        <button class="faq-question">什么是本地覆盖层 (Overlay)？ <i data-lucide="chevron-down"></i></button>
-        <div class="faq-answer">
-          <p>公共仓库中只定义通用的代码和接口契约。而你本地的私有路径、API 密钥以及联系人别名等敏感数据，均保存在本地私有的 overlay 配置文件中，避免泄漏风险。</p>
+      <div style="display:flex; gap:12px; margin-top:18px; flex-wrap:wrap;">
+        <a href="https://yage.ai/skill-first-en.html" target="_blank" class="read-link" style="display:inline-flex; align-items:center; gap:9px; padding:11px 15px; border:1px solid #e0e4e9; border-radius:5px; font:500 13px 'IBM Plex Sans'; color:#46505f; text-decoration:none; background:#fbfcfd;"><span style="color:#1f6f8b; font-family:'IBM Plex Mono';">↳</span> 阅读博客：先写 Skill 再执行</a>
+        <a href="https://yage.ai/context-infrastructure.html" target="_blank" class="read-link" style="display:inline-flex; align-items:center; gap:9px; padding:11px 15px; border:1px solid #e0e4e9; border-radius:5px; font:500 13px 'IBM Plex Sans'; color:#46505f; text-decoration:none; background:#fbfcfd;"><span style="color:#1f6f8b; font-family:'IBM Plex Mono';">↳</span> 阅读博客：为什么 AI 只会说正确的废话，以及怎么把它逼出舒适区</a>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section style="padding:40px 0 8px;">
+      <h2 style="margin:0 0 20px; font-size:13px; font-weight:600; font-family:'IBM Plex Mono',monospace; letter-spacing:.14em; color:#1c2733;">常见问题</h2>
+      <div style="border:1px solid #e6eaef; border-radius:6px; overflow:hidden; background:#fbfcfd; max-width:820px;">
+        <div style="border-bottom:1px solid #edf0f3;">
+          <button class="faq-q" style="width:100%; display:flex; align-items:center; justify-content:space-between; gap:12px; padding:17px 20px; background:none; border:none; cursor:pointer; font:600 14.5px 'IBM Plex Sans'; color:#1c2733; text-align:left;">如何安装技能？ <span class="faq-ic" style="font-family:'IBM Plex Mono'; color:#9aa3af; transition:transform .2s; transform:rotate(180deg);">⌄</span></button>
+          <div class="faq-a" style="display:block; padding:0 20px 18px; font-size:13.5px; line-height:1.65; color:#6b7585;">复制该技能的 GitHub URL 并在终端告诉你的 Agent：“阅读此仓库的规则，将其克隆至 adhoc_jobs/ 下，在 rules/skills/ 中映射一个相对软链接，并在 rules 索引中注册。” Agent 会自动拉取代码并进行链接。</div>
+        </div>
+        <div style="border-bottom:1px solid #edf0f3;">
+          <button class="faq-q" style="width:100%; display:flex; align-items:center; justify-content:space-between; gap:12px; padding:17px 20px; background:none; border:none; cursor:pointer; font:600 14.5px 'IBM Plex Sans'; color:#1c2733; text-align:left;">什么是本地覆盖（Local Overlay）？ <span class="faq-ic" style="font-family:'IBM Plex Mono'; color:#9aa3af; transition:transform .2s;">⌄</span></button>
+          <div class="faq-a" style="display:none; padding:0 20px 18px; font-size:13.5px; line-height:1.65; color:#6b7585;">公开仓库仅保留通用的代码契约。你所有的本地路径、API 凭证和个人别名都存储在工作区的私有覆盖（overlay）文件中，确保没有隐私数据泄露。</div>
+        </div>
+        <div>
+          <button class="faq-q" style="width:100%; display:flex; align-items:center; justify-content:space-between; gap:12px; padding:17px 20px; background:none; border:none; cursor:pointer; font:600 14.5px 'IBM Plex Sans'; color:#1c2733; text-align:left;">我需要编译插件吗？ <span class="faq-ic" style="font-family:'IBM Plex Mono'; color:#9aa3af; transition:transform .2s;">⌄</span></button>
+          <div class="faq-a" style="display:none; padding:0 20px 18px; font-size:13.5px; line-height:1.65; color:#6b7585;">不需要。技能要么是纯文本指南，要么是简单的 Python CLI 封装。它们在 Agent 可以派生的任何终端会话中原生执行。</div>
         </div>
       </div>
-      <div class="faq-item">
-        <button class="faq-question">我需要编译插件或包吗？ <i data-lucide="chevron-down"></i></button>
-        <div class="faq-answer">
-          <p>不需要。我们的技能要么是纯文本的操作规则，要么是免编译的 Python CLI 脚本。Agent 在终端会话中可以直接以原生命令行工具的形式来执行它们。</p>
+    </section>
+
+    <!-- INSTALL — philosophy callout (detail is enforced inside the copied prompt) -->
+    <section style="padding:40px 0 8px;">
+      <div style="border:1px solid #e6eaef; border-radius:7px; background:#fbfcfd; padding:22px 24px; display:flex; gap:22px; align-items:flex-start; flex-wrap:wrap;">
+        <div style="flex:1; min-width:300px;">
+          <h2 style="margin:0 0 9px; font-size:13px; font-weight:600; font-family:'IBM Plex Mono',monospace; letter-spacing:.14em; color:#1c2733;">单行安装</h2>
+          <p style="margin:0; font-size:14.5px; line-height:1.62; color:#5b6675; max-width:62ch;">无需特定 IDE 的斜杠命令，无需为了安装技能而调用另一个技能。点击任意条目上的 <span style="font:600 12px 'IBM Plex Mono'; color:#1f6f8b;">复制</span> 并粘贴给你的 Agent —— 复制的 Prompt 中已包含了该技能类型所需的完整安装流程。</p>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:10px; font:500 12px 'IBM Plex Mono',monospace; color:#5b6675; min-width:230px;">
+          <div style="display:flex; align-items:baseline; gap:10px;">
+            <span style="font:500 9.5px 'IBM Plex Mono'; letter-spacing:.09em; padding:2px 7px; border:1px solid #d3d9e0; border-radius:3px; color:#7b8595;">仓库</span>
+            <span style="line-height:1.5;">克隆并软链接至 <span style="color:#1c2733;">rules/skills/</span></span>
+          </div>
+          <div style="display:flex; align-items:baseline; gap:10px;">
+            <span style="font:500 9.5px 'IBM Plex Mono'; letter-spacing:.09em; padding:2px 7px; border:1px solid #cdd9e2; border-radius:3px; color:#3a7ca5; background:#f1f6f8;">文档</span>
+            <span style="line-height:1.5;">放置到你的技能发现链中</span>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Installation Protocol Prompt Card -->
-  <section style="max-width: 1400px; margin: 0 auto 3rem auto; padding: 0 2rem;">
-    <div class="protocol-card">
-      <h2>一键 Prompt 安装协议</h2>
-      <p>点击复制此 Prompt 块并直接粘贴至你的 Agent 对话框，引导 Agent 在工作区中自动下载并配置下方列出的任何工具型技能。</p>
-      <div class="protocol-code">
-        <button class="protocol-code-btn" id="copyProtocolBtn" onclick="copyProtocol()">复制协议 Prompt</button>
-        <code id="protocolText">Install this public skill repo into my workspace:
-[GitHub Repository URL]
-
-Start from my workspace AGENTS.md. Follow any WORKSPACE.md routing rules. Clone or vendor the repo under an appropriate project directory. Expose exactly one root skill to my global rules/skills/ directory via a relative symlink. Keep private aliases, local paths, and credentials in a local overlay, not in the public repo.</code>
-      </div>
-    </div>
-  </section>
-
-  <!-- Controls -->
-  <section class="controls-container">
-    <div class="search-wrapper">
-      <i data-lucide="search" class="search-icon"></i>
-      <input type="text" id="searchInput" class="search-input" placeholder="搜索技能、描述或命令关键字...">
-    </div>
-    <div class="filter-pills">
-      <button class="filter-pill active" data-filter="all">全部技能</button>
-      <button class="filter-pill" data-filter="tool">🛠️ 工具与 API 连接器</button>
-      <button class="filter-pill" data-filter="workflow">🔄 自动化工作流</button>
-      <button class="filter-pill" data-filter="bestpractice">💡 最佳实践指南</button>
-    </div>
-  </section>
-
-  <!-- Skills Grid -->
-  <main class="skills-grid" id="skillsGrid">
-    
-    <!-- 🛠️ API & Tools (Repositories) -->
-    <div class="skill-card" data-category="tool" data-name="tavily-skill">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="wrench"></i>工具 & API</span>
-          <span class="type-badge">仓库</span>
+    <!-- CONTROLS (sticky) -->
+    <section style="position:sticky; top:0; z-index:10; margin:44px 0 0; padding:18px 0 16px; background:rgba(247,248,250,.92); backdrop-filter:blur(8px); border-bottom:1px solid #e6eaef;">
+      <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap;">
+        <div style="position:relative; flex:1; min-width:240px;">
+          <span style="position:absolute; left:13px; top:50%; transform:translateY(-50%); font:500 13px 'IBM Plex Mono'; color:#9aa3af;">⌕</span>
+          <input id="skSearch" class="sk-search" type="text" placeholder="搜索技能或描述…" style="width:100%; font:400 14px 'IBM Plex Sans'; padding:11px 14px 11px 34px; border:1px solid #d8dde3; border-radius:6px; background:#fff; color:#1c2733; outline:none;">
         </div>
-        <h3 class="card-title">Tavily 网页搜索</h3>
-        <p class="card-desc">针对 AI Agent 优化的搜索引擎，能够直接拉取网页 HTML 并返回干净的 JSON 数据包。</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/tavily-skill" target="_blank" class="btn-card btn-primary-card">查看 GitHub</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/tavily-skill', this)" title="复制安装 Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="tool" data-name="gdocs-skill">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="wrench"></i>工具 & API</span>
-          <span class="type-badge">仓库</span>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <button class="sk-filter" data-filter="all" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; letter-spacing:.05em; padding:9px 14px; background:#1c2733; color:#fbfcfd; border:1px solid #1c2733; border-radius:5px;">全部</button>
+          <button class="sk-filter" data-filter="intake" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; letter-spacing:.05em; padding:9px 14px; background:#fff; color:#5b6675; border:1px solid #d3d9e0; border-radius:5px;">输入</button>
+          <button class="sk-filter" data-filter="analyze" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; letter-spacing:.05em; padding:9px 14px; background:#fff; color:#5b6675; border:1px solid #d3d9e0; border-radius:5px;">分析</button>
+          <button class="sk-filter" data-filter="output" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; letter-spacing:.05em; padding:9px 14px; background:#fff; color:#5b6675; border:1px solid #d3d9e0; border-radius:5px;">输出</button>
+          <button class="sk-filter" data-filter="infra" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; letter-spacing:.05em; padding:9px 14px; background:#fff; color:#5b6675; border:1px solid #d3d9e0; border-radius:5px;">基建</button>
+          <button class="sk-filter" data-filter="best" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; letter-spacing:.05em; padding:9px 14px; background:#fff; color:#5b6675; border:1px solid #d3d9e0; border-radius:5px;">最佳实践</button>
         </div>
-        <h3 class="card-title">Google Docs 技能</h3>
-        <p class="card-desc">支持 Agent 通过命令行在 Google Docs 中检索、修改和发布 Markdown 文档并管理文档标签页。</p>
       </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/gdocs-skill" target="_blank" class="btn-card btn-primary-card">查看 GitHub</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/gdocs-skill', this)" title="复制安装 Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
+    </section>
 
-    <div class="skill-card" data-category="tool" data-name="outlook_skill">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="wrench"></i>工具 & API</span>
-          <span class="type-badge">仓库</span>
+    <!-- REGISTRY -->
+    <main style="padding-top:4px;">
+
+      <p style="margin:18px 0 0; padding:0 16px; font:400 13.5px 'IBM Plex Sans'; line-height:1.6; color:#6b7585; max-width:74ch;">按照 Agent 的工作流程组织 —— <span style="font:600 12px 'IBM Plex Mono'; color:#1f6f8b;">输入 → 分析 → 输出</span> —— 加上运行它的基础设施以及指导工作的最佳实践。有少数技能服务于多个阶段，这些条目标有 <span style="font:500 11px 'IBM Plex Mono'; color:#9aa3af;">↺ 还有…</span> 标记。</p>
+
+      <!-- GROUP 1 — INTAKE -->
+      <div class="sk-group" data-group="intake">
+        <div style="display:flex; align-items:center; gap:16px; margin:34px 0 2px; padding:0 16px;">
+          <span style="font:600 11px 'IBM Plex Mono',monospace; letter-spacing:.16em; color:#1f6f8b; white-space:nowrap;">输入 · 上下文引入</span>
+          <span style="font:600 11px 'IBM Plex Mono',monospace; color:#aeb6c1;">05</span>
+          <span style="flex:1; height:1px; background:#e6eaef;"></span>
         </div>
-        <h3 class="card-title">Outlook 邮件与日历</h3>
-        <p class="card-desc">自动拉取收件箱邮件、处理日程邀请、发送 Markdown 格式邮件并归档往来讨论线索。</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/outlook_skill" target="_blank" class="btn-card btn-primary-card">查看 GitHub</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/outlook_skill', this)" title="复制安装 Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="tool" data-name="resend_email_skill">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="wrench"></i>工具 & API</span>
-          <span class="type-badge">仓库</span>
+        <div class="sk-row" data-category="intake" data-search="intake-skill ingest voice recording notes local transcription organized audio logs context" style="display:grid; grid-template-columns:34px 1fr auto; gap:18px; padding:18px 16px; border-bottom:1px solid #edf0f3; align-items:start; border-radius:5px;">
+          <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">01</span>
+          <div>
+            <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">intake-skill</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #d3d9e0; border-radius:3px; color:#7b8595;">仓库</span></div>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">提取录音便签、运行本地转录，并维护结构化的音频日志。</p>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
+            <button class="sk-copy" data-url="https://github.com/grapeot/intake-skill" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">复制</button>
+            <a class="vlink" href="https://github.com/grapeot/intake-skill" target="_blank" style="text-decoration:none; font:600 12px 'IBM Plex Mono',monospace; color:#9aa3af; border:1px solid #e0e4e9; border-radius:4px; padding:6px 10px;">↗</a>
+          </div>
         </div>
-        <h3 class="card-title">Resend 域名发信</h3>
-        <p class="card-desc">基于 Resend 服务发送自定义域名邮件，检查附件尺寸，并读取发信回执。</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/resend_email_skill" target="_blank" class="btn-card btn-primary-card">查看 GitHub</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/resend_email_skill', this)" title="复制安装 Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="tool" data-name="imessage_skill">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="wrench"></i>工具 & API</span>
-          <span class="type-badge">仓库</span>
+        <div class="sk-row" data-category="intake" data-search="outlook_skill download archive send outlook emails parse calendar invites format markdown context output" style="display:grid; grid-template-columns:34px 1fr auto; gap:18px; padding:18px 16px; border-bottom:1px solid #edf0f3; align-items:start; border-radius:5px;">
+          <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">02</span>
+          <div>
+            <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">outlook_skill</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #d3d9e0; border-radius:3px; color:#7b8595;">仓库</span><span style="font:500 10px 'IBM Plex Mono',monospace; letter-spacing:.04em; color:#9aa3af;">↺ 还有输出</span></div>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">下载、归档及发送 Outlook.com 邮件，解析日历邀请，并格式化为 Markdown。</p>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
+            <button class="sk-copy" data-url="https://github.com/grapeot/outlook_skill" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">复制</button>
+            <a class="vlink" href="https://github.com/grapeot/outlook_skill" target="_blank" style="text-decoration:none; font:600 12px 'IBM Plex Mono',monospace; color:#9aa3af; border:1px solid #e0e4e9; border-radius:4px; padding:6px 10px;">↗</a>
+          </div>
         </div>
-        <h3 class="card-title">macOS iMessage 发送</h3>
-        <p class="card-desc">在 macOS 终端下静默发送 iMessage，联系人别名配置与隐私数据完全保留在本地。</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/imessage_skill" target="_blank" class="btn-card btn-primary-card">查看 GitHub</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/imessage_skill', this)" title="复制安装 Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="tool" data-name="opencode_skill">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="wrench"></i>工具 & API</span>
-          <span class="type-badge">仓库</span>
+        <div class="sk-row" data-category="intake" data-search="online-media-skill download online videos asr transcription format query packs context" style="display:grid; grid-template-columns:34px 1fr auto; gap:18px; padding:18px 16px; border-bottom:1px solid #edf0f3; align-items:start; border-radius:5px;">
+          <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">03</span>
+          <div>
+            <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">online-media-skill</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #d3d9e0; border-radius:3px; color:#7b8595;">仓库</span></div>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">下载网络视频、运行 ASR 语音转文字，并格式化为知识库查询包。</p>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
+            <button class="sk-copy" data-url="https://github.com/grapeot/online-media-skill" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">复制</button>
+            <a class="vlink" href="https://github.com/grapeot/online-media-skill" target="_blank" style="text-decoration:none; font:600 12px 'IBM Plex Mono',monospace; color:#9aa3af; border:1px solid #e0e4e9; border-radius:4px; padding:6px 10px;">↗</a>
+          </div>
         </div>
-        <h3 class="card-title">OpenCode 任务控制</h3>
-        <p class="card-desc">提交并调度 OpenCode 的异步长时间任务，管理 recurring crons 并在本地整理 SQLite。</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/opencode_skill" target="_blank" class="btn-card btn-primary-card">查看 GitHub</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/opencode_skill', this)" title="复制安装 Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="tool" data-name="process-launcher">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="wrench"></i>工具 & API</span>
-          <span class="type-badge">仓库</span>
+        <div class="sk-row" data-category="intake" data-search="pdf to markdown docling parser high-accuracy tabular layout extraction pdfs context" style="display:grid; grid-template-columns:34px 1fr auto; gap:18px; padding:18px 16px; border-bottom:1px solid #edf0f3; align-items:start; border-radius:5px;">
+          <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">04</span>
+          <div>
+            <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">PDF 转 Markdown</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #cdd9e2; border-radius:3px; color:#3a7ca5; background:#f1f6f8;">文档</span></div>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">采用 Docling 解析器对 PDF 进行高精度的表格和版面布局提取。</p>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
+            <button class="sk-copy" data-url="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_pdf_to_markdown.md" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">复制</button>
+            <a class="vlink" href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_pdf_to_markdown.md" target="_blank" style="text-decoration:none; font:600 12px 'IBM Plex Mono',monospace; color:#9aa3af; border:1px solid #e0e4e9; border-radius:4px; padding:6px 10px;">↗</a>
+          </div>
         </div>
-        <h3 class="card-title">macOS 本地进程守护</h3>
-        <p class="card-desc">启动并桥接 macOS 软件的 GUI 权限，规避沙盒 TCC 弹窗阻碍，支持进程生命周期管理。</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/process-launcher" target="_blank" class="btn-card btn-primary-card">查看 GitHub</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/process-launcher', this)" title="复制安装 Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="tool" data-name="ai_usage_dashboard">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="wrench"></i>工具 & API</span>
-          <span class="type-badge">仓库</span>
+        <div class="sk-row" data-category="intake" data-search="semantic search skill retrieves workspace memory background knowledge vector database queries context recall" style="display:grid; grid-template-columns:34px 1fr auto; gap:18px; padding:18px 16px; align-items:start; border-radius:5px;">
+          <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">05</span>
+          <div>
+            <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">语义搜索技能</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #cdd9e2; border-radius:3px; color:#3a7ca5; background:#f1f6f8;">文档</span></div>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">使用向量数据库检索工作区长效记忆与背景知识。</p>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
+            <button class="sk-copy" data-url="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/semantic_search.md" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">复制</button>
+            <a class="vlink" href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/semantic_search.md" target="_blank" style="text-decoration:none; font:600 12px 'IBM Plex Mono',monospace; color:#9aa3af; border:1px solid #e0e4e9; border-radius:4px; padding:6px 10px;">↗</a>
+          </div>
         </div>
-        <h3 class="card-title">AI Token 记账面板</h3>
-        <p class="card-desc">聚合多平台的 AI 消耗额度，进行价格拟合分析，并在本地输出图形化消费看板。</p>
       </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/ai_usage_dashboard" target="_blank" class="btn-card btn-primary-card">查看 GitHub</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/ai_usage_dashboard', this)" title="复制安装 Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
 
-    <div class="skill-card" data-category="tool" data-name="typefully-twitter-skill">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="wrench"></i>工具 & API</span>
-          <span class="type-badge">仓库</span>
+      <!-- GROUP 2 — ANALYZE & RESEARCH -->
+      <div class="sk-group" data-group="analyze">
+        <div style="display:flex; align-items:center; gap:16px; margin:34px 0 2px; padding:0 16px;">
+          <span style="font:600 11px 'IBM Plex Mono',monospace; letter-spacing:.16em; color:#1f6f8b; white-space:nowrap;">分析与研究 · 数据转化为洞察</span>
+          <span style="font:600 11px 'IBM Plex Mono',monospace; color:#aeb6c1;">06</span>
+          <span style="flex:1; height:1px; background:#e6eaef;"></span>
         </div>
-        <h3 class="card-title">Typefully 推特联动</h3>
-        <p class="card-desc">自动排期推特草稿、发布多节点 Thread 并统计往期帖子曝光和粉丝增量数据。</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/typefully-twitter-skill" target="_blank" class="btn-card btn-primary-card">查看 GitHub</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/typefully-twitter-skill', this)" title="复制安装 Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="tool" data-name="stripe-skill">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="wrench"></i>工具 & API</span>
-          <span class="type-badge">仓库</span>
+        <div class="sk-row" data-category="analyze" data-search="stripe-skill read-only stripe sales metrics subscription trends logs finance analyze" style="display:grid; grid-template-columns:34px 1fr auto; gap:18px; padding:18px 16px; border-bottom:1px solid #edf0f3; align-items:start; border-radius:5px;">
+          <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">06</span>
+          <div>
+            <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">stripe-skill</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #d3d9e0; border-radius:3px; color:#7b8595;">仓库</span></div>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">只读 Stripe 服务端集成，提取销售数据指标、订阅趋势和操作日志。</p>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
+            <button class="sk-copy" data-url="https://github.com/grapeot/stripe-skill" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">复制</button>
+            <a class="vlink" href="https://github.com/grapeot/stripe-skill" target="_blank" style="text-decoration:none; font:600 12px 'IBM Plex Mono',monospace; color:#9aa3af; border:1px solid #e0e4e9; border-radius:4px; padding:6px 10px;">↗</a>
+          </div>
         </div>
-        <h3 class="card-title">Stripe 财务流水分析</h3>
-        <p class="card-desc">以只读模式查询 Stripe 的销售流水、用户订阅趋势，支持提取特定客户的历史单据。</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/stripe-skill" target="_blank" class="btn-card btn-primary-card">查看 GitHub</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/stripe-skill', this)" title="复制安装 Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="tool" data-name="online-media-skill">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="wrench"></i>工具 & API</span>
-          <span class="type-badge">仓库</span>
+        <div class="sk-row" data-category="analyze" data-search="ai_usage_dashboard track cross-platform api token consumption estimate costs export stats analyze" style="display:grid; grid-template-columns:34px 1fr auto; gap:18px; padding:18px 16px; border-bottom:1px solid #edf0f3; align-items:start; border-radius:5px;">
+          <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">07</span>
+          <div>
+            <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">ai_usage_dashboard</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #d3d9e0; border-radius:3px; color:#7b8595;">仓库</span></div>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">跨平台跟踪 API 令牌消耗，估算大模型使用成本并导出统计数据。</p>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
+            <button class="sk-copy" data-url="https://github.com/grapeot/ai_usage_dashboard" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">复制</button>
+            <a class="vlink" href="https://github.com/grapeot/ai_usage_dashboard" target="_blank" style="text-decoration:none; font:600 12px 'IBM Plex Mono',monospace; color:#9aa3af; border:1px solid #e0e4e9; border-radius:4px; padding:6px 10px;">↗</a>
+          </div>
         </div>
-        <h3 class="card-title">网络媒体语音转录</h3>
-        <p class="card-desc">下载网络视频，提取音频，使用 Whisper 执行本地 ASR 转录并构建 Markdown 索引包。</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/online-media-skill" target="_blank" class="btn-card btn-primary-card">查看 GitHub</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/online-media-skill', this)" title="复制安装 Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="tool" data-name="pptx.skill">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="wrench"></i>工具 & API</span>
-          <span class="type-badge">仓库</span>
+        <div class="sk-row" data-category="analyze" data-search="health-quantification apple health metrics caffeine sleep logs regressions local sqlite analyze" style="display:grid; grid-template-columns:34px 1fr auto; gap:18px; padding:18px 16px; border-bottom:1px solid #edf0f3; align-items:start; border-radius:5px;">
+          <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">08</span>
+          <div>
+            <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">health-quantification</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #d3d9e0; border-radius:3px; color:#7b8595;">仓库</span></div>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">导入 Apple Health 身体指标，追踪咖啡因/睡眠，并在本地 SQLite 中运行回归分析。</p>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
+            <button class="sk-copy" data-url="https://github.com/grapeot/health-quantification" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">复制</button>
+            <a class="vlink" href="https://github.com/grapeot/health-quantification" target="_blank" style="text-decoration:none; font:600 12px 'IBM Plex Mono',monospace; color:#9aa3af; border:1px solid #e0e4e9; border-radius:4px; padding:6px 10px;">↗</a>
+          </div>
         </div>
-        <h3 class="card-title">PPTX 演示文稿修改</h3>
-        <p class="card-desc">操作 PowerPoint 的底层幻灯片元素，更换排版板式，提取文稿的文字大纲。</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/pptx.skill" target="_blank" class="btn-card btn-primary-card">查看 GitHub</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/pptx.skill', this)" title="复制安装 Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="tool" data-name="image-generation-skill">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="wrench"></i>工具 & API</span>
-          <span class="type-badge">仓库</span>
+        <div class="sk-row" data-category="analyze" data-search="roest-analysis scrape roest coffee roaster api crack clusters chart roasting telemetry analyze" style="display:grid; grid-template-columns:34px 1fr auto; gap:18px; padding:18px 16px; border-bottom:1px solid #edf0f3; align-items:start; border-radius:5px;">
+          <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">09</span>
+          <div>
+            <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">roest-analysis</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #d3d9e0; border-radius:3px; color:#7b8595;">仓库</span></div>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">抓取 Roest 咖啡烘焙机 API，检测一爆时间簇，并绘制烘焙温度曲线。</p>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
+            <button class="sk-copy" data-url="https://github.com/grapeot/roest-analysis" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">复制</button>
+            <a class="vlink" href="https://github.com/grapeot/roest-analysis" target="_blank" style="text-decoration:none; font:600 12px 'IBM Plex Mono',monospace; color:#9aa3af; border:1px solid #e0e4e9; border-radius:4px; padding:6px 10px;">↗</a>
+          </div>
         </div>
-        <h3 class="card-title">AI 画图与图像处理</h3>
-        <p class="card-desc">自动润色画图 Prompt、生成高清配图、圈定区域进行局部修改重绘与无损放大。</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/image-generation-skill" target="_blank" class="btn-card btn-primary-card">查看 GitHub</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/image-generation-skill', this)" title="复制安装 Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="tool" data-name="tiff-icc-profile">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="wrench"></i>工具 & API</span>
-          <span class="type-badge">仓库</span>
+        <div class="sk-row" data-category="analyze" data-search="deep research survey gathers info multiple parallel agents overlapping topics cross-validate knowledge work" style="display:grid; grid-template-columns:34px 1fr auto; gap:18px; padding:18px 16px; border-bottom:1px solid #edf0f3; align-items:start; border-radius:5px;">
+          <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">10</span>
+          <div>
+            <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">深度调研与扫描</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #cdd9e2; border-radius:3px; color:#3a7ca5; background:#f1f6f8;">文档</span></div>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">派发多个 overlapping 重叠主题的并行后台 Agent 以交叉验证检索信息。</p>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
+            <button class="sk-copy" data-url="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_deep_research_survey.md" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">复制</button>
+            <a class="vlink" href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_deep_research_survey.md" target="_blank" style="text-decoration:none; font:600 12px 'IBM Plex Mono',monospace; color:#9aa3af; border:1px solid #e0e4e9; border-radius:4px; padding:6px 10px;">↗</a>
+          </div>
         </div>
-        <h3 class="card-title">TIFF 色彩配置文件嵌入</h3>
-        <p class="card-desc">批量为 DaVinci Resolve 生成的无标记 TIFF 图像嵌入默认 P3-D65 或自定义的 ICC 色彩配置。</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/tiff-icc-profile" target="_blank" class="btn-card btn-primary-card">查看 GitHub</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/tiff-icc-profile', this)" title="复制安装 Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="tool" data-name="health-quantification">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="wrench"></i>工具 & API</span>
-          <span class="type-badge">仓库</span>
+        <div class="sk-row" data-category="analyze" data-search="cognitive profile extraction iteratively extracts predictable cognitive axioms traits conversation logs knowledge work" style="display:grid; grid-template-columns:34px 1fr auto; gap:18px; padding:18px 16px; align-items:start; border-radius:5px;">
+          <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">11</span>
+          <div>
+            <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">认知画像提取</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #cdd9e2; border-radius:3px; color:#3a7ca5; background:#f1f6f8;">文档</span></div>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">通过多轮滚动从非结构化对话日志中提取可预测的认知公理与行为特征。</p>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
+            <button class="sk-copy" data-url="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_cognitive_profile_extraction.md" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">复制</button>
+            <a class="vlink" href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_cognitive_profile_extraction.md" target="_blank" style="text-decoration:none; font:600 12px 'IBM Plex Mono',monospace; color:#9aa3af; border:1px solid #e0e4e9; border-radius:4px; padding:6px 10px;">↗</a>
+          </div>
         </div>
-        <h3 class="card-title">Apple Health 数据量化</h3>
-        <p class="card-desc">汇总 HealthKit 的多维睡眠指标与咖啡因摄入量，通过 SQLite 进行回归以找出失眠原因。</p>
       </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/health-quantification" target="_blank" class="btn-card btn-primary-card">查看 GitHub</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/health-quantification', this)" title="复制安装 Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
 
-    <div class="skill-card" data-category="tool" data-name="roest-analysis">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="wrench"></i>工具 & API</span>
-          <span class="type-badge">仓库</span>
+      <!-- GROUP 3 — OUTPUT & DELIVERY -->
+      <div class="sk-group" data-group="output">
+        <div style="display:flex; align-items:center; gap:16px; margin:34px 0 2px; padding:0 16px;">
+          <span style="font:600 11px 'IBM Plex Mono',monospace; letter-spacing:.16em; color:#1f6f8b; white-space:nowrap;">输出与交付 · 交付给人类产物</span>
+          <span style="font:600 11px 'IBM Plex Mono',monospace; color:#aeb6c1;">08</span>
+          <span style="flex:1; height:1px; background:#e6eaef;"></span>
         </div>
-        <h3 class="card-title">Roest 烘焙数据抓取</h3>
-        <p class="card-desc">读取 Roest 智能烘焙机的温度曲线，识别一爆时间点，并绘制温度曲线与升温率图表。</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/roest-analysis" target="_blank" class="btn-card btn-primary-card">查看 GitHub</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/roest-analysis', this)" title="复制安装 Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="tool" data-name="intake-skill">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="wrench"></i>工具 & API</span>
-          <span class="type-badge">仓库</span>
+        <div class="sk-row" data-category="output" data-search="gdocs-skill search publish share manage google docs markdown tab interfaces intake output" style="display:grid; grid-template-columns:34px 1fr auto; gap:18px; padding:18px 16px; border-bottom:1px solid #edf0f3; align-items:start; border-radius:5px;">
+          <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">12</span>
+          <div>
+            <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">gdocs-skill</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #d3d9e0; border-radius:3px; color:#7b8595;">仓库</span><span style="font:500 10px 'IBM Plex Mono',monospace; letter-spacing:.04em; color:#9aa3af;">↺ 还有输入</span></div>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">在终端使用 Markdown 及标签页检索、发布、分享及管理 Google Docs。</p>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
+            <button class="sk-copy" data-url="https://github.com/grapeot/gdocs-skill" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">复制</button>
+            <a class="vlink" href="https://github.com/grapeot/gdocs-skill" target="_blank" style="text-decoration:none; font:600 12px 'IBM Plex Mono',monospace; color:#9aa3af; border:1px solid #e0e4e9; border-radius:4px; padding:6px 10px;">↗</a>
+          </div>
         </div>
-        <h3 class="card-title">语音日志自动化整理</h3>
-        <p class="card-desc">处理录音音频文件，调用 ASR 执行文本转录，并将提炼的大纲滚动存入结构化日志库。</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/intake-skill" target="_blank" class="btn-card btn-primary-card">查看 GitHub</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/intake-skill', this)" title="复制安装 Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="tool" data-name="opencode-docker">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="wrench"></i>工具 & API</span>
-          <span class="type-badge">仓库</span>
+        <div class="sk-row" data-category="output" data-search="pptx.skill read write render slide decks strict design layouts powerpoint output" style="display:grid; grid-template-columns:34px 1fr auto; gap:18px; padding:18px 16px; border-bottom:1px solid #edf0f3; align-items:start; border-radius:5px;">
+          <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">13</span>
+          <div>
+            <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">pptx.skill</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #d3d9e0; border-radius:3px; color:#7b8595;">仓库</span></div>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">读取、修改并利用严格的排版规则渲染 PowerPoint 幻灯片。</p>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
+            <button class="sk-copy" data-url="https://github.com/grapeot/pptx.skill" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">复制</button>
+            <a class="vlink" href="https://github.com/grapeot/pptx.skill" target="_blank" style="text-decoration:none; font:600 12px 'IBM Plex Mono',monospace; color:#9aa3af; border:1px solid #e0e4e9; border-radius:4px; padding:6px 10px;">↗</a>
+          </div>
         </div>
-        <h3 class="card-title">OpenCode Docker 镜像模板</h3>
-        <p class="card-desc">用以容器化部署 OpenCode 执行环境的 Dockerfile 及配套 compose 配置文件。</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/opencode-docker" target="_blank" class="btn-card btn-primary-card">查看 GitHub</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/opencode-docker', this)" title="复制安装 Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <!-- 🛠️ API & Tools (Docs) -->
-    <div class="skill-card" data-category="tool" data-name="ai-cli-agent-guide">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="wrench"></i>工具 & API</span>
-          <span class="type-badge">文档</span>
+        <div class="sk-row" data-category="output" data-search="image-generation-skill generate text-to-image prompts edit images upscale resolution gemini gpt output" style="display:grid; grid-template-columns:34px 1fr auto; gap:18px; padding:18px 16px; border-bottom:1px solid #edf0f3; align-items:start; border-radius:5px;">
+          <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">14</span>
+          <div>
+            <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">image-generation-skill</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #d3d9e0; border-radius:3px; color:#7b8595;">仓库</span></div>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">基于 Gemini/GPT 生成文本图稿 Prompt、编辑并超分辨率无损放大图片。</p>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
+            <button class="sk-copy" data-url="https://github.com/grapeot/image-generation-skill" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">复制</button>
+            <a class="vlink" href="https://github.com/grapeot/image-generation-skill" target="_blank" style="text-decoration:none; font:600 12px 'IBM Plex Mono',monospace; color:#9aa3af; border:1px solid #e0e4e9; border-radius:4px; padding:6px 10px;">↗</a>
+          </div>
         </div>
-        <h3 class="card-title">AI CLI 交互规则</h3>
-        <p class="card-desc">规范如何以文件作为接口契约来设计 CLI 脚本，以及处理 Agent 嵌套调用防死锁的机制。</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/ai_agent_cli_guide.md" target="_blank" class="btn-card btn-primary-card">查看文档</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/ai_agent_cli_guide.md', this)" title="复制安装 Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="tool" data-name="claude-code-guide">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="wrench"></i>工具 & API</span>
-          <span class="type-badge">文档</span>
+        <div class="sk-row" data-category="output" data-search="tiff-icc-profile embed default p3-d65 custom icc color profiles unmarked tiff files output" style="display:grid; grid-template-columns:34px 1fr auto; gap:18px; padding:18px 16px; border-bottom:1px solid #edf0f3; align-items:start; border-radius:5px;">
+          <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">15</span>
+          <div>
+            <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">tiff-icc-profile</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #d3d9e0; border-radius:3px; color:#7b8595;">仓库</span></div>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">向未标记的 TIFF 图稿文件中自动嵌入默认的 P3-D65 或自定义 ICC 色彩配置。</p>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
+            <button class="sk-copy" data-url="https://github.com/grapeot/tiff-icc-profile" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">复制</button>
+            <a class="vlink" href="https://github.com/grapeot/tiff-icc-profile" target="_blank" style="text-decoration:none; font:600 12px 'IBM Plex Mono',monospace; color:#9aa3af; border:1px solid #e0e4e9; border-radius:4px; padding:6px 10px;">↗</a>
+          </div>
         </div>
-        <h3 class="card-title">Claude Code CLI 指南</h3>
-        <p class="card-desc">针对 Claude Code CLI 的运行时优化配置（规避 adaptive thinking 缺陷）、非交互式调用命令与多层 Agent 嵌套防死锁设计。</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/claude_code.md" target="_blank" class="btn-card btn-primary-card">查看文档</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/claude_code.md', this)" title="复制安装 Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="tool" data-name="share-report">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="wrench"></i>工具 & API</span>
-          <span class="type-badge">文档</span>
+        <div class="sk-row" data-category="output" data-search="share report to web converts markdown html pages deploys servers ssh publish output" style="display:grid; grid-template-columns:34px 1fr auto; gap:18px; padding:18px 16px; border-bottom:1px solid #edf0f3; align-items:start; border-radius:5px;">
+          <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">16</span>
+          <div>
+            <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">分享报告到 Web</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #cdd9e2; border-radius:3px; color:#3a7ca5; background:#f1f6f8;">文档</span></div>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">将本地 Markdown 文件转为漂亮的 HTML 静态页并利用 SSH 发布到服务器。</p>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
+            <button class="sk-copy" data-url="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/share_report.md" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">复制</button>
+            <a class="vlink" href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/share_report.md" target="_blank" style="text-decoration:none; font:600 12px 'IBM Plex Mono',monospace; color:#9aa3af; border:1px solid #e0e4e9; border-radius:4px; padding:6px 10px;">↗</a>
+          </div>
         </div>
-        <h3 class="card-title">发布 Markdown 到 Web</h3>
-        <p class="card-desc">自动使用 Pandoc 将本地 Markdown 编译为 HTML 并通过 SSH 静默部署至远端服务器。</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/share_report.md" target="_blank" class="btn-card btn-primary-card">查看文档</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/share_report.md', this)" title="复制安装 Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="tool" data-name="semantic-search">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="wrench"></i>工具 & API</span>
-          <span class="type-badge">文档</span>
+        <div class="sk-row" data-category="output" data-search="resend_email_skill send custom domain emails check attachments retrieve notifications deliver output" style="display:grid; grid-template-columns:34px 1fr auto; gap:18px; padding:18px 16px; border-bottom:1px solid #edf0f3; align-items:start; border-radius:5px;">
+          <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">17</span>
+          <div>
+            <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">resend_email_skill</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #d3d9e0; border-radius:3px; color:#7b8595;">仓库</span></div>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">发送自定义域名的事务性邮件，校验附件大小并拉取投递状态。</p>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
+            <button class="sk-copy" data-url="https://github.com/grapeot/resend_email_skill" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">复制</button>
+            <a class="vlink" href="https://github.com/grapeot/resend_email_skill" target="_blank" style="text-decoration:none; font:600 12px 'IBM Plex Mono',monospace; color:#9aa3af; border:1px solid #e0e4e9; border-radius:4px; padding:6px 10px;">↗</a>
+          </div>
         </div>
-        <h3 class="card-title">向量数据库语义检索</h3>
-        <p class="card-desc">基于向量 Embedding 的本地知识检索规则，帮助 Agent 提取上下文记忆与历史对话。</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/semantic_search.md" target="_blank" class="btn-card btn-primary-card">查看文档</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/semantic_search.md', this)" title="复制安装 Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="tool" data-name="compressor">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="wrench"></i>工具 & API</span>
-          <span class="type-badge">文档</span>
+        <div class="sk-row" data-category="output" data-search="imessage_skill send macos imessages cli maps contacts local overlay names deliver output" style="display:grid; grid-template-columns:34px 1fr auto; gap:18px; padding:18px 16px; border-bottom:1px solid #edf0f3; align-items:start; border-radius:5px;">
+          <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">18</span>
+          <div>
+            <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">imessage_skill</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #d3d9e0; border-radius:3px; color:#7b8595;">仓库</span></div>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">在命令行发送 macOS iMessage，将联系人映射到本地私有配置文件以确保隐私。</p>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
+            <button class="sk-copy" data-url="https://github.com/grapeot/imessage_skill" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">复制</button>
+            <a class="vlink" href="https://github.com/grapeot/imessage_skill" target="_blank" style="text-decoration:none; font:600 12px 'IBM Plex Mono',monospace; color:#9aa3af; border:1px solid #e0e4e9; border-radius:4px; padding:6px 10px;">↗</a>
+          </div>
         </div>
-        <h3 class="card-title">Apple Compressor 视频压缩</h3>
-        <p class="card-desc">利用 Compressor 的命令行预设来执行后台高质量的视频与多媒体转码转码。</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/compressor.md" target="_blank" class="btn-card btn-primary-card">查看文档</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/compressor.md', this)" title="复制安装 Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="tool" data-name="delayed-execution">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="wrench"></i>工具 & API</span>
-          <span class="type-badge">文档</span>
+        <div class="sk-row" data-category="output" data-search="typefully-twitter-skill schedule draft tweets queue threads fetch x twitter statistics publish output" style="display:grid; grid-template-columns:34px 1fr auto; gap:18px; padding:18px 16px; align-items:start; border-radius:5px;">
+          <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">19</span>
+          <div>
+            <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">typefully-twitter-skill</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #d3d9e0; border-radius:3px; color:#7b8595;">仓库</span></div>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">定时发布推文草稿、排队发送 X 多图推文，并拉取推文的互动 telemetry 数据。</p>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
+            <button class="sk-copy" data-url="https://github.com/grapeot/typefully-twitter-skill" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">复制</button>
+            <a class="vlink" href="https://github.com/grapeot/typefully-twitter-skill" target="_blank" style="text-decoration:none; font:600 12px 'IBM Plex Mono',monospace; color:#9aa3af; border:1px solid #e0e4e9; border-radius:4px; padding:6px 10px;">↗</a>
+          </div>
         </div>
-        <h3 class="card-title">异步延迟任务调度</h3>
-        <p class="card-desc">使用本地 crontab 与后台常驻任务，调度需要稍后执行或定时执行的 Agent 任务。</p>
       </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/delayed_execution.md" target="_blank" class="btn-card btn-primary-card">查看文档</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/delayed_execution.md', this)" title="复制安装 Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
 
-    <div class="skill-card" data-category="tool" data-name="api-key-management">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="wrench"></i>工具 & API</span>
-          <span class="type-badge">文档</span>
+      <!-- GROUP 4 — INFRASTRUCTURE -->
+      <div class="sk-group" data-group="infra">
+        <div style="display:flex; align-items:center; gap:16px; margin:34px 0 2px; padding:0 16px;">
+          <span style="font:600 11px 'IBM Plex Mono',monospace; letter-spacing:.16em; color:#1f6f8b; white-space:nowrap;">基础设施 · 运行 Agent</span>
+          <span style="font:600 11px 'IBM Plex Mono',monospace; color:#aeb6c1;">05</span>
+          <span style="flex:1; height:1px; background:#e6eaef;"></span>
         </div>
-        <h3 class="card-title">1Password 凭据管理</h3>
-        <p class="card-desc">基于 1Password CLI 动态读取敏感密码和 API Key，避免在工作区以明文存储密钥。</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_api_key_management_1password_cli.md" target="_blank" class="btn-card btn-primary-card">查看文档</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_api_key_management_1password_cli.md', this)" title="复制安装 Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="tool" data-name="gui-automation">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="wrench"></i>工具 & API</span>
-          <span class="type-badge">文档</span>
+        <div class="sk-row" data-category="infra" data-search="process-launcher local http process daemon bridge gui tcc permissions logs cancellations runtime" style="display:grid; grid-template-columns:34px 1fr auto; gap:18px; padding:18px 16px; border-bottom:1px solid #edf0f3; align-items:start; border-radius:5px;">
+          <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">20</span>
+          <div>
+            <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">process-launcher</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #d3d9e0; border-radius:3px; color:#7b8595;">仓库</span></div>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">本地 HTTP 进程守护守护进程，用于桥接 GUI/TCC 权限、日志流和进程取消指令。</p>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
+            <button class="sk-copy" data-url="https://github.com/grapeot/process-launcher" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">复制</button>
+            <a class="vlink" href="https://github.com/grapeot/process-launcher" target="_blank" style="text-decoration:none; font:600 12px 'IBM Plex Mono',monospace; color:#9aa3af; border:1px solid #e0e4e9; border-radius:4px; padding:6px 10px;">↗</a>
+          </div>
         </div>
-        <h3 class="card-title">无 API 场景 GUI 控制</h3>
-        <p class="card-desc">在缺少官方 API 的环境下，映射视觉坐标或借助 AppleScript 执行界面级宏操作。</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_gui_automation.md" target="_blank" class="btn-card btn-primary-card">查看文档</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_gui_automation.md', this)" title="复制安装 Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="tool" data-name="pdf-to-markdown">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="wrench"></i>工具 & API</span>
-          <span class="type-badge">文档</span>
+        <div class="sk-row" data-category="infra" data-search="opencode_skill submit monitor opencode tasks cron pipelines archive sqlite databases runtime" style="display:grid; grid-template-columns:34px 1fr auto; gap:18px; padding:18px 16px; border-bottom:1px solid #edf0f3; align-items:start; border-radius:5px;">
+          <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">21</span>
+          <div>
+            <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">opencode_skill</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #d3d9e0; border-radius:3px; color:#7b8595;">仓库</span></div>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">向 OpenCode 提交并监控任务状态，配置定时 cron 任务流水线及 SQLite 备份。</p>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
+            <button class="sk-copy" data-url="https://github.com/grapeot/opencode_skill" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">复制</button>
+            <a class="vlink" href="https://github.com/grapeot/opencode_skill" target="_blank" style="text-decoration:none; font:600 12px 'IBM Plex Mono',monospace; color:#9aa3af; border:1px solid #e0e4e9; border-radius:4px; padding:6px 10px;">↗</a>
+          </div>
         </div>
-        <h3 class="card-title">PDF 语义级 Markdown 解析</h3>
-        <p class="card-desc">选用 Docling 解析引擎，高精度提取 PDF 中的复杂表格、布局格式与标题树层级。</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_pdf_to_markdown.md" target="_blank" class="btn-card btn-primary-card">查看文档</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_pdf_to_markdown.md', this)" title="复制安装 Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="tool" data-name="project-scaffold">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="wrench"></i>工具 & API</span>
-          <span class="type-badge">文档</span>
+        <div class="sk-row" data-category="infra" data-search="opencode-docker docker deployment configurations containerize opencode execution environments runtime" style="display:grid; grid-template-columns:34px 1fr auto; gap:18px; padding:18px 16px; border-bottom:1px solid #edf0f3; align-items:start; border-radius:5px;">
+          <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">22</span>
+          <div>
+            <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">opencode-docker</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #d3d9e0; border-radius:3px; color:#7b8595;">仓库</span></div>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">提供 Docker 部署配置，用于快速将 OpenCode 运行环境容器化。</p>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
+            <button class="sk-copy" data-url="https://github.com/grapeot/opencode-docker" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">复制</button>
+            <a class="vlink" href="https://github.com/grapeot/opencode-docker" target="_blank" style="text-decoration:none; font:600 12px 'IBM Plex Mono',monospace; color:#9aa3af; border:1px solid #e0e4e9; border-radius:4px; padding:6px 10px;">↗</a>
+          </div>
         </div>
-        <h3 class="card-title">项目目录脚手架规范</h3>
-        <p class="card-desc">自动将临时脚本和零散文件整理为包含 src/、tests/ 与 docs/ 的标准软件工程仓库结构。</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/project_scaffold.md" target="_blank" class="btn-card btn-primary-card">查看文档</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/project_scaffold.md', this)" title="复制安装 Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <!-- 🔄 Workflows -->
-    <div class="skill-card" data-category="workflow" data-name="parallel-subagents">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="shuffle"></i>工作流</span>
-          <span class="type-badge">文档</span>
+        <div class="sk-row" data-category="infra" data-search="ai cli agent guide architectural rules designing cli interfaces nesting agent-to-agent calls runtime" style="display:grid; grid-template-columns:34px 1fr auto; gap:18px; padding:18px 16px; border-bottom:1px solid #edf0f3; align-items:start; border-radius:5px;">
+          <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">23</span>
+          <div>
+            <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">AI CLI Agent 实用指南</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #cdd9e2; border-radius:3px; color:#3a7ca5; background:#f1f6f8;">文档</span></div>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">规范如何以文件作为接口契约来设计 CLI 脚本，以及处理 Agent 嵌套调用防死锁的机制。</p>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
+            <button class="sk-copy" data-url="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/ai_agent_cli_guide.md" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">复制</button>
+            <a class="vlink" href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/ai_agent_cli_guide.md" target="_blank" style="text-decoration:none; font:600 12px 'IBM Plex Mono',monospace; color:#9aa3af; border:1px solid #e0e4e9; border-radius:4px; padding:6px 10px;">↗</a>
+          </div>
         </div>
-        <h3 class="card-title">并行后台 Subagent</h3>
-        <p class="card-desc">多线程拆分任务以并发呼叫后台子智能体，免去轮询开销并能通过轻虚拟工作空间隔离冲突。</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_parallel_subagents.md" target="_blank" class="btn-card btn-primary-card">查看文档</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_parallel_subagents.md', this)" title="复制安装 Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="workflow" data-name="ios-ui-automation">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="shuffle"></i>工作流</span>
-          <span class="type-badge">文档</span>
+        <div class="sk-row" data-category="infra" data-search="parallel subagents orchestrates concurrent background subagents independent task branches runtime" style="display:grid; grid-template-columns:34px 1fr auto; gap:18px; padding:18px 16px; align-items:start; border-radius:5px;">
+          <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">24</span>
+          <div>
+            <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">并行 Subagent 工作流</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #cdd9e2; border-radius:3px; color:#3a7ca5; background:#f1f6f8;">文档</span></div>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">多线程拆分任务以并发呼叫后台子智能体，免去轮询开销并隔离冲突。</p>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
+            <button class="sk-copy" data-url="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_parallel_subagents.md" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">复制</button>
+            <a class="vlink" href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_parallel_subagents.md" target="_blank" style="text-decoration:none; font:600 12px 'IBM Plex Mono',monospace; color:#9aa3af; border:1px solid #e0e4e9; border-radius:4px; padding:6px 10px;">↗</a>
+          </div>
         </div>
-        <h3 class="card-title">iOS UI 自动化测试</h3>
-        <p class="card-desc">基于 Xcode 模拟器、XCTest 功能点击以及 simctl 截图对比的无感 iOS 界面功能性测试工作流。</p>
       </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/ios_ui_automation.md" target="_blank" class="btn-card btn-primary-card">查看文档</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/ios_ui_automation.md', this)" title="复制安装 Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
 
-    <div class="skill-card" data-category="workflow" data-name="deep-research">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="shuffle"></i>工作流</span>
-          <span class="type-badge">文档</span>
+      <!-- GROUP 5 — BEST PRACTICES -->
+      <div class="sk-group" data-group="best">
+        <div style="display:flex; align-items:center; gap:16px; margin:34px 0 2px; padding:0 16px;">
+          <span style="font:600 11px 'IBM Plex Mono',monospace; letter-spacing:.16em; color:#1f6f8b; white-space:nowrap;">最佳实践 · 高效工作</span>
+          <span style="font:600 11px 'IBM Plex Mono',monospace; color:#aeb6c1;">05</span>
+          <span style="flex:1; height:1px; background:#e6eaef;"></span>
         </div>
-        <h3 class="card-title">多维度交叉调研工作流</h3>
-        <p class="card-desc">并行扫描并设计拥有重合度的研究方向，通过交叉比对防止 Agent 编写假引用和瞎编事实。</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_deep_research_survey.md" target="_blank" class="btn-card btn-primary-card">查看文档</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_deep_research_survey.md', this)" title="复制安装 Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="workflow" data-name="cognitive-profile">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="shuffle"></i>工作流</span>
-          <span class="type-badge">文档</span>
+        <div class="sk-row" data-category="best" data-search="ai programming mindset strategy 70% accuracy boundary script-writing priority practice" style="display:grid; grid-template-columns:34px 1fr auto; gap:18px; padding:18px 16px; border-bottom:1px solid #edf0f3; align-items:start; border-radius:5px;">
+          <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">25</span>
+          <div>
+            <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">AI 编程核心思维</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #cdd9e2; border-radius:3px; color:#3a7ca5; background:#f1f6f8;">文档</span></div>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">剖析 70% 边界问题，阐明为什么「先写脚本，再让 Agent 跑脚本」的执行确定性更优。</p>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
+            <button class="sk-copy" data-url="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_ai_programming_mindset.md" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">复制</button>
+            <a class="vlink" href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_ai_programming_mindset.md" target="_blank" style="text-decoration:none; font:600 12px 'IBM Plex Mono',monospace; color:#9aa3af; border:1px solid #e0e4e9; border-radius:4px; padding:6px 10px;">↗</a>
+          </div>
         </div>
-        <h3 class="card-title">思维画像提取</h3>
-        <p class="card-desc">滚动分析大批量的个人或项目日志，提炼稳定复用的思维公理与认知决策画像。</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_cognitive_profile_extraction.md" target="_blank" class="btn-card btn-primary-card">查看文档</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_cognitive_profile_extraction.md', this)" title="复制安装 Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="workflow" data-name="bilibili-whisper">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="shuffle"></i>工作流</span>
-          <span class="type-badge">文档</span>
+        <div class="sk-row" data-category="best" data-search="skill writing guide meta-instructions reusable outcome-focused skill files practice" style="display:grid; grid-template-columns:34px 1fr auto; gap:18px; padding:18px 16px; border-bottom:1px solid #edf0f3; align-items:start; border-radius:5px;">
+          <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">26</span>
+          <div>
+            <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">Skill 写作指南（Meta-Skill）</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #cdd9e2; border-radius:3px; color:#3a7ca5; background:#f1f6f8;">文档</span></div>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">创建或重写 skill 时使用，强调结果确定性、验收标准和边界条件而非 SOP 步骤。</p>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
+            <button class="sk-copy" data-url="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_skill_writing.md" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">复制</button>
+            <a class="vlink" href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_skill_writing.md" target="_blank" style="text-decoration:none; font:600 12px 'IBM Plex Mono',monospace; color:#9aa3af; border:1px solid #e0e4e9; border-radius:4px; padding:6px 10px;">↗</a>
+          </div>
         </div>
-        <h3 class="card-title">音视频 ASR 静默整理</h3>
-        <p class="card-desc">下载视频，调用 Whisper 执行本地语音转录，并提炼关键词以构建 Markdown 检索大纲。</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_bilibili_whisper_transcription.md" target="_blank" class="btn-card btn-primary-card">查看文档</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_bilibili_whisper_transcription.md', this)" title="复制安装 Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="workflow" data-name="external-writing">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="shuffle"></i>工作流</span>
-          <span class="type-badge">文档</span>
+        <div class="sk-row" data-category="best" data-search="staged workflow isolate-process-validate loop execute dry-runs code changes practice" style="display:grid; grid-template-columns:34px 1fr auto; gap:18px; padding:18px 16px; border-bottom:1px solid #edf0f3; align-items:start; border-radius:5px;">
+          <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">27</span>
+          <div>
+            <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">分阶段工作法</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #cdd9e2; border-radius:3px; color:#3a7ca5; background:#f1f6f8;">文档</span></div>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">保持严格的“隔离-处理-验证”闭环，在执行可能具破坏性的操作前进行 Dry Run。</p>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
+            <button class="sk-copy" data-url="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_staged_approach.md" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">复制</button>
+            <a class="vlink" href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_staged_approach.md" target="_blank" style="text-decoration:none; font:600 12px 'IBM Plex Mono',monospace; color:#9aa3af; border:1px solid #e0e4e9; border-radius:4px; padding:6px 10px;">↗</a>
+          </div>
         </div>
-        <h3 class="card-title">对外深度写作工作流</h3>
-        <p class="card-desc">将非结构化事实梳理为条理清晰、毫无翻译腔、带有强烈观点且符合中文韵律的优质长文。</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_external_writing.md" target="_blank" class="btn-card btn-primary-card">查看文档</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_external_writing.md', this)" title="复制安装 Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="workflow" data-name="internal-writing">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="shuffle"></i>工作流</span>
-          <span class="type-badge">文档</span>
+        <div class="sk-row" data-category="best" data-search="temporal verification guidelines verify information past model knowledge cutoff dates practice" style="display:grid; grid-template-columns:34px 1fr auto; gap:18px; padding:18px 16px; border-bottom:1px solid #edf0f3; align-items:start; border-radius:5px;">
+          <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">28</span>
+          <div>
+            <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">时间敏感信息验证</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #cdd9e2; border-radius:3px; color:#3a7ca5; background:#f1f6f8;">文档</span></div>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">验证可能超出知识截止日期（knowledge cutoff）的实时敏感信息的可靠方案。</p>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
+            <button class="sk-copy" data-url="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_temporal_info_verification.md" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">复制</button>
+            <a class="vlink" href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_temporal_info_verification.md" target="_blank" style="text-decoration:none; font:600 12px 'IBM Plex Mono',monospace; color:#9aa3af; border:1px solid #e0e4e9; border-radius:4px; padding:6px 10px;">↗</a>
+          </div>
         </div>
-        <h3 class="card-title">对内技术写作工作流</h3>
-        <p class="card-desc">适用于撰写严肃的工程日志、重构设计说明（RFC）、Changelog 以及精细的系统代码注释。</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_internal_writing.md" target="_blank" class="btn-card btn-primary-card">查看文档</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_internal_writing.md', this)" title="复制安装 Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="workflow" data-name="knowledge-flywheel">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="shuffle"></i>工作流</span>
-          <span class="type-badge">文档</span>
+        <div class="sk-row" data-category="best" data-search="project scaffold reorg scaffolds loose workspaces organized directories docs src tests practice" style="display:grid; grid-template-columns:34px 1fr auto; gap:18px; padding:18px 16px; align-items:start; border-radius:5px;">
+          <span style="font:600 12px 'IBM Plex Mono',monospace; color:#b9c0cb; padding-top:3px;">29</span>
+          <div>
+            <div style="display:flex; align-items:center; gap:9px; margin-bottom:6px; flex-wrap:wrap;"><span style="font-size:15.5px; font-weight:600; letter-spacing:-.01em;">项目脚手架与重整</span><span style="font:500 9.5px 'IBM Plex Mono',monospace; letter-spacing:.09em; padding:2px 7px; border:1px solid #cdd9e2; border-radius:3px; color:#3a7ca5; background:#f1f6f8;">文档</span></div>
+            <p style="margin:0; font-size:13px; line-height:1.55; color:#6b7585; max-width:64ch;">把散装目录升级成标准项目结构（docs/、src/、scripts/、tests/）与独立 git。</p>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center; padding-top:2px;">
+            <button class="sk-copy" data-url="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/project_scaffold.md" style="cursor:pointer; font:600 11px 'IBM Plex Mono',monospace; color:#1f6f8b; border:1px solid #c8d7df; background:#f1f6f8; border-radius:4px; padding:6px 11px; white-space:nowrap;">复制</button>
+            <a class="vlink" href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/project_scaffold.md" target="_blank" style="text-decoration:none; font:600 12px 'IBM Plex Mono',monospace; color:#9aa3af; border:1px solid #e0e4e9; border-radius:4px; padding:6px 10px;">↗</a>
+          </div>
         </div>
-        <h3 class="card-title">知识飞轮滚动提炼</h3>
-        <p class="card-desc">自动分析最近的交互历史，整理人类的最新习惯与订正建议，并更新工作区全局规则。</p>
       </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_knowledge_flywheel.md" target="_blank" class="btn-card btn-primary-card">查看文档</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_knowledge_flywheel.md', this)" title="复制安装 Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
 
-    <div class="skill-card" data-category="workflow" data-name="presentation-slides">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="shuffle"></i>工作流</span>
-          <span class="type-badge">文档</span>
-        </div>
-        <h3 class="card-title">幻灯片大纲编译与渲染</h3>
-        <p class="card-desc">支持多路并发生成、Markdown 至 PPTX 模版编译以及特定比例水墨风排版渲染结构。</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_presentation_slides.md" target="_blank" class="btn-card btn-primary-card">查看文档</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_presentation_slides.md', this)" title="复制安装 Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
+      <div id="skEmpty" style="display:none; padding:60px 16px; text-align:center; font:500 14px 'IBM Plex Mono',monospace; color:#9aa3af;">没有找到匹配的技能。</div>
 
-    <!-- 💡 Best Practices -->
-    <div class="skill-card" data-category="bestpractice" data-name="programming-mindset">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="lightbulb"></i>最佳实践</span>
-          <span class="type-badge">文档</span>
-        </div>
-        <h3 class="card-title">AI 编程核心思维</h3>
-        <p class="card-desc">剖析 70% 边界问题，阐明为什么「先写脚本，再让 Agent 跑脚本」的执行确定性更优。</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_ai_programming_mindset.md" target="_blank" class="btn-card btn-primary-card">查看文档</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_ai_programming_mindset.md', this)" title="复制安装 Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
+    </main>
 
-    <div class="skill-card" data-category="bestpractice" data-name="academic-paper-conversion">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="lightbulb"></i>最佳实践</span>
-          <span class="type-badge">文档</span>
-        </div>
-        <h3 class="card-title">学术文献检索与转录</h3>
-        <p class="card-desc">基于 arXiv ID 进行精确和模糊匹配检索，优先 HTML 抓取并转化为 Latex/Markdown 的质检规范。</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_academic_paper_conversion.md" target="_blank" class="btn-card btn-primary-card">查看文档</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_academic_paper_conversion.md', this)" title="复制安装 Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
+    <!-- FOOTER -->
+    <footer style="margin-top:64px; padding-top:24px; border-top:1px solid #e6eaef; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; font:500 12px 'IBM Plex Mono',monospace; color:#9aa3af;">
+      <span>grapeot/skills · AI Agent 技能注册表</span>
+      <span>输入 → 分析 → 输出 · 文件即接口</span>
+    </footer>
 
-    <div class="skill-card" data-category="bestpractice" data-name="ai-debugging">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="lightbulb"></i>最佳实践</span>
-          <span class="type-badge">文档</span>
-        </div>
-        <h3 class="card-title">AI 诊断与调试树</h3>
-        <p class="card-desc">解耦代码诊断与修改动作，防范 Agent 在同一个报错中循环覆盖代码造成破损。</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_ai_debugging_diagnosis.md" target="_blank" class="btn-card btn-primary-card">查看文档</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_ai_debugging_diagnosis.md', this)" title="复制安装 Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="bestpractice" data-name="ai-product-design">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="lightbulb"></i>最佳实践</span>
-          <span class="type-badge">文档</span>
-        </div>
-        <h3 class="card-title">AI 原生产品设计原则</h3>
-        <p class="card-desc">区分线性 Chat 对话与多维度工作区设计，解耦全局变量，实现规则动态自适应。</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_ai_product_design.md" target="_blank" class="btn-card btn-primary-card">查看文档</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_ai_product_design.md', this)" title="复制安装 Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="bestpractice" data-name="interview-evaluation">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="lightbulb"></i>最佳实践</span>
-          <span class="type-badge">文档</span>
-        </div>
-        <h3 class="card-title">候选人评估与反作弊</h3>
-        <p class="card-desc">偏重实干家特质的工程选拔规范，定制针对 AI 辅助答题的辨别与追问技巧。</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_interview_evaluation.md" target="_blank" class="btn-card btn-primary-card">查看文档</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_interview_evaluation.md', this)" title="复制安装 Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="bestpractice" data-name="markdown-html">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="lightbulb"></i>最佳实践</span>
-          <span class="type-badge">文档</span>
-        </div>
-        <h3 class="card-title">Markdown 渲染 HTML 规范</h3>
-        <p class="card-desc">本地资源解析与排版规范，避免渲染公式或复杂表格时 CSS 样式损坏。</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_markdown_html_conversion.md" target="_blank" class="btn-card btn-primary-card">查看文档</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_markdown_html_conversion.md', this)" title="复制安装 Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="bestpractice" data-name="product-decision">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="lightbulb"></i>最佳实践</span>
-          <span class="type-badge">文档</span>
-        </div>
-        <h3 class="card-title">设计决策逆向还原</h3>
-        <p class="card-desc">逆向推演交付系统所隐藏的隐性约束、折中（trade-off）和可选代替方案的评估规范。</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_product_decision_analysis.md" target="_blank" class="btn-card btn-primary-card">查看文档</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_product_decision_analysis.md', this)" title="复制安装 Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="bestpractice" data-name="skill-writing">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="lightbulb"></i>最佳实践</span>
-          <span class="type-badge">文档</span>
-        </div>
-        <h3 class="card-title">Skill 技能编写指南</h3>
-        <p class="card-desc">Meta 指引，教授如何以「成功交付标准」和「异常限制」定义技能，避免写成教条 SOP。</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_skill_writing.md" target="_blank" class="btn-card btn-primary-card">查看文档</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_skill_writing.md', this)" title="复制安装 Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="bestpractice" data-name="staged-approach">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="lightbulb"></i>最佳实践</span>
-          <span class="type-badge">文档</span>
-        </div>
-        <h3 class="card-title">分阶段 staged 开发流程</h3>
-        <p class="card-desc">坚持「隔离-处理-验证」闭环，在执行可能导致数据丢失或系统全局修改前强制 Dry Run。</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_staged_approach.md" target="_blank" class="btn-card btn-primary-card">查看文档</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_staged_approach.md', this)" title="复制安装 Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="skill-card" data-category="bestpractice" data-name="temporal-verification">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="category-tag"><i data-lucide="lightbulb"></i>最佳实践</span>
-          <span class="type-badge">文档</span>
-        </div>
-        <h3 class="card-title">时间截止信息双重校验</h3>
-        <p class="card-desc">处理超出大模型训练时间线（Knowledge Cutoff）实时数据时的校对约束与信息检索方法。</p>
-      </div>
-      <div class="card-bottom">
-        <a href="https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_temporal_info_verification.md" target="_blank" class="btn-card btn-primary-card">查看文档</a>
-        <button class="btn-copy" onclick="copyPrompt('https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_temporal_info_verification.md', this)" title="复制安装 Prompt">
-          <i data-lucide="copy"></i>
-        </button>
-      </div>
-    </div>
-
-  </main>
-
-  <!-- Script for Filtering, Search, and Copying -->
-  <script>
-    // Initialize Lucide Icons
-    lucide.createIcons();
-
-    // Toggle FAQ answers
-    const faqQuestions = document.querySelectorAll('.faq-question');
-    faqQuestions.forEach(question => {
-      question.addEventListener('click', () => {
-        const answer = question.nextElementSibling;
-        question.classList.toggle('active');
-        answer.classList.toggle('open');
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    const root = document.getElementById('skillsPage');
+    if (!root) return;
+    const search = root.querySelector('#skSearch');
+    const pills = [...root.querySelectorAll('.sk-filter')];
+    const rows = [...root.querySelectorAll('.sk-row')];
+    const groups = [...root.querySelectorAll('.sk-group')];
+    const empty = root.querySelector('#skEmpty');
+    let cat = 'all';
+    const apply = () => {
+      const q = (search.value || '').trim().toLowerCase();
+      let anyVisible = false;
+      rows.forEach(r => {
+        const okCat = cat === 'all' || r.dataset.category === cat;
+        const okQ = !q || (r.dataset.search || '').includes(q);
+        const vis = okCat && okQ;
+        r.style.display = vis ? '' : 'none';
+        if (vis) anyVisible = true;
+      });
+      groups.forEach(g => {
+        const vis = [...g.querySelectorAll('.sk-row')].some(r => r.style.display !== 'none');
+        g.style.display = vis ? '' : 'none';
+      });
+      if (empty) empty.style.display = anyVisible ? 'none' : 'block';
+    };
+    if (search) search.addEventListener('input', apply);
+    pills.forEach(p => p.addEventListener('click', () => {
+      cat = p.dataset.filter;
+      pills.forEach(x => { x.style.background = '#fff'; x.style.color = '#5b6675'; x.style.borderColor = '#d3d9e0'; });
+      p.style.background = '#1c2733'; p.style.color = '#fbfcfd'; p.style.borderColor = '#1c2733';
+      apply();
+    }));
+    root.querySelectorAll('.sk-copy').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const url = btn.dataset.url || '';
+        const isDoc = /\.md(\?|#|$)/.test(url);
+        this._copy(isDoc ? this._docPrompt(url) : this._repoPrompt(url));
+        const orig = btn.textContent;
+        btn.textContent = '已复制 ✓';
+        btn.style.color = '#1f8a5b'; btn.style.borderColor = '#bfe0cd'; btn.style.background = '#eef8f2';
+        clearTimeout(btn._t);
+        btn._t = setTimeout(() => { btn.textContent = orig; btn.style.color = '#1f6f8b'; btn.style.borderColor = '#c8d7df'; btn.style.background = '#f1f6f8'; }, 1500);
       });
     });
-
-    // Copy prompt helper
-    function copyPrompt(repoUrl, buttonElement) {
-      const template = `Install this public skill repo into my workspace:
-${repoUrl}
-
-Start from my workspace AGENTS.md. Follow any WORKSPACE.md routing rules. Clone or vendor the repo under an appropriate project directory. Expose exactly one root skill to my global rules/skills/ directory via a relative symlink. Keep private aliases, local paths, and credentials in a local overlay, not in the public repo.`;
-      
-      navigator.clipboard.writeText(template).then(() => {
-        const icon = buttonElement.querySelector('i');
-        buttonElement.classList.add('copied');
-        buttonElement.innerHTML = '<i data-lucide="check" style="color: var(--accent-emerald)"></i>';
-        lucide.createIcons();
-        setTimeout(() => {
-          buttonElement.classList.remove('copied');
-          buttonElement.innerHTML = '<i data-lucide="copy"></i>';
-          lucide.createIcons();
-        }, 2000);
-      }).catch(err => {
-        console.error('Failed to copy text: ', err);
-      });
+    root.querySelectorAll('.faq-q').forEach(q => q.addEventListener('click', () => {
+      const a = q.nextElementSibling;
+      const open = a.style.display === 'block';
+      a.style.display = open ? 'none' : 'block';
+      const ic = q.querySelector('.faq-ic');
+      if (ic) ic.style.transform = open ? 'rotate(0deg)' : 'rotate(180deg)';
+    }));
+  }
+  _repoPrompt(url) {
+    return 'Install this public skill repo into my workspace:\n' + url +
+      '\n\nStart from my AGENTS.md and follow any WORKSPACE.md routing rules. Clone or vendor the repo under an appropriate directory (e.g. adhoc_jobs/). Expose exactly one root skill to my rules/skills/ via a relative symlink and register it in the rules index. Keep private aliases, paths, and credentials in a local overlay — never in the public repo.';
+  }
+  _docPrompt(url) {
+    return 'Install this standalone skill doc into my workspace:\n' + url +
+      '\n\nFirst explore the source repo structure and read this specific .md file to understand what it does. Then wire it into my local skill-discovery chain: trace how my workspace surfaces skills — start at AGENTS.md / CLAUDE.md and follow each include or reference down to rules/skills/ — and place this skill at the correct layer so the agent will actually discover it. Vendor the file under an appropriate directory and link/register it where that chain expects it.' +
+      '\n\nIf no such discovery chain or rules/skills/ structure exists yet, do NOT create it silently — first propose the directory structure you intend to create and ask me to approve it before writing anything. Keep private paths and credentials in a local overlay, not in the public repo.';
+  }
+  _copy(t) {
+    try { navigator.clipboard.writeText(t); }
+    catch (e) {
+      const ta = document.createElement('textarea');
+      ta.value = t; document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); } catch (_) {}
+      ta.remove();
     }
-
-    // Copy protocol instructions
-    function copyProtocol() {
-      const protocolText = document.getElementById('protocolText').innerText;
-      const copyBtn = document.getElementById('copyProtocolBtn');
-      navigator.clipboard.writeText(protocolText).then(() => {
-        copyBtn.innerText = '已复制 Prompt!';
-        setTimeout(() => {
-          copyBtn.innerText = '复制协议 Prompt';
-        }, 2000);
-      });
-    }
-
-    // Filter Cards logic
-    const filterPills = document.querySelectorAll('.filter-pill');
-    const skillCards = document.querySelectorAll('.skill-card');
-    const searchInput = document.getElementById('searchInput');
-
-    function filterAndSearch() {
-      const query = searchInput.value.toLowerCase().trim();
-      const activeFilter = document.querySelector('.filter-pill.active').getAttribute('data-filter');
-
-      skillCards.forEach(card => {
-        const category = card.getAttribute('data-category');
-        const name = card.getAttribute('data-name').toLowerCase();
-        const title = card.querySelector('.card-title').innerText.toLowerCase();
-        const desc = card.querySelector('.card-desc').innerText.toLowerCase();
-
-        const matchesFilter = (activeFilter === 'all' || category === activeFilter);
-        const matchesSearch = (name.includes(query) || title.includes(query) || desc.includes(query));
-
-        if (matchesFilter && matchesSearch) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    }
-
-    filterPills.forEach(pill => {
-      pill.addEventListener('click', () => {
-        filterPills.forEach(p => p.classList.remove('active'));
-        pill.classList.add('active');
-        filterAndSearch();
-      });
-    });
-
-    searchInput.addEventListener('input', filterAndSearch);
-  </script>
+  }
+  renderVals() { return {}; }
+}
+</script>
 </body>
 </html>
