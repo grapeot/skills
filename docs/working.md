@@ -3,6 +3,7 @@
 ## Changelog
 
 ### 2026-06-27
+- Added comprehensive SEO meta tags (title, description, canonical, hreflang alternates, Open Graph, Twitter cards, and robots) to `index.html` and `index_zh.html` for optimized platform-specific search terms.
 - Polished Chinese copywriting across `index_zh.html` and `README_zh.md` to improve natural flow and readability.
 - Replaced rigid, literal translations like "注册表" (Registry) with natural terms like "技能目录" (Directory) or "技能索引" (Index).
 - Reduced translationese, AI-like phrasing, and overused descriptors (e.g., "高度", "无缝", "多维", "确保", "范式") while keeping key technical terminology intact.
