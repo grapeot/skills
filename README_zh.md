@@ -52,4 +52,4 @@
 * [opencode_skill](https://github.com/grapeot/opencode_skill) — OpenCode 异步任务运行管理器
 * [opencode-docker](https://github.com/grapeot/opencode-docker) — OpenCode Docker 部署配置模板
 
-*(欲查看完整技能列表（包含 26 个内置工作流与最佳实践）并一键复制 Prompt 安装指引，请直接访问 [直观展示页面](https://grapeot.github.io/skills/index_zh.html))*
+*(欲查看完整技能列表（包含 27 个内置工作流与最佳实践）并一键复制 Prompt 安装指引，请直接访问 [直观展示页面](https://grapeot.github.io/skills/index_zh.html))*
