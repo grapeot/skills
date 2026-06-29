@@ -37,7 +37,7 @@ For a quick overview of the codebases, the standalone repository links are liste
 * [resend_email_skill](https://github.com/grapeot/resend_email_skill) — Custom domain Resend mailer
 * [imessage_skill](https://github.com/grapeot/imessage_skill) — Local iMessage sender CLI
 * [pptx.skill](https://github.com/grapeot/pptx.skill) — PPTX presentation generator
-* [presentation_skill](https://github.com/grapeot/presentation_skill) — Image-generated presentation decks with HTML fallback
+* [presentation_skill](https://github.com/grapeot/presentation_skill) — Previewable agent slide decks (Reveal.js); image-rendered by default, HTML modules on request—not PPTX
 * [image-generation-skill](https://github.com/grapeot/image-generation-skill) — Upscaler and image generator
 * [tiff-icc-profile](https://github.com/grapeot/tiff-icc-profile) — ICC color profile injector
 * [online-media-skill](https://github.com/grapeot/online-media-skill) — Video downloader and Whisper transcriber
