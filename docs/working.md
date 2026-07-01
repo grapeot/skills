@@ -20,6 +20,10 @@
 - Updated `INDEX.md`, READMEs, and HTML dashboards accordingly, keeping `opencode-docker` in `SKILL_ECOSYSTEM.md` and both dashboards.
 - Merged upstream `main` changes and resolved PR conflicts for `context-infrastructure`.
 
+### 2026-07-01
+
+- Upgraded Semantic Search from a built-in file skill (`context-infrastructure/rules/skills/semantic_search.md`) to a standalone ecosystem repo (`grapeot/semantic-search-skill`). Updated both `index.html` and `index_zh.html` to show REPO type with the new GitHub URL and refreshed description.
+
 
 ## Lessons Learned
 - **Bilingual Consistency**: Ensure updates are mirrored across all four key entrypoints (`README.md`, `README_zh.md`, `index.html`, `index_zh.html`) to prevent documentation drift.
