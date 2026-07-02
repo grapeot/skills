@@ -41,6 +41,7 @@ For a quick overview of the codebases, the standalone repository links are liste
 * [image-generation-skill](https://github.com/grapeot/image-generation-skill) — Upscaler and image generator
 * [tiff-icc-profile](https://github.com/grapeot/tiff-icc-profile) — ICC color profile injector
 * [online-media-skill](https://github.com/grapeot/online-media-skill) — Video downloader and Whisper transcriber
+* [open_router_data_scraper](https://github.com/grapeot/open_router_data_scraper) — OpenRouter model activity data scraper (token usage, rankings, benchmarks)
 
 ### Life Loggers & Quantification
 * [health-quantification](https://github.com/grapeot/health-quantification) — Apple Health SQLite regression analysis
