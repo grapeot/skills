@@ -24,6 +24,11 @@
 
 - Upgraded Semantic Search from a built-in file skill (`context-infrastructure/rules/skills/semantic_search.md`) to a standalone ecosystem repo (`grapeot/semantic-search-skill`). Updated both `index.html` and `index_zh.html` to show REPO type with the new GitHub URL and refreshed description.
 
+### 2026-07-09
+
+- Fixed skill sequence numbering in both `index.html` and `index_zh.html`. The Infrastructure and Best Practices groups had drifted: four infra skills all carried "24" instead of 22–25, subsequent items jumped to 29/30, and the Best Practices group duplicated 29/30 and ended out of order at 32. Renumbered all entries 01–35 sequentially.
+- Updated the header total from 33 to 35 skills and the Best Practices group counter from 06 to 08 to reflect the actual entry count after the recent OpenRouter Data Scraper and Playwright E2E additions.
+
 
 ## Lessons Learned
 - **Bilingual Consistency**: Ensure updates are mirrored across all four key entrypoints (`README.md`, `README_zh.md`, `index.html`, `index_zh.html`) to prevent documentation drift.
