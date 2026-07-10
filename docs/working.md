@@ -35,6 +35,10 @@
 - Added a sequence-number continuity test to `check_registry.py`: it extracts each row's ordinal, verifies the run is contiguous from 1, and confirms the per-group counters sum to the row count. This guards against the numbering drift that slipped through in the previous PR.
 - Retained the existing README-link, presentation_skill, and EN/ZH copy-URL parity checks.
 
+### 2026-07-10 (2)
+
+- Added the Innovation Assistant skill (ecosystem repo `grapeot/innovation-assistant-skill`) to both showcase pages and both READMEs. Placed it in the Analyze & Research group and renumbered entries 12–35 → 13–36 so the run stays contiguous; updated the header total (35 → 36) and the Analyze group counter (06 → 07). Added a new "Innovation & Research" section to README.md / README_zh.md.
+
 
 ## Lessons Learned
 - **Bilingual Consistency**: Ensure updates are mirrored across all four key entrypoints (`README.md`, `README_zh.md`, `index.html`, `index_zh.html`) to prevent documentation drift.
