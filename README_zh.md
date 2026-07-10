@@ -48,6 +48,9 @@
 * [roest-analysis](https://github.com/grapeot/roest-analysis) — Roest 咖啡烘焙曲线抓取与分析工具
 * [intake-skill](https://github.com/grapeot/intake-skill) — 语音备忘录自动转录与整理工具
 
+### 创新与研究
+* [innovation-assistant-skill](https://github.com/grapeot/innovation-assistant-skill) — 结构化创新引擎（SIT + Think Bigger），可执行流水线
+
 ### Agent 运行基础设施
 * [process-launcher](https://github.com/grapeot/process-launcher) — macOS 本地 HTTP 进程守护服务
 * [opencode_skill](https://github.com/grapeot/opencode_skill) — OpenCode 异步任务运行管理器

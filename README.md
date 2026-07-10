@@ -48,6 +48,9 @@ For a quick overview of the codebases, the standalone repository links are liste
 * [roest-analysis](https://github.com/grapeot/roest-analysis) — Roest roaster telemetry graphs
 * [intake-skill](https://github.com/grapeot/intake-skill) — Audio voice intake diary organizer
 
+### Innovation & Research
+* [innovation-assistant-skill](https://github.com/grapeot/innovation-assistant-skill) — Structured innovation engine (SIT + Think Bigger) as executable pipelines
+
 ### Agent Daemon & Devops
 * [process-launcher](https://github.com/grapeot/process-launcher) — macOS HTTP process launcher bypass
 * [opencode_skill](https://github.com/grapeot/opencode_skill) — OpenCode task runner
