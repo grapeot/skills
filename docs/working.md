@@ -29,6 +29,12 @@
 - Fixed skill sequence numbering in both `index.html` and `index_zh.html`. The Infrastructure and Best Practices groups had drifted: four infra skills all carried "24" instead of 22–25, subsequent items jumped to 29/30, and the Best Practices group duplicated 29/30 and ended out of order at 32. Renumbered all entries 01–35 sequentially.
 - Updated the header total from 33 to 35 skills and the Best Practices group counter from 06 to 08 to reflect the actual entry count after the recent OpenRouter Data Scraper and Playwright E2E additions.
 
+### 2026-07-10
+
+- Fixed CI: `scripts/check_registry.py` had hardcoded the advertised count to 33, so once the registry grew to 35 the "English page advertises 33 skills" assertion flipped and failed. Rewrote the count check to parse the advertised number from the page and compare it against the actual `sk-row` count, so it tracks the real total instead of a stale literal.
+- Added a sequence-number continuity test to `check_registry.py`: it extracts each row's ordinal, verifies the run is contiguous from 1, and confirms the per-group counters sum to the row count. This guards against the numbering drift that slipped through in the previous PR.
+- Retained the existing README-link, presentation_skill, and EN/ZH copy-URL parity checks.
+
 
 ## Lessons Learned
 - **Bilingual Consistency**: Ensure updates are mirrored across all four key entrypoints (`README.md`, `README_zh.md`, `index.html`, `index_zh.html`) to prevent documentation drift.
