@@ -39,6 +39,11 @@
 
 - Added the Innovation Assistant skill (ecosystem repo `grapeot/innovation-assistant-skill`) to both showcase pages and both READMEs. Placed it in the Analyze & Research group and renumbered entries 12–35 → 13–36 so the run stays contiguous; updated the header total (35 → 36) and the Analyze group counter (06 → 07). Added a new "Innovation & Research" section to README.md / README_zh.md.
 
+### 2026-07-12
+
+- Added `genai_portrait_skill` to both showcase pages and both README quick lists as an identity-preserving portrait, headshot, and ID-photo editing repository.
+- Updated the showcase total to 37, the Output group count to 11, and renumbered subsequent entries to keep the sequence contiguous.
+
 
 ## Lessons Learned
 - **Bilingual Consistency**: Ensure updates are mirrored across all four key entrypoints (`README.md`, `README_zh.md`, `index.html`, `index_zh.html`) to prevent documentation drift.

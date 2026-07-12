@@ -39,6 +39,7 @@ For a quick overview of the codebases, the standalone repository links are liste
 * [pptx.skill](https://github.com/grapeot/pptx.skill) — PPTX presentation generator
 * [presentation_skill](https://github.com/grapeot/presentation_skill) — Previewable agent slide decks (Reveal.js); image-rendered by default, HTML modules on request—not PPTX
 * [image-generation-skill](https://github.com/grapeot/image-generation-skill) — Upscaler and image generator
+* [genai_portrait_skill](https://github.com/grapeot/genai_portrait_skill) — Identity-preserving portrait and headshot editing with photographic coherence
 * [tiff-icc-profile](https://github.com/grapeot/tiff-icc-profile) — ICC color profile injector
 * [online-media-skill](https://github.com/grapeot/online-media-skill) — Video downloader and Whisper transcriber
 * [open_router_data_scraper](https://github.com/grapeot/open_router_data_scraper) — OpenRouter model activity data scraper (token usage, rankings, benchmarks)

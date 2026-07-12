@@ -39,6 +39,7 @@
 * [pptx.skill](https://github.com/grapeot/pptx.skill) — PPTX 幻灯片修改工具
 * [presentation_skill](https://github.com/grapeot/presentation_skill) — 可预览 slide deck 搭建 skill（默认整页图像幻灯片，按需 HTML 模块；非 PPTX）
 * [image-generation-skill](https://github.com/grapeot/image-generation-skill) — AI 绘图与高清放大工具
+* [genai_portrait_skill](https://github.com/grapeot/genai_portrait_skill) — 保持人物身份与摄影整体一致性的人像、头像和证件照编辑 skill
 * [tiff-icc-profile](https://github.com/grapeot/tiff-icc-profile) — TIFF 图像色彩配置文件（ICC）嵌入工具
 * [online-media-skill](https://github.com/grapeot/online-media-skill) — 网络视频下载与 Whisper 语音转文字工具
 * [open_router_data_scraper](https://github.com/grapeot/open_router_data_scraper) — OpenRouter 模型流量数据抓取工具（token 用量、排名、benchmark）
