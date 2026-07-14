@@ -15,3 +15,5 @@ jobs:
           python-version: "3.12"
       - name: Check registry consistency
         run: python scripts/check_registry.py
+      - name: Check public content
+        run: python scripts/check_public_content.py

@@ -24,6 +24,10 @@
 * **方法论**：[用好AI的第二步：先写Skill再执行](https://yage.ai/skill-first.html)（英文版：[Step Two to Using AI Well: Write the Skill Before You Execute](https://yage.ai/skill-first-en.html)）
 * **架构设计**：[为什么AI只会说正确的废话，以及怎么把它逼出舒适区](https://yage.ai/context-infrastructure.html)
 
+### 维护或 Fork 这套技能索引
+
+本仓库自带一份可复用的 [Skill Registry Lifecycle](skills/skill_registry_lifecycle.md)。增加、删除、fork 或从零搭建 registry 前应先读取这份 Skill。它定义了设计原则、必要上下文、成功标准、隐私审查、发布门槛和已经发生过的维护陷阱。
+
 ---
 
 ## 快速参考（独立工具仓库列表）
