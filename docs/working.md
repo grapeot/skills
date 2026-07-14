@@ -49,6 +49,13 @@
 - Added the bilingual Antigravity CLI / AGY built-in card to both showcase pages, linking English to `context-infrastructure-en/rules/skills/antigravity_cli.md` and Chinese to `context-infrastructure/rules/skills/antigravity_cli.md`.
 - Updated the showcase total from 37 to 38, the Infrastructure group count from 06 to 07, and renumbered all following entries so both pages remain contiguous from 01 through 38.
 - Updated registry checks to compare localized `context-infrastructure` URLs canonically while asserting each Antigravity card points to its matching language repository.
+- Added `skills/skill_registry_lifecycle.md` so the registry carries a reusable mechanism for creation, forks, additions, removals, privacy review, and governed release rather than serving only as a final catalog.
+- Added the lifecycle Skill to both README entrypoints and both showcase pages; updated the total to 39 and the Best Practices group to 09.
+- Added `scripts/check_public_content.py` and CI coverage for common secret, private-path, private-network, internal-hostname, and private-key leaks. Human semantic privacy review remains a separate merge gate.
+- Tightened the lifecycle contract after independent review: `master` is the baseline rather than the editing branch, platform auto-merge stays disabled, and functional/privacy approvals require named, timestamped dispositions.
+- Expanded public-content checks to common web/data file types, email addresses, secret-manager references, secret assignments, and common OpenAI, Anthropic, Google, Stripe, Resend, GitHub, Slack, and AWS token formats.
+- Removed the public verification contract's dependency on a local `.venv`; the dependency-free checks now use CI-compatible `python` commands.
+- Extended privacy scanning to every non-binary tracked or untracked file and to prefixed or unquoted environment assignments such as `SERVICE_API_KEY=...`.
 
 
 ## Lessons Learned

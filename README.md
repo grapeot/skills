@@ -24,6 +24,10 @@ Unlike typical editor extensions (like Cursor, Codex, or Cloud Code plugins) whi
 * **Methodology**: [Step Two to Using AI Well: Write the Skill Before You Execute](https://yage.ai/skill-first-en.html) (Chinese: [用好AI的第二步：先写Skill再执行](https://yage.ai/skill-first.html))
 * **Infrastructure Design**: [Why AI only says correct nonsense, and how to push it out of its comfort zone](https://yage.ai/context-infrastructure.html)
 
+### Maintain or Fork This Registry
+
+The registry includes its own reusable [Skill Registry Lifecycle](skills/skill_registry_lifecycle.md). Read it before adding, removing, forking, or rebuilding a registry. It defines the design principles, required context, success criteria, privacy review, release gates, and known maintenance failures.
+
 ---
 
 ## Quick Reference (Registry List)
