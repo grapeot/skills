@@ -5,6 +5,8 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
+AGY_EN_URL = "https://github.com/grapeot/context-infrastructure-en/blob/main/rules/skills/antigravity_cli.md"
+AGY_ZH_URL = "https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/antigravity_cli.md"
 
 
 def read(name: str) -> str:
@@ -13,6 +15,15 @@ def read(name: str) -> str:
 
 def repo_urls_from_buttons(html: str) -> set[str]:
     return set(re.findall(r'data-url="(https://github\.com/[^"]+)"', html))
+
+
+def canonical_skill_url(url: str) -> str:
+    """Treat localized context-infrastructure files as the same skill."""
+    return AGY_ZH_URL if url == AGY_EN_URL else url
+
+
+def has_one_copy_and_link(html: str, url: str) -> bool:
+    return html.count(f'data-url="{url}"') == 1 and html.count(f'href="{url}"') == 1
 
 
 def advertised_count(html: str, *, label: str) -> int | None:
@@ -86,8 +97,13 @@ def main() -> int:
             ("Chinese README links showcase", "https://grapeot.github.io/skills/index_zh.html" in readme_zh),
             ("English page has presentation_skill", "https://github.com/grapeot/presentation_skill" in index_en),
             ("Chinese page has presentation_skill", "https://github.com/grapeot/presentation_skill" in index_zh),
-            ("English and Chinese pages expose the same GitHub copy URLs",
-             repo_urls_from_buttons(index_en) == repo_urls_from_buttons(index_zh)),
+            ("English page has one copy button and direct link for the English Antigravity skill",
+             has_one_copy_and_link(index_en, AGY_EN_URL)),
+            ("Chinese page has one copy button and direct link for the Chinese Antigravity skill",
+             has_one_copy_and_link(index_zh, AGY_ZH_URL)),
+            ("English and Chinese pages expose the same localized GitHub skills",
+             {canonical_skill_url(url) for url in repo_urls_from_buttons(index_en)}
+             == {canonical_skill_url(url) for url in repo_urls_from_buttons(index_zh)}),
         ] if not ok
     ])
 

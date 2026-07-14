@@ -44,6 +44,12 @@
 - Added `genai_portrait_skill` to both showcase pages and both README quick lists as an identity-preserving portrait, headshot, and ID-photo editing repository.
 - Updated the showcase total to 37, the Output group count to 11, and renumbered subsequent entries to keep the sequence contiguous.
 
+### 2026-07-14
+
+- Added the bilingual Antigravity CLI / AGY built-in card to both showcase pages, linking English to `context-infrastructure-en/rules/skills/antigravity_cli.md` and Chinese to `context-infrastructure/rules/skills/antigravity_cli.md`.
+- Updated the showcase total from 37 to 38, the Infrastructure group count from 06 to 07, and renumbered all following entries so both pages remain contiguous from 01 through 38.
+- Updated registry checks to compare localized `context-infrastructure` URLs canonically while asserting each Antigravity card points to its matching language repository.
+
 
 ## Lessons Learned
 - **Bilingual Consistency**: Ensure updates are mirrored across all four key entrypoints (`README.md`, `README_zh.md`, `index.html`, `index_zh.html`) to prevent documentation drift.
