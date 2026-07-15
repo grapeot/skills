@@ -53,6 +53,10 @@ For a quick overview of the codebases, the standalone repository links are liste
 * [roest-analysis](https://github.com/grapeot/roest-analysis) — Roest roaster telemetry graphs
 * [intake-skill](https://github.com/grapeot/intake-skill) — Audio voice intake diary organizer
 
+### Context Intake & Search
+* [ai_session_export](https://github.com/grapeot/ai_session_export) — Multi-source AI session transcripts to an incremental Markdown archive
+* [AI Session Search & Archive](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/ai_session_search_archive.md) — Lexical-first and semantic fallback retrieval across session sources
+
 ### Innovation & Research
 * [innovation-assistant-skill](https://github.com/grapeot/innovation-assistant-skill) — Structured innovation engine (SIT + Think Bigger) as executable pipelines
 
