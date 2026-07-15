@@ -53,6 +53,10 @@
 * [roest-analysis](https://github.com/grapeot/roest-analysis) — Roest 咖啡烘焙曲线抓取与分析工具
 * [intake-skill](https://github.com/grapeot/intake-skill) — 语音备忘录自动转录与整理工具
 
+### 上下文采集与检索
+* [ai_session_export](https://github.com/grapeot/ai_session_export) — 将多来源 AI 会话增量导出为统一 Markdown 归档
+* [AI Session Search & Archive](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/ai_session_search_archive.md) — 跨来源会话归档的关键词优先与语义检索工作流
+
 ### 创新与研究
 * [innovation-assistant-skill](https://github.com/grapeot/innovation-assistant-skill) — 结构化创新引擎（SIT + Think Bigger），可执行流水线
 

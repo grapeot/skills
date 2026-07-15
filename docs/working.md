@@ -2,6 +2,13 @@
 
 ## Changelog
 
+### 2026-07-15
+
+- Added `ai_session_export` as a bilingual Intake · Context In repository entry for incrementally archiving OpenCode, Claude Code, Codex, Antigravity, and Second Mind sessions as Markdown.
+- Added the public `AI Session Search & Archive` document workflow next to the exporter.
+- Updated both showcase totals to 41, the Intake group to 07, and all sequence numbers to remain contiguous.
+- Added registry checks requiring the repository in both READMEs and both HTML projections.
+
 ### 2026-06-27
 - Added Playwright E2E Testing skill to registry (both EN and ZH showcase pages)
 - Added comprehensive SEO meta tags (title, description, canonical, hreflang alternates, Open Graph, Twitter cards, and robots) to `index.html` and `index_zh.html` for optimized platform-specific search terms.

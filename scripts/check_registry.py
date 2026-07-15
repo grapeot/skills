@@ -8,6 +8,8 @@ ROOT = Path(__file__).resolve().parents[1]
 AGY_EN_URL = "https://github.com/grapeot/context-infrastructure-en/blob/main/rules/skills/antigravity_cli.md"
 AGY_ZH_URL = "https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/antigravity_cli.md"
 REGISTRY_LIFECYCLE_URL = "https://github.com/grapeot/skills/blob/master/skills/skill_registry_lifecycle.md"
+AI_SESSION_EXPORT_URL = "https://github.com/grapeot/ai_session_export"
+AI_SESSION_SEARCH_URL = "https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/ai_session_search_archive.md"
 
 
 def read(name: str) -> str:
@@ -107,6 +109,10 @@ def main() -> int:
              "skills/skill_registry_lifecycle.md" in readme_en),
             ("Chinese README links the registry lifecycle skill",
              "skills/skill_registry_lifecycle.md" in readme_zh),
+            ("English README links AI Session Export", AI_SESSION_EXPORT_URL in readme_en),
+            ("Chinese README links AI Session Export", AI_SESSION_EXPORT_URL in readme_zh),
+            ("English README links AI Session Search", AI_SESSION_SEARCH_URL in readme_en),
+            ("Chinese README links AI Session Search", AI_SESSION_SEARCH_URL in readme_zh),
             ("Registry lifecycle skill exists",
              (ROOT / "skills/skill_registry_lifecycle.md").is_file()),
             ("Agent instructions require the registry lifecycle skill",
@@ -117,6 +123,14 @@ def main() -> int:
              has_one_copy_and_link(index_en, REGISTRY_LIFECYCLE_URL)),
             ("Chinese page has one copy button and direct link for the registry lifecycle skill",
              has_one_copy_and_link(index_zh, REGISTRY_LIFECYCLE_URL)),
+            ("English page has one copy button and direct link for AI Session Export",
+             has_one_copy_and_link(index_en, AI_SESSION_EXPORT_URL)),
+            ("Chinese page has one copy button and direct link for AI Session Export",
+             has_one_copy_and_link(index_zh, AI_SESSION_EXPORT_URL)),
+            ("English page has one copy button and direct link for AI Session Search",
+             has_one_copy_and_link(index_en, AI_SESSION_SEARCH_URL)),
+            ("Chinese page has one copy button and direct link for AI Session Search",
+             has_one_copy_and_link(index_zh, AI_SESSION_SEARCH_URL)),
             ("English and Chinese pages expose the same localized GitHub skills",
              {canonical_skill_url(url) for url in repo_urls_from_buttons(index_en)}
              == {canonical_skill_url(url) for url in repo_urls_from_buttons(index_zh)}),
