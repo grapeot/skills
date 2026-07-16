@@ -47,6 +47,7 @@ For a quick overview of the codebases, the standalone repository links are liste
 * [tiff-icc-profile](https://github.com/grapeot/tiff-icc-profile) — ICC color profile injector
 * [online-media-skill](https://github.com/grapeot/online-media-skill) — Video downloader and Whisper transcriber
 * [open_router_data_scraper](https://github.com/grapeot/open_router_data_scraper) — OpenRouter model activity data scraper (token usage, rankings, benchmarks)
+* [chat-gpt-oauth-skill](https://github.com/grapeot/chat-gpt-oauth-skill) — Local ChatGPT Plus/Pro browser PKCE, plaintext token lifecycle, refresh, and minimal Codex request reference; owner-only compatibility experiment, not recommended for production
 
 ### Life Loggers & Quantification
 * [health-quantification](https://github.com/grapeot/health-quantification) — Apple Health SQLite regression analysis

@@ -2,6 +2,13 @@
 
 ## Changelog
 
+### 2026-07-16
+
+- Added `chat-gpt-oauth-skill` as a bilingual Infrastructure repository entry for local ChatGPT Plus/Pro browser PKCE, plaintext token lifecycle, refresh, and a minimal Codex request.
+- Marked the integration as an owner-only compatibility experiment with an unstable private endpoint, not recommended for production.
+- Updated both showcase totals to 42, the Infrastructure group to 08, and all sequence numbers to remain contiguous.
+- Extended registry checks to require the canonical repository in both READMEs and both HTML projections.
+
 ### 2026-07-15
 
 - Added `ai_session_export` as a bilingual Intake · Context In repository entry for incrementally archiving OpenCode, Claude Code, Codex, Antigravity, and Second Mind sessions as Markdown.
