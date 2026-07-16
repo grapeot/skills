@@ -47,6 +47,7 @@
 * [tiff-icc-profile](https://github.com/grapeot/tiff-icc-profile) — TIFF 图像色彩配置文件（ICC）嵌入工具
 * [online-media-skill](https://github.com/grapeot/online-media-skill) — 网络视频下载与 Whisper 语音转文字工具
 * [open_router_data_scraper](https://github.com/grapeot/open_router_data_scraper) — OpenRouter 模型流量数据抓取工具（token 用量、排名、benchmark）
+* [chat-gpt-oauth-skill](https://github.com/grapeot/chat-gpt-oauth-skill) — 用户自行订阅 ChatGPT Plus/Pro 后在本地手动完成 browser PKCE；演示明文 token lifecycle、refresh 和最小 Codex 请求，仅用于 owner compatibility experiment，不推荐生产使用
 
 ### 日常量化与生活记录
 * [health-quantification](https://github.com/grapeot/health-quantification) — Apple Health 健康数据本地 SQLite 分析工具
