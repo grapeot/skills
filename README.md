@@ -37,22 +37,30 @@ For a quick overview of the codebases, the standalone repository links are liste
 ### API Connectors & Tools
 * [tavily-skill](https://github.com/grapeot/tavily-skill) — Web search and HTML scraping optimizer
 * [gdocs-skill](https://github.com/grapeot/gdocs-skill) — Google Docs editor integration
+* [google-maps-routing-skill](https://github.com/grapeot/google-maps-routing-skill) — Google Maps routing and geocoding CLI
 * [outlook_skill](https://github.com/grapeot/outlook_skill) — Outlook.com mail and calendar scheduler
 * [resend_email_skill](https://github.com/grapeot/resend_email_skill) — Custom domain Resend mailer
+* [kit-skill](https://github.com/grapeot/kit-skill) — Kit (ConvertKit) Markdown newsletter broadcast CLI
 * [imessage_skill](https://github.com/grapeot/imessage_skill) — Local iMessage sender CLI
+* [circle-post-skill](https://github.com/grapeot/circle-post-skill) — Circle community publishing CLI
 * [pptx.skill](https://github.com/grapeot/pptx.skill) — PPTX presentation generator
 * [presentation_skill](https://github.com/grapeot/presentation_skill) — Previewable agent slide decks (Reveal.js); image-rendered by default, HTML modules on request—not PPTX
+* [docx-skill](https://github.com/grapeot/docx-skill) — AI-first DOCX inspection and editing scaffold
 * [image-generation-skill](https://github.com/grapeot/image-generation-skill) — Upscaler and image generator
 * [genai_portrait_skill](https://github.com/grapeot/genai_portrait_skill) — Identity-preserving portrait and headshot editing with photographic coherence
 * [tiff-icc-profile](https://github.com/grapeot/tiff-icc-profile) — ICC color profile injector
 * [online-media-skill](https://github.com/grapeot/online-media-skill) — Video downloader and Whisper transcriber
 * [open_router_data_scraper](https://github.com/grapeot/open_router_data_scraper) — OpenRouter model activity data scraper (token usage, rankings, benchmarks)
+* [dataforseo-skill](https://github.com/grapeot/dataforseo-skill) — DataForSEO keyword, SERP, and ranked keyword API CLI
 * [chat-gpt-oauth-skill](https://github.com/grapeot/chat-gpt-oauth-skill) — Local ChatGPT Plus/Pro browser PKCE, plaintext token lifecycle, refresh, and minimal Codex request reference; owner-only compatibility experiment, not recommended for production
 
 ### Life Loggers & Quantification
 * [health-quantification](https://github.com/grapeot/health-quantification) — Apple Health SQLite regression analysis
 * [roest-analysis](https://github.com/grapeot/roest-analysis) — Roest roaster telemetry graphs
 * [intake-skill](https://github.com/grapeot/intake-skill) — Audio voice intake diary organizer
+* [firewalla-local-skill](https://github.com/grapeot/firewalla-local-skill) — Firewalla local network export analysis and reports
+* [smart_home_skill](https://github.com/grapeot/smart_home_skill) — AI-facing local smart home control layer with OpenAPI-driven APIs
+* [eink_diary](https://github.com/grapeot/eink_diary) — Color E-Ink visual diary driven by Raspberry Pi
 
 ### Context Intake & Search
 * [ai_session_export](https://github.com/grapeot/ai_session_export) — Multi-source AI session transcripts to an incremental Markdown archive
@@ -61,9 +69,13 @@ For a quick overview of the codebases, the standalone repository links are liste
 ### Innovation & Research
 * [innovation-assistant-skill](https://github.com/grapeot/innovation-assistant-skill) — Structured innovation engine (SIT + Think Bigger) as executable pipelines
 
+### Design & Quality
+* [design_skill](https://github.com/grapeot/design_skill) — Structured UI design judgment skill for AI coding agents (iOS, Android, Web)
+
 ### Agent Daemon & Devops
 * [process-launcher](https://github.com/grapeot/process-launcher) — macOS HTTP process launcher bypass
 * [opencode_skill](https://github.com/grapeot/opencode_skill) — OpenCode task runner
 * [opencode-docker](https://github.com/grapeot/opencode-docker) — OpenCode docker config
+* [logto-management-skill](https://github.com/grapeot/logto-management-skill) — Logto user and role management CLI with 1Password-native credentials
 
 *(For the complete list of 27+ built-in workflow guides and detailed copy-paste installation prompts, check the [Interactive Showcase](https://grapeot.github.io/skills/))*

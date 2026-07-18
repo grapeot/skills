@@ -2,6 +2,12 @@
 
 ## Changelog
 
+### 2026-07-17
+
+- Added 11 missing skills to both showcase pages and both README quick lists: `tavily-skill`, `google-maps-routing-skill`, `kit-skill`, `circle-post-skill`, `docx-skill`, `firewalla-local-skill`, `dataforseo-skill`, `smart_home_skill`, `eink_diary`, `design_skill`, and `logto-management-skill`.
+- Updated both showcase totals from 42 to 53, the Intake group from 07 to 11, the Analyze group from 07 to 09, the Output group from 11 to 15, the Infrastructure group from 08 to 09, and renumbered all entries so both pages remain contiguous from 01 through 53.
+- Added new README sections (Design & Quality) for `design_skill` and expanded existing sections to host the additional repos.
+
 ### 2026-07-16
 
 - Added `chat-gpt-oauth-skill` as a bilingual Infrastructure repository entry for local ChatGPT Plus/Pro browser PKCE, plaintext token lifecycle, refresh, and a minimal Codex request.
