@@ -37,22 +37,30 @@
 ### 工具与 API 连接器
 * [tavily-skill](https://github.com/grapeot/tavily-skill) — 面向 Agent 优化的网页搜索引擎
 * [gdocs-skill](https://github.com/grapeot/gdocs-skill) — Google Docs 命令行编辑器
+* [google-maps-routing-skill](https://github.com/grapeot/google-maps-routing-skill) — Google Maps 路线与地理编码 CLI
 * [outlook_skill](https://github.com/grapeot/outlook_skill) — Outlook 邮件与日历同步 CLI
 * [resend_email_skill](https://github.com/grapeot/resend_email_skill) — 基于 Resend 的自定义域名邮件发送工具
+* [kit-skill](https://github.com/grapeot/kit-skill) — Kit (ConvertKit) Markdown 简报广播 CLI
 * [imessage_skill](https://github.com/grapeot/imessage_skill) — macOS iMessage 本地发信工具
+* [circle-post-skill](https://github.com/grapeot/circle-post-skill) — Circle 社区发帖 CLI
 * [pptx.skill](https://github.com/grapeot/pptx.skill) — PPTX 幻灯片修改工具
 * [presentation_skill](https://github.com/grapeot/presentation_skill) — 可预览 slide deck 搭建 skill（默认整页图像幻灯片，按需 HTML 模块；非 PPTX）
+* [docx-skill](https://github.com/grapeot/docx-skill) — AI-first 的 Word 文档检查与编辑脚手架
 * [image-generation-skill](https://github.com/grapeot/image-generation-skill) — AI 绘图与高清放大工具
 * [genai_portrait_skill](https://github.com/grapeot/genai_portrait_skill) — 保持人物身份与摄影整体一致性的人像、头像和证件照编辑 skill
 * [tiff-icc-profile](https://github.com/grapeot/tiff-icc-profile) — TIFF 图像色彩配置文件（ICC）嵌入工具
 * [online-media-skill](https://github.com/grapeot/online-media-skill) — 网络视频下载与 Whisper 语音转文字工具
 * [open_router_data_scraper](https://github.com/grapeot/open_router_data_scraper) — OpenRouter 模型流量数据抓取工具（token 用量、排名、benchmark）
+* [dataforseo-skill](https://github.com/grapeot/dataforseo-skill) — DataForSEO 关键词、SERP 和排名关键词 API CLI
 * [chat-gpt-oauth-skill](https://github.com/grapeot/chat-gpt-oauth-skill) — 用户自行订阅 ChatGPT Plus/Pro 后在本地手动完成 browser PKCE；演示明文 token lifecycle、refresh 和最小 Codex 请求，仅用于 owner compatibility experiment，不推荐生产使用
 
 ### 日常量化与生活记录
 * [health-quantification](https://github.com/grapeot/health-quantification) — Apple Health 健康数据本地 SQLite 分析工具
 * [roest-analysis](https://github.com/grapeot/roest-analysis) — Roest 咖啡烘焙曲线抓取与分析工具
 * [intake-skill](https://github.com/grapeot/intake-skill) — 语音备忘录自动转录与整理工具
+* [firewalla-local-skill](https://github.com/grapeot/firewalla-local-skill) — Firewalla 本地网络导出分析与报告工具
+* [smart_home_skill](https://github.com/grapeot/smart_home_skill) — 面向 AI 的本地智能家居控制层，基于 OpenAPI
+* [eink_diary](https://github.com/grapeot/eink_diary) — 树莓派驱动的彩色电子纸视觉日记
 
 ### 上下文采集与检索
 * [ai_session_export](https://github.com/grapeot/ai_session_export) — 将多来源 AI 会话增量导出为统一 Markdown 归档
@@ -61,9 +69,13 @@
 ### 创新与研究
 * [innovation-assistant-skill](https://github.com/grapeot/innovation-assistant-skill) — 结构化创新引擎（SIT + Think Bigger），可执行流水线
 
+### 设计与质量
+* [design_skill](https://github.com/grapeot/design_skill) — 面向 AI 编码 agent 的结构化 UI 设计判断 skill（iOS、Android、Web）
+
 ### Agent 运行基础设施
 * [process-launcher](https://github.com/grapeot/process-launcher) — macOS 本地 HTTP 进程守护服务
 * [opencode_skill](https://github.com/grapeot/opencode_skill) — OpenCode 异步任务运行管理器
 * [opencode-docker](https://github.com/grapeot/opencode-docker) — OpenCode Docker 部署配置模板
+* [logto-management-skill](https://github.com/grapeot/logto-management-skill) — Logto 用户与角色管理 CLI，1Password 原生凭证
 
 *(欲查看完整技能列表（包含 27 个内置工作流与最佳实践）并一键复制 Prompt 安装指引，请直接访问 [直观展示页面](https://grapeot.github.io/skills/index_zh.html))*
