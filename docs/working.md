@@ -2,6 +2,10 @@
 
 ## Changelog
 
+### 2026-07-19
+
+- Updated the `online-media-skill` description across both READMEs and both showcase pages after the canonical repo added agent-led bilingual SRT generation with deterministic coverage, rendering, validation, and hash-bound artifact manifests.
+
 ### 2026-07-17
 
 - Added 11 missing skills to both showcase pages and both README quick lists: `tavily-skill`, `google-maps-routing-skill`, `kit-skill`, `circle-post-skill`, `docx-skill`, `firewalla-local-skill`, `dataforseo-skill`, `smart_home_skill`, `eink_diary`, `design_skill`, and `logto-management-skill`.

@@ -49,7 +49,7 @@ For a quick overview of the codebases, the standalone repository links are liste
 * [image-generation-skill](https://github.com/grapeot/image-generation-skill) — Upscaler and image generator
 * [genai_portrait_skill](https://github.com/grapeot/genai_portrait_skill) — Identity-preserving portrait and headshot editing with photographic coherence
 * [tiff-icc-profile](https://github.com/grapeot/tiff-icc-profile) — ICC color profile injector
-* [online-media-skill](https://github.com/grapeot/online-media-skill) — Video downloader and Whisper transcriber
+* [online-media-skill](https://github.com/grapeot/online-media-skill) — Download and transcribe online media, identify sources, and produce agent-reviewed bilingual SRT with deterministic coverage, rendering, and validation
 * [open_router_data_scraper](https://github.com/grapeot/open_router_data_scraper) — OpenRouter model activity data scraper (token usage, rankings, benchmarks)
 * [dataforseo-skill](https://github.com/grapeot/dataforseo-skill) — DataForSEO keyword, SERP, and ranked keyword API CLI
 * [chat-gpt-oauth-skill](https://github.com/grapeot/chat-gpt-oauth-skill) — Local ChatGPT Plus/Pro browser PKCE, plaintext token lifecycle, refresh, and minimal Codex request reference; owner-only compatibility experiment, not recommended for production

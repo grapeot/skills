@@ -49,7 +49,7 @@
 * [image-generation-skill](https://github.com/grapeot/image-generation-skill) — AI 绘图与高清放大工具
 * [genai_portrait_skill](https://github.com/grapeot/genai_portrait_skill) — 保持人物身份与摄影整体一致性的人像、头像和证件照编辑 skill
 * [tiff-icc-profile](https://github.com/grapeot/tiff-icc-profile) — TIFF 图像色彩配置文件（ICC）嵌入工具
-* [online-media-skill](https://github.com/grapeot/online-media-skill) — 网络视频下载与 Whisper 语音转文字工具
+* [online-media-skill](https://github.com/grapeot/online-media-skill) — 下载和转录在线媒体、识别内容来源，并生成 Agent 审校的双语 SRT；CLI 负责 coverage、render 和 validate
 * [open_router_data_scraper](https://github.com/grapeot/open_router_data_scraper) — OpenRouter 模型流量数据抓取工具（token 用量、排名、benchmark）
 * [dataforseo-skill](https://github.com/grapeot/dataforseo-skill) — DataForSEO 关键词、SERP 和排名关键词 API CLI
 * [chat-gpt-oauth-skill](https://github.com/grapeot/chat-gpt-oauth-skill) — 用户自行订阅 ChatGPT Plus/Pro 后在本地手动完成 browser PKCE；演示明文 token lifecycle、refresh 和最小 Codex 请求，仅用于 owner compatibility experiment，不推荐生产使用
