@@ -5,6 +5,9 @@
 ### 2026-07-20
 
 - Pointed canonical, hreflang, Open Graph, and Twitter URLs in both showcase pages to `https://skills.superlinear.academy/` so the custom domain served via reverse proxy is the primary SEO surface.
+- Added `bright-horizons-photo-sync-skill` as a bilingual Intake repository entry for complete, resumable My Bright Day event and media backups with integrity verification and duplicate-safe macOS Photos import.
+- Updated both README quick lists, both showcase pages, the total from 53 to 54, the Intake group from 11 to 12, and all subsequent sequence numbers.
+- Extended registry checks to require the canonical repository in both READMEs and both HTML projections.
 
 ### 2026-07-19
 

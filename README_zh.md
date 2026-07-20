@@ -55,6 +55,7 @@
 * [chat-gpt-oauth-skill](https://github.com/grapeot/chat-gpt-oauth-skill) — 用户自行订阅 ChatGPT Plus/Pro 后在本地手动完成 browser PKCE；演示明文 token lifecycle、refresh 和最小 Codex 请求，仅用于 owner compatibility experiment，不推荐生产使用
 
 ### 日常量化与生活记录
+* [bright-horizons-photo-sync-skill](https://github.com/grapeot/bright-horizons-photo-sync-skill) — 本地增量备份 My Bright Day 事件与媒体，支持断点续传、完整性校验和 macOS Photos 去重导入
 * [health-quantification](https://github.com/grapeot/health-quantification) — Apple Health 健康数据本地 SQLite 分析工具
 * [roest-analysis](https://github.com/grapeot/roest-analysis) — Roest 咖啡烘焙曲线抓取与分析工具
 * [intake-skill](https://github.com/grapeot/intake-skill) — 语音备忘录自动转录与整理工具

@@ -11,6 +11,7 @@ REGISTRY_LIFECYCLE_URL = "https://github.com/grapeot/skills/blob/master/skills/s
 AI_SESSION_EXPORT_URL = "https://github.com/grapeot/ai_session_export"
 AI_SESSION_SEARCH_URL = "https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/ai_session_search_archive.md"
 CHATGPT_OAUTH_URL = "https://github.com/grapeot/chat-gpt-oauth-skill"
+BRIGHT_HORIZONS_URL = "https://github.com/grapeot/bright-horizons-photo-sync-skill"
 
 
 def read(name: str) -> str:
@@ -116,6 +117,10 @@ def main() -> int:
             ("Chinese README links AI Session Search", AI_SESSION_SEARCH_URL in readme_zh),
             ("English README links ChatGPT OAuth", CHATGPT_OAUTH_URL in readme_en),
             ("Chinese README links ChatGPT OAuth", CHATGPT_OAUTH_URL in readme_zh),
+            ("English README links Bright Horizons Photo Sync",
+             BRIGHT_HORIZONS_URL in readme_en),
+            ("Chinese README links Bright Horizons Photo Sync",
+             BRIGHT_HORIZONS_URL in readme_zh),
             ("Registry lifecycle skill exists",
              (ROOT / "skills/skill_registry_lifecycle.md").is_file()),
             ("Agent instructions require the registry lifecycle skill",
@@ -138,6 +143,10 @@ def main() -> int:
              has_one_copy_and_link(index_en, CHATGPT_OAUTH_URL)),
             ("Chinese page has one copy button and direct link for ChatGPT OAuth",
              has_one_copy_and_link(index_zh, CHATGPT_OAUTH_URL)),
+            ("English page has one copy button and direct link for Bright Horizons Photo Sync",
+             has_one_copy_and_link(index_en, BRIGHT_HORIZONS_URL)),
+            ("Chinese page has one copy button and direct link for Bright Horizons Photo Sync",
+             has_one_copy_and_link(index_zh, BRIGHT_HORIZONS_URL)),
             ("English and Chinese pages expose the same localized GitHub skills",
              {canonical_skill_url(url) for url in repo_urls_from_buttons(index_en)}
              == {canonical_skill_url(url) for url in repo_urls_from_buttons(index_zh)}),
