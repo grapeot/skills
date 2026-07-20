@@ -2,6 +2,10 @@
 
 ## Changelog
 
+### 2026-07-20
+
+- Pointed canonical, hreflang, Open Graph, and Twitter URLs in both showcase pages to `https://skills.superlinear.academy/` so the custom domain served via reverse proxy is the primary SEO surface.
+
 ### 2026-07-19
 
 - Updated the `online-media-skill` description across both READMEs and both showcase pages after the canonical repo added agent-led bilingual SRT generation with deterministic coverage, rendering, validation, and hash-bound artifact manifests.
