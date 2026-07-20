@@ -70,6 +70,7 @@ For a quick overview of the codebases, the standalone repository links are liste
 
 ### Innovation & Research
 * [innovation-assistant-skill](https://github.com/grapeot/innovation-assistant-skill) — Structured innovation engine (SIT + Think Bigger) as executable pipelines
+* [ai-session-profanity-rate](https://github.com/grapeot/ai-session-profanity-rate) — Privacy-conscious profanity token analysis for AI session user messages, with versioned local caching, redacted JSON, and model-composition charts
 
 ### Design & Quality
 * [design_skill](https://github.com/grapeot/design_skill) — Structured UI design judgment skill for AI coding agents (iOS, Android, Web)

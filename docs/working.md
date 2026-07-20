@@ -4,6 +4,11 @@
 
 ### 2026-07-20
 
+- Added `ai-session-profanity-rate` to both README quick lists and both showcase pages as a bilingual Analyze repository entry for sub-agent profanity-token labeling across AI session user messages, versioned local caching, redacted JSON, and model-composition charts.
+- Updated both showcase totals from 55 to 56, the Analyze group from 09 to 10, and all following sequence numbers to remain contiguous.
+- Extended registry checks to require the canonical AI Session Profanity Rate repository in both READMEs and both HTML projections.
+- Functional disposition (reviewer: grapeot, 2026-07-20): approved the completed CLI behavior and registry publication after the project test suite, lint, cache-idempotence run, and public-content checks passed.
+- Privacy disposition (reviewer: grapeot, 2026-07-20): approved publication with transcripts, labeling requests and responses, cache, result JSON, and charts kept outside the repository; registry copy exposes no private paths or run data.
 - Added `apple-photos-skill` to both README quick lists and both showcase pages as a bilingual Intake repository entry for Apple Photos metadata inspection, original-resource export, metadata backup, and dry-run mutation planning; live mutations remain unverified alpha and are not for production libraries.
 - Updated both showcase totals from 54 to 55, the Intake group from 12 to 13, and all following sequence numbers to remain contiguous.
 - Extended registry checks to require the canonical Apple Photos repository in both READMEs and both HTML projections.

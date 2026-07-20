@@ -70,6 +70,7 @@
 
 ### 创新与研究
 * [innovation-assistant-skill](https://github.com/grapeot/innovation-assistant-skill) — 结构化创新引擎（SIT + Think Bigger），可执行流水线
+* [ai-session-profanity-rate](https://github.com/grapeot/ai-session-profanity-rate) — 隐私优先的 AI 会话用户消息粗口词元分析，支持版本化本地缓存、脱敏 JSON 和模型构成图
 
 ### 设计与质量
 * [design_skill](https://github.com/grapeot/design_skill) — 面向 AI 编码 agent 的结构化 UI 设计判断 skill（iOS、Android、Web）
