@@ -55,6 +55,7 @@ For a quick overview of the codebases, the standalone repository links are liste
 * [chat-gpt-oauth-skill](https://github.com/grapeot/chat-gpt-oauth-skill) — Local ChatGPT Plus/Pro browser PKCE, plaintext token lifecycle, refresh, and minimal Codex request reference; owner-only compatibility experiment, not recommended for production
 
 ### Life Loggers & Quantification
+* [bright-horizons-photo-sync-skill](https://github.com/grapeot/bright-horizons-photo-sync-skill) — Local-first, resumable My Bright Day event and media backups with integrity checks and duplicate-safe macOS Photos import
 * [health-quantification](https://github.com/grapeot/health-quantification) — Apple Health SQLite regression analysis
 * [roest-analysis](https://github.com/grapeot/roest-analysis) — Roest roaster telemetry graphs
 * [intake-skill](https://github.com/grapeot/intake-skill) — Audio voice intake diary organizer
