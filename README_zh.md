@@ -38,6 +38,7 @@
 * [tavily-skill](https://github.com/grapeot/tavily-skill) — 面向 Agent 优化的网页搜索引擎
 * [gdocs-skill](https://github.com/grapeot/gdocs-skill) — Google Docs 命令行编辑器
 * [google-maps-routing-skill](https://github.com/grapeot/google-maps-routing-skill) — Google Maps 路线与地理编码 CLI
+* [go-daddy-skill](https://github.com/grapeot/go-daddy-skill) — GoDaddy 域名与权威 DNS read-first 清单，以及受保护的 TXT create plan/apply
 * [outlook_skill](https://github.com/grapeot/outlook_skill) — Outlook 邮件与日历同步 CLI
 * [resend_email_skill](https://github.com/grapeot/resend_email_skill) — 基于 Resend 的自定义域名邮件发送工具
 * [kit-skill](https://github.com/grapeot/kit-skill) — Kit (ConvertKit) Markdown 简报广播 CLI

@@ -2,6 +2,12 @@
 
 ## Changelog
 
+### 2026-07-25
+
+- Added `go-daddy-skill` to both README quick lists and both showcase pages as a bilingual Infrastructure repository entry for read-first domain and authoritative-DNS inventory plus a separate-write-token TXT create plan/apply workflow.
+- Updated both showcase totals from 56 to 57, the Infrastructure group from 09 to 10, and all following sequence numbers to remain contiguous.
+- Extended registry checks to require the canonical GoDaddy repository in both READMEs and both HTML projections.
+
 ### 2026-07-20
 
 - Added `ai-session-profanity-rate` to both README quick lists and both showcase pages as a bilingual Analyze repository entry for sub-agent profanity-token labeling across AI session user messages, versioned local caching, redacted JSON, and model-composition charts.
