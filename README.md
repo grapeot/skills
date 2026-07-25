@@ -80,6 +80,6 @@ For a quick overview of the codebases, the standalone repository links are liste
 * [process-launcher](https://github.com/grapeot/process-launcher) — macOS HTTP process launcher bypass
 * [opencode_skill](https://github.com/grapeot/opencode_skill) — OpenCode task runner
 * [opencode-docker](https://github.com/grapeot/opencode-docker) — OpenCode docker config
-* [logto-management-skill](https://github.com/grapeot/logto-management-skill) — Logto user and role management CLI with 1Password-native credentials
+* [logto-management-skill](https://github.com/grapeot/logto-management-skill) — Safe Logto tenant discovery and management CLI + Python library with Swagger search, guarded configuration backups, snapshots, and dry-run destructive operations
 
 *(For the complete list of 27+ built-in workflow guides and detailed copy-paste installation prompts, check the [Interactive Showcase](https://grapeot.github.io/skills/))*

@@ -4,6 +4,7 @@
 
 ### 2026-07-25
 
+- Updated the bilingual `logto-management-skill` entry across both README quick lists and both showcase pages for v2: tenant Swagger discovery, guarded backup-and-verify configuration writes, snapshots, MFA recovery, and dry-run destructive operations.
 - Added `go-daddy-skill` to both README quick lists and both showcase pages as a bilingual Infrastructure repository entry for read-first domain and authoritative-DNS inventory plus a separate-write-token TXT create plan/apply workflow.
 - Updated both showcase totals from 56 to 57, the Infrastructure group from 09 to 10, and all following sequence numbers to remain contiguous.
 - Extended registry checks to require the canonical GoDaddy repository in both READMEs and both HTML projections.
