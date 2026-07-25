@@ -38,6 +38,7 @@ For a quick overview of the codebases, the standalone repository links are liste
 * [tavily-skill](https://github.com/grapeot/tavily-skill) — Web search and HTML scraping optimizer
 * [gdocs-skill](https://github.com/grapeot/gdocs-skill) — Google Docs editor integration
 * [google-maps-routing-skill](https://github.com/grapeot/google-maps-routing-skill) — Google Maps routing and geocoding CLI
+* [go-daddy-skill](https://github.com/grapeot/go-daddy-skill) — Read-first GoDaddy domain and authoritative-DNS inventory with guarded TXT create plan/apply
 * [outlook_skill](https://github.com/grapeot/outlook_skill) — Outlook.com mail and calendar scheduler
 * [resend_email_skill](https://github.com/grapeot/resend_email_skill) — Custom domain Resend mailer
 * [kit-skill](https://github.com/grapeot/kit-skill) — Kit (ConvertKit) Markdown newsletter broadcast CLI

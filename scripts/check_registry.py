@@ -14,6 +14,7 @@ CHATGPT_OAUTH_URL = "https://github.com/grapeot/chat-gpt-oauth-skill"
 BRIGHT_HORIZONS_URL = "https://github.com/grapeot/bright-horizons-photo-sync-skill"
 APPLE_PHOTOS_URL = "https://github.com/grapeot/apple-photos-skill"
 AI_SESSION_PROFANITY_URL = "https://github.com/grapeot/ai-session-profanity-rate"
+GODADDY_URL = "https://github.com/grapeot/go-daddy-skill"
 
 
 def read(name: str) -> str:
@@ -129,6 +130,8 @@ def main() -> int:
              AI_SESSION_PROFANITY_URL in readme_en),
             ("Chinese README links AI Session Profanity Rate",
              AI_SESSION_PROFANITY_URL in readme_zh),
+            ("English README links GoDaddy Skill", GODADDY_URL in readme_en),
+            ("Chinese README links GoDaddy Skill", GODADDY_URL in readme_zh),
             ("Registry lifecycle skill exists",
              (ROOT / "skills/skill_registry_lifecycle.md").is_file()),
             ("Agent instructions require the registry lifecycle skill",
@@ -163,6 +166,10 @@ def main() -> int:
              has_one_copy_and_link(index_en, AI_SESSION_PROFANITY_URL)),
             ("Chinese page has one copy button and direct link for AI Session Profanity Rate",
              has_one_copy_and_link(index_zh, AI_SESSION_PROFANITY_URL)),
+            ("English page has one copy button and direct link for GoDaddy Skill",
+             has_one_copy_and_link(index_en, GODADDY_URL)),
+            ("Chinese page has one copy button and direct link for GoDaddy Skill",
+             has_one_copy_and_link(index_zh, GODADDY_URL)),
             ("English and Chinese pages expose the same localized GitHub skills",
              {canonical_skill_url(url) for url in repo_urls_from_buttons(index_en)}
              == {canonical_skill_url(url) for url in repo_urls_from_buttons(index_zh)}),
