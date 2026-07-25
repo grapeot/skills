@@ -80,6 +80,6 @@
 * [process-launcher](https://github.com/grapeot/process-launcher) — macOS 本地 HTTP 进程守护服务
 * [opencode_skill](https://github.com/grapeot/opencode_skill) — OpenCode 异步任务运行管理器
 * [opencode-docker](https://github.com/grapeot/opencode-docker) — OpenCode Docker 部署配置模板
-* [logto-management-skill](https://github.com/grapeot/logto-management-skill) — Logto 用户与角色管理 CLI，1Password 原生凭证
+* [logto-management-skill](https://github.com/grapeot/logto-management-skill) — 安全发现和管理 Logto 租户配置的 CLI + Python 库，支持 Swagger 检索、受保护配置备份、快照和破坏性操作 dry-run
 
 *(欲查看完整技能列表（包含 27 个内置工作流与最佳实践）并一键复制 Prompt 安装指引，请直接访问 [直观展示页面](https://grapeot.github.io/skills/index_zh.html))*
