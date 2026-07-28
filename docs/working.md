@@ -2,6 +2,10 @@
 
 ## Changelog
 
+### 2026-07-28
+
+- Restored both GitHub Pages showcase pages' canonical, hreflang, Open Graph, and Twitter URLs to `https://grapeot.github.io/skills/` after `skills.superlinear.academy` moved to the private Logto-gated member registry.
+
 ### 2026-07-25
 
 - Updated the bilingual `logto-management-skill` entry across both README quick lists and both showcase pages for v2: tenant Swagger discovery, guarded backup-and-verify configuration writes, snapshots, MFA recovery, and dry-run destructive operations.
