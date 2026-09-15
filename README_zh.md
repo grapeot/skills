@@ -56,6 +56,9 @@
 * [dataforseo-skill](https://github.com/grapeot/dataforseo-skill) — DataForSEO 关键词、SERP 和排名关键词 API CLI
 * [chat-gpt-oauth-skill](https://github.com/grapeot/chat-gpt-oauth-skill) — 用户自行订阅 ChatGPT Plus/Pro 后在本地手动完成 browser PKCE；演示明文 token lifecycle、refresh 和最小 Codex 请求，仅用于 owner compatibility experiment，不推荐生产使用
 
+### 输出与交付
+* [CT Education Skill](https://github.com/grapeot/ct-education-skill) - 提供本地教学用胸部 CT DICOM 交互式 3D 可视化（支持原始切片联动）与离线 Blender 教学影片。需要安装和配置。采用有限的启发式候选掩码，而非经过验证的分割，仅用于教学而非临床诊断。患者数据及所有衍生内容须保存在公开仓库之外的私有空间。
+
 ### 日常量化与生活记录
 * [bright-horizons-photo-sync-skill](https://github.com/grapeot/bright-horizons-photo-sync-skill) — 本地增量备份 My Bright Day 事件与媒体，支持断点续传、完整性校验和 macOS Photos 去重导入
 * [health-quantification](https://github.com/grapeot/health-quantification) — Apple Health 健康数据本地 SQLite 分析工具
@@ -82,4 +85,4 @@
 * [opencode-docker](https://github.com/grapeot/opencode-docker) — OpenCode Docker 部署配置模板
 * [logto-management-skill](https://github.com/grapeot/logto-management-skill) — 安全发现和管理 Logto 租户配置的 CLI + Python 库，支持 Swagger 检索、受保护配置备份、快照和破坏性操作 dry-run
 
-*(欲查看完整技能列表（包含 27 个内置工作流与最佳实践）并一键复制 Prompt 安装指引，请直接访问 [直观展示页面](https://grapeot.github.io/skills/index_zh.html))*
+*(欲查看完整技能列表（包含 17 个内置工作流与最佳实践）并一键复制 Prompt 安装指引，请直接访问 [直观展示页面](https://grapeot.github.io/skills/index_zh.html))*
