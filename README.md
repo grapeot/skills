@@ -56,6 +56,9 @@ For a quick overview of the codebases, the standalone repository links are liste
 * [dataforseo-skill](https://github.com/grapeot/dataforseo-skill) — DataForSEO keyword, SERP, and ranked keyword API CLI
 * [chat-gpt-oauth-skill](https://github.com/grapeot/chat-gpt-oauth-skill) — Local ChatGPT Plus/Pro browser PKCE, plaintext token lifecycle, refresh, and minimal Codex request reference; owner-only compatibility experiment, not recommended for production
 
+### Output & Delivery
+* [CT Education Skill](https://github.com/grapeot/ct-education-skill) - Provides local educational chest CT DICOM interactive 3D visualization with source-slice linkage and offline Blender educational films. Setup is required. Uses limited heuristic candidate masks rather than validated segmentation and is not for diagnosis. Patient data and all derivatives remain private outside public repositories.
+
 ### Life Loggers & Quantification
 * [bright-horizons-photo-sync-skill](https://github.com/grapeot/bright-horizons-photo-sync-skill) — Local-first, resumable My Bright Day event and media backups with integrity checks and duplicate-safe macOS Photos import
 * [health-quantification](https://github.com/grapeot/health-quantification) — Apple Health SQLite regression analysis
@@ -82,4 +85,4 @@ For a quick overview of the codebases, the standalone repository links are liste
 * [opencode-docker](https://github.com/grapeot/opencode-docker) — OpenCode docker config
 * [logto-management-skill](https://github.com/grapeot/logto-management-skill) — Safe Logto tenant discovery and management CLI + Python library with Swagger search, guarded configuration backups, snapshots, and dry-run destructive operations
 
-*(For the complete list of 27+ built-in workflow guides and detailed copy-paste installation prompts, check the [Interactive Showcase](https://grapeot.github.io/skills/))*
+*(For the complete list of 17 built-in workflow guides and detailed copy-paste installation prompts, check the [Interactive Showcase](https://grapeot.github.io/skills/))*

@@ -2,6 +2,13 @@
 
 ## Changelog
 
+### 2026-09-14
+
+- Added CT Education Skill to bilingual README quick lists and the showcase Output group as a setup-required repository entry.
+- Updated the total count from 57 to 58 and the Output group from 15 to 16 with contiguous numbering; corrected the README guide counts to match the 17 DOC entries.
+- Extended checks to require the canonical CT Education Skill URL across all four projections.
+- Registry and canonical public-content checks passed. Independent AI privacy and functional reviews passed; the owner requested publication and direct merge.
+
 ### 2026-07-28
 
 - Restored both GitHub Pages showcase pages' canonical, hreflang, Open Graph, and Twitter URLs to `https://grapeot.github.io/skills/` after `skills.superlinear.academy` moved to the private Logto-gated member registry.
