@@ -2,6 +2,12 @@
 
 ## Changelog
 
+### 2026-10-19
+
+- Added `niview-skill` to the Output group and both README quick lists: NiView / Tencent IoT Video camera CLI with token exchange, device/event listing, `.encrypt` snapshot decryption, and low-power cloud polling without P2P or camera wake-up.
+- Updated the total count from 58 to 59 and the Output group from 16 to 17 with contiguous numbering.
+- Registry and canonical public-content checks passed.
+
 ### 2026-09-14
 
 - Added CT Education Skill to bilingual README quick lists and the showcase Output group as a setup-required repository entry.
