@@ -66,6 +66,7 @@ For a quick overview of the codebases, the standalone repository links are liste
 * [intake-skill](https://github.com/grapeot/intake-skill) — Audio voice intake diary organizer
 * [firewalla-local-skill](https://github.com/grapeot/firewalla-local-skill) — Firewalla local network export analysis and reports
 * [smart_home_skill](https://github.com/grapeot/smart_home_skill) — AI-facing local smart home control layer with OpenAPI-driven APIs
+* [niview-skill](https://github.com/grapeot/niview-skill) — NiView / Tencent IoT Video camera CLI: token exchange, device and event listing, .encrypt snapshot decryption, and SQLite-deduplicated cloud polling without P2P or camera wake-up
 * [eink_diary](https://github.com/grapeot/eink_diary) — Color E-Ink visual diary driven by Raspberry Pi
 
 ### Context Intake & Search

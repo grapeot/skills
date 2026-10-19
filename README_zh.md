@@ -66,6 +66,7 @@
 * [intake-skill](https://github.com/grapeot/intake-skill) — 语音备忘录自动转录与整理工具
 * [firewalla-local-skill](https://github.com/grapeot/firewalla-local-skill) — Firewalla 本地网络导出分析与报告工具
 * [smart_home_skill](https://github.com/grapeot/smart_home_skill) — 面向 AI 的本地智能家居控制层，基于 OpenAPI
+* [niview-skill](https://github.com/grapeot/niview-skill) — NiView / 腾讯云 IoT Video 摄像头 CLI：账号换 token、设备与事件列表、.encrypt 抓拍解密，以及不唤醒摄像头的 SQLite 去重云端轮询
 * [eink_diary](https://github.com/grapeot/eink_diary) — 树莓派驱动的彩色电子纸视觉日记
 
 ### 上下文采集与检索
