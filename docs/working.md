@@ -2,6 +2,13 @@
 
 ## Changelog
 
+### 2026-10-25
+
+- Added `wechat_db_parser` to the Intake group and both README quick lists: contact and group chat export from decrypted WeChat Windows PC 3.9 databases, plus Official Account article and recent-article timeline export.
+- Updated the total count from 59 to 60 and the Intake group from 13 to 14 with contiguous numbering.
+- Extended registry checks to require the canonical WeChat DB Parser URL across all four projections.
+- Added `scripts/sync_registry.py` to derive row numbers, group counters, and advertised totals from the hand-authored showcase rows, eliminating manual renumbering after entry changes.
+
 ### 2026-10-19
 
 - Added `niview-skill` to the Output group and both README quick lists: NiView / Tencent IoT Video camera CLI with token exchange, device/event listing, `.encrypt` snapshot decryption, and low-power cloud polling without P2P or camera wake-up.

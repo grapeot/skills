@@ -72,6 +72,7 @@ For a quick overview of the codebases, the standalone repository links are liste
 ### Context Intake & Search
 * [ai_session_export](https://github.com/grapeot/ai_session_export) — Multi-source AI session transcripts to an incremental Markdown archive
 * [AI Session Search & Archive](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/ai_session_search_archive.md) — Lexical-first and semantic fallback retrieval across session sources
+* [wechat_db_parser](https://github.com/grapeot/wechat_db_parser) — Export contact and group chat history from decrypted WeChat Windows PC 3.9 databases to CSV with contact and date filters; also export Official Account articles to CSV and recent-article timelines to CSV or Markdown.
 
 ### Innovation & Research
 * [innovation-assistant-skill](https://github.com/grapeot/innovation-assistant-skill) — Structured innovation engine (SIT + Think Bigger) as executable pipelines

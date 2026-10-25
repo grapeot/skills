@@ -16,6 +16,7 @@ APPLE_PHOTOS_URL = "https://github.com/grapeot/apple-photos-skill"
 AI_SESSION_PROFANITY_URL = "https://github.com/grapeot/ai-session-profanity-rate"
 GODADDY_URL = "https://github.com/grapeot/go-daddy-skill"
 CT_EDUCATION_URL = "https://github.com/grapeot/ct-education-skill"
+WECHAT_DB_PARSER_URL = "https://github.com/grapeot/wechat_db_parser"
 
 
 def read(name: str) -> str:
@@ -137,6 +138,10 @@ def main() -> int:
              readme_en.count(f"]({CT_EDUCATION_URL})") == 1),
             ("Chinese README links CT Education Skill exactly once",
              readme_zh.count(f"]({CT_EDUCATION_URL})") == 1),
+            ("English README links WeChat DB Parser exactly once",
+             readme_en.count(f"]({WECHAT_DB_PARSER_URL})") == 1),
+            ("Chinese README links WeChat DB Parser exactly once",
+             readme_zh.count(f"]({WECHAT_DB_PARSER_URL})") == 1),
             ("Registry lifecycle skill exists",
              (ROOT / "skills/skill_registry_lifecycle.md").is_file()),
             ("Agent instructions require the registry lifecycle skill",
@@ -179,6 +184,10 @@ def main() -> int:
              has_one_copy_and_link(index_en, CT_EDUCATION_URL)),
             ("Chinese page has one copy button and direct link for CT Education Skill",
              has_one_copy_and_link(index_zh, CT_EDUCATION_URL)),
+            ("English page has one copy button and direct link for WeChat DB Parser",
+             has_one_copy_and_link(index_en, WECHAT_DB_PARSER_URL)),
+            ("Chinese page has one copy button and direct link for WeChat DB Parser",
+             has_one_copy_and_link(index_zh, WECHAT_DB_PARSER_URL)),
             ("English and Chinese pages expose the same localized GitHub skills",
              {canonical_skill_url(url) for url in repo_urls_from_buttons(index_en)}
              == {canonical_skill_url(url) for url in repo_urls_from_buttons(index_zh)}),

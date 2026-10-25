@@ -72,6 +72,7 @@
 ### 上下文采集与检索
 * [ai_session_export](https://github.com/grapeot/ai_session_export) — 将多来源 AI 会话增量导出为统一 Markdown 归档
 * [AI Session Search & Archive](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/ai_session_search_archive.md) — 跨来源会话归档的关键词优先与语义检索工作流
+* [wechat_db_parser](https://github.com/grapeot/wechat_db_parser) — 将联系人和群聊会话导出为CSV（可选联系人，日期范围），支持导出公众号文章和CSV/Markdown的近期文章时间线，适用于已解密的微信Windows PC 3.9数据库。
 
 ### 创新与研究
 * [innovation-assistant-skill](https://github.com/grapeot/innovation-assistant-skill) — 结构化创新引擎（SIT + Think Bigger），可执行流水线

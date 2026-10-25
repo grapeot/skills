@@ -12,6 +12,7 @@ Read these files before changing the registry:
 
 - `master` is the canonical baseline. Make changes on a feature branch based on current `master`; do not use `main` or edit directly on `master`.
 - Keep all localized projections synchronized. Entry changes must update `README.md` with `README_zh.md` and `index.html` with `index_zh.html` wherever that entry appears.
+- After adding, removing, or reordering showcase entries, run `python scripts/sync_registry.py` to update row numbers, group counters, and advertised totals. Do not renumber rows manually.
 - Update `docs/working.md` for meaningful registry or governance changes.
 - Do not publish personal paths, credentials, internal endpoints, customer context, proprietary assumptions, or local aliases. Keep them in private overlays.
 - Do not enable auto-merge. Merge only after CI passes and the required named privacy and functional reviewers explicitly approve the change.
@@ -27,6 +28,7 @@ Read these files before changing the registry:
 Run from the repository root:
 
 ```bash
+python scripts/sync_registry.py
 python scripts/check_registry.py
 python scripts/check_public_content.py
 git diff --check
