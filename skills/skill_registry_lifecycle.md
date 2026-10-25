@@ -130,6 +130,7 @@ Check for:
 For this reference repository, run:
 
 ```bash
+python scripts/sync_registry.py
 python scripts/check_registry.py
 python scripts/check_public_content.py
 git diff --check
